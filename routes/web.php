@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () { return view('backend.dashboard');})->name('dashboard');
+
+    Route::get('/buscaGrupos', 'backend\TraduccionController@getGrupos')->name('buscaGrupos');
+    Route::resource('traduccion', 'backend\TraduccionController');
+
+});

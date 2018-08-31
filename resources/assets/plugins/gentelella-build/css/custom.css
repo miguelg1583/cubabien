@@ -1007,7 +1007,7 @@ article.media {
     float: left
 }
 h2 {
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 400
 }
 #left,
@@ -3616,7 +3616,8 @@ header {
     width: 100%
 }
 #nprogress .bar {
-    background: #1ABB9C
+    background: #1ABB9C;
+    height: 5px;
 }
 #nprogress .peg {
     box-shadow: 0 0 10px #1ABB9C, 0 0 5px #1ABB9C

@@ -31,7 +31,7 @@
  * @return string
  */
 function assets_file($file) {
-    return asset('/' . $file . env('APP_VERSION'));
+    return asset('/' . $file . APP_VERSION);
 }
 
 /**
@@ -39,7 +39,7 @@ function assets_file($file) {
  * @return string
  */
 function assets_frontend($file) {
-    return asset('/frontend/' . $file . env('APP_VERSION'));
+    return asset('/frontend/' . $file . APP_VERSION);
 }
 
 /**
@@ -47,7 +47,7 @@ function assets_frontend($file) {
  * @return string
  */
 function assets_backend($file) {
-    return asset('/backend/' . $file . env('APP_VERSION'));
+    return asset('/backend/' . $file . APP_VERSION);
 }
 
 
