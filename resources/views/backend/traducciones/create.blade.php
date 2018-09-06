@@ -39,7 +39,7 @@
                                         <input id="grupo" class="form-control col-md-7 col-xs-12 autocomplete_field"
                                                name="grupo"
                                                type="text" v-model="traduccion.group"
-                                               v-validate="'required|alpha_num|min:3|max:50'" autocomplete="off">
+                                               v-validate="'required|alpha_dash|min:3|max:50'" autocomplete="off">
                                         <span class="help-block">@{{ errors.first('grupo') }}</span>
                                     </div>
                                 </div>

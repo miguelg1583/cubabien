@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,900|Maven+Pro:400,500,900|Nunito:400,700,800,900|Hind:300,400,500,600,700";
+/* ESTO ESTABA    @import url("https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,900|Maven+Pro:400,500,900|Nunito:400,700,800,900|Hind:300,400,500,600,700");*/
 /*
 --------------------------------------------------------------------
 
@@ -22,7 +22,7 @@
     Footer Links: Exo 2;
 
     *COLOR PALETTE
-    Red:#ff6c3a;
+    Red:#2D9EF2;
     Dark (Gunmetal):#232c3b;
     Fonts:#3e4c66 and #868ea0;
     Other: #f8f8f8 , #f5f5f5 , #fff;
@@ -203,7 +203,7 @@ a:focus {
 }
 
 .red-color {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 .no-padding {
@@ -247,7 +247,7 @@ a:focus {
     border-bottom: 1px solid #e3e3e3
 }
 .cl1 {
-    background: #fe5623;
+    background: #2D9EF2;
     color: #fff;
     padding: 10px;
 }
@@ -315,7 +315,7 @@ color-palette {
 
 .modern-title h2 {
     margin: 0;
-    border-right: 5px solid #ff6c3a;
+    border-right: 5px solid #2D9EF2;
     font-size: 31px;
     font-weight: 900;
     padding-right: 30px;
@@ -478,7 +478,7 @@ color-palette {
     color: #fff;
     font-weight: 400;
     border: 1px solid transparent;
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     transition: 200ms linear
 }
 
@@ -550,7 +550,7 @@ color-palette {
     border-bottom: 1px solid #f0f0f0;
 }
 .top-bar i{
- color: #ff6c3a;
+ color: #14C0F2;
  margin: 0 10px;
 
 }
@@ -564,10 +564,10 @@ color-palette {
 
 nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a:before {
     content: "\f105";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-weight: 900;
     font-size: 9px;
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-right: 5px
 }
 
@@ -576,7 +576,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu>li>a:hover {
 }
 
 nav.navbar a.active {
-    color: #ff6c3a !important
+    color: #2D9EF2 !important
 }
 
 nav.navbar.white.navbar-fixed {
@@ -590,22 +590,21 @@ nav.navbar .slideInUp {
 
 nav.navbar.bootsnav li.dropdown ul.dropdown-menu>li>a:before {
     content: "\f105";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-weight: 900;
     font-size: 11px;
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-right: 5px
 }
 
 a.dropdown-toggle:before {
     content: "\f067";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-weight: 900;
     font-size: 10px;
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-right: 5px
 }
-
 a.submenu:before {
     content: "\f067" !important;
     font-size: 8px !important
@@ -613,10 +612,10 @@ a.submenu:before {
 
 a.submenu:before {
     content: "\f067";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-weight: 900;
     font-size: 10px;
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-right: 5px
 }
 
@@ -632,7 +631,7 @@ nav.navbar-transparent.white .navbar-right {
 }
 
 .nav .nav-offer {
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain;
     height: auto;
     padding: 25px 20px !important;
@@ -946,7 +945,7 @@ nav.navbar ul.nav>li>a:hover,
 nav.navbar ul.nav>li.active>a:hover,
 nav.navbar ul.nav li.active>a,
 nav.navbar li.dropdown ul.dropdown-menu>li a:hover {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 nav.navbar li.dropdown ul.dropdown-menu>li a:hover {
@@ -962,11 +961,11 @@ nav.navbar.bootsnav .buttons .btn:hover {
 }
 
 .attr-nav>ul>li>a:hover .fab {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li i {
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-right: 3px;
     font-size: 10px;
     opacity: .5
@@ -1033,11 +1032,11 @@ nav.navbar.bootsnav.dark ul.nav>li>a {
 }
 
 nav.navbar.bootsnav.dark ul.nav>li>a:hover {
-    color: #ff6c3a !important
+    color: #2D9EF2 !important
 }
 
 nav.navbar.bootsnav ul.nav>li>a:hover {
-    color: #ff6c3a !important
+    color: #2D9EF2 !important
 }
 
 nav.bootsnav.navbar-full {
@@ -1063,7 +1062,7 @@ nav.navbar.bootsnav .navbar-toggle::before {
 }
 
 .navbar-full i.fas.fa-align-left {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 nav.navbar-full .navbar-brand img.logo {
@@ -1080,7 +1079,7 @@ nav.navbar.bootsnav ul.nav li.active>a {
 }
 
 nav.navbar-fixed ul.nav li.dropdown.on>a {
-    color: #ff6c3a !important;
+    color: #2D9EF2 !important;
     transition: .2s linear
 }
 
@@ -1159,7 +1158,7 @@ ul.cart-list>li.total>.btn {
     left: 0;
     right: 100%;
     bottom: 0;
-    background: #ff6c3a !important;
+    background: #2D9EF2 !important;
     height: 4px !important;
     -webkit-transition-property: right;
     transition-property: right;
@@ -1174,7 +1173,7 @@ ul.cart-list>li.total>.btn {
     =========================== */
 
 ul.cart-list>li.total>.btn {
-    border-color: #ff6c3a
+    border-color: #2D9EF2
 }
 
 .bootsnav .container {
@@ -1188,25 +1187,25 @@ ul.cart-list>li.total>.btn {
 .attr-nav>ul>li>a span.badge,
 nav.navbar .share ul>li>a:hover,
 nav.navbar .share ul>li>a:focus {
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     font-size: 9px;
     color: #fff;
     padding-top: 3px
 }
 
 ul.cart-list>li.total>.btn {
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 ul.cart-list>li.total>.btn:hover,
 ul.cart-list>li.total>.btn:focus {
-    background-color: #ff6c3a !important
+    background-color: #2D9EF2 !important
 }
 
 .side-menu>a:hover {
     border-bottom: 0 !important;
     text-decoration: none !important;
-    color: #ff6c3a !important
+    color: #2D9EF2 !important
 }
 
 .slider4 {
@@ -1239,13 +1238,13 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .colors .color4 {
-    background-color: #c05e1d;
+    background-color: #2D89FF;
     height: 5px
 }
 
 .badges {
     color: #fff;
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     padding: 7px;
     position: absolute;
     font-size: 15px;
@@ -1379,7 +1378,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .home-creative {
     height: 100vh;
-    background: url(../images/header/creative.jpg) center;
+    background: url(../images/creative.jpg) center;
     background-size: cover
 }
 
@@ -1443,9 +1442,8 @@ ul.cart-list>li.total>.btn:focus {
 
 .home-image {
     height: 100vh;
-    background: url(../images/header/home.jpg) repeat center;
     background-size: cover;
-    background-attachment: fixed
+    background: url(../images/front-full.jpg) repeat fixed center;
 }
 
 .home-image.white-text .text-container h2 {
@@ -1543,7 +1541,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .home-image .home-bottom i {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 /* bottom text of home-image */
@@ -1626,7 +1624,7 @@ ul.cart-list>li.total>.btn:focus {
 /* agency 2 header */
 
 .agency2 {
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
@@ -1725,7 +1723,7 @@ ul.cart-list>li.total>.btn:focus {
 /* service 2 */
 
 .services2 {
-    background: #ff6c3a;
+    background: #2D9EF2;
 }
 
 .services2 .buttons {
@@ -1755,15 +1753,15 @@ ul.cart-list>li.total>.btn:focus {
     }
 }
 .services2 .arrow1 {
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 .services2 .arrow2 {
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 .services2 .arrow3 {
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 .services2 .fa.pull-left {
@@ -1837,7 +1835,7 @@ ul.cart-list>li.total>.btn:focus {
     content: "\f067";
     font-family: FontAwesome;
     margin-right: 5px;
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 /* 3 cols */
@@ -1846,7 +1844,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .simple-cols {
     padding: 70px 0;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 .simple-cols.less-padding {
@@ -1870,7 +1868,7 @@ ul.cart-list>li.total>.btn:focus {
 /* image with text */
 
 .image-with-text {
-    background: url(../images/jpg/text-bg.jpg) center;
+    background: url(../images/text-bg.jpg) center;
     background-size: cover;
     padding: 100px 0
 }
@@ -1892,7 +1890,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .section9 {
     padding:55px 0 47px;
-    background: url(../images/jpg/img.jpg) center;
+    background: url(../images/img.jpg) center;
     background-size: cover;
     z-index: 2
 }
@@ -1934,7 +1932,7 @@ ul.cart-list>li.total>.btn:focus {
 .short-info {
     padding: 60px 0;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain;
     z-index: 3;
     position: relative
@@ -1945,7 +1943,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .short-info.style2 {
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.07)
 }
@@ -1963,7 +1961,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .short-info.style3 {
-    background: url(../images/jpg/red-bg.jpg) top;
+    background: url(../images/red-bg.jpg) top;
     background-size: cover;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.07)
 }
@@ -1988,7 +1986,7 @@ ul.cart-list>li.total>.btn:focus {
         border-bottom: 0px;
         padding: 15px 13px 15px 40px;
         color: #fff;
-        background: #ff6c3a
+        background: #2D9EF2
     }
     .table>tbody>tr>td {
         padding: 13px 13px 13px 40px;
@@ -2003,7 +2001,7 @@ ul.cart-list>li.total>.btn:focus {
         top: -10px;
     }
     .table .btn:hover {
-        background: #da562a !important;
+        background: #2D89FF !important;
         color: #fff !important;
     }
     .table>tbody>tr>td:first-child {
@@ -2022,7 +2020,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .section-tabs {
     padding: 50px 0;
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-color: #fff;
     width: 100%;
     background-size: cover;
@@ -2031,7 +2029,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .section-tabs .panel-body {
-    background: url(../images/jpg/img.jpg) center left;
+    background: url(../images/img.jpg) center left;
     padding: 40px 30px;
     border: 1px solid #f1f1f1;
     border-radius: 20px
@@ -2060,7 +2058,7 @@ ul.cart-list>li.total>.btn:focus {
     background-color: #fff;
     padding: 0;
     margin-top: 0;
-    border-left: 0 solid #ff6c3a
+    border-left: 0 solid #2D9EF2
 }
 
 .section-tabs .buttons {
@@ -2098,7 +2096,7 @@ ul.cart-list>li.total>.btn:focus {
 .section-tabs .fa {
     padding-right: 10px;
     padding-top: 5px;
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 12px
 }
 
@@ -2175,7 +2173,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .icon-box-tabs .nav-pills>li.active>a,
 .icon-box-tabs .nav-pills>li.active>a:focus {
-    border-left: 5px solid #ff6c3a;
+    border-left: 5px solid #2D9EF2;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0
 }
@@ -2217,7 +2215,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .icon-box-tabs .nav-pills>li>a:hover {
-    border-left: 5px solid #ff6c3a;
+    border-left: 5px solid #2D9EF2;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0
 }
@@ -2231,7 +2229,7 @@ ul.cart-list>li.total>.btn:focus {
 
 /* separated section */
 .separated-section{
-    background: url(../images/jpg/part.jpg) center;
+    background: url(../images/part.jpg) center;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -2263,7 +2261,7 @@ ul.cart-list>li.total>.btn:focus {
     margin-bottom: 0;
 }
 .separated-section  i {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 20px;
     margin-right: 17px;
     border: 1px solid rgba(255,255,255,0.1);
@@ -2285,7 +2283,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .cols3.creative-light .fa {
     color: #fff;
-    background: #ff6c3a;
+    background: #2D9EF2;
     border: 0;
     padding: 18px
 }
@@ -2315,7 +2313,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .cols3 i {
-    color: #ff6c3a;
+    color: #14C0F2;
     border: 1px solid rgba(217, 180, 173, 0.06);
     box-shadow: -10px 10px 50px rgba(0, 0, 0, 0.15);
     font-size: 23px;
@@ -2330,7 +2328,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .cols3 .fa:hover {
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     color: #fff
 }
 
@@ -2354,7 +2352,7 @@ ul.cart-list>li.total>.btn:focus {
     background:#fff;
 }
 .box-offer.bg-gray {
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-size: cover;
 }
 .box-offer .buttons {
@@ -2440,11 +2438,11 @@ ul.cart-list>li.total>.btn:focus {
     color: #fff;
     font-weight: 600;
     font-size: 17px;
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     padding: 8px 20px 5px;
     position: relative;
     bottom: 15px;
-    box-shadow: 0 7px #e04c20;
+    box-shadow: 0 7px #2D89FF;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px
 }
@@ -2469,7 +2467,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .box-offer i {
     padding-right: 5px;
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 /* box offer end */
@@ -2510,7 +2508,7 @@ ul.cart-list>li.total>.btn:focus {
     font-size: 27px;
     width: 60px;
     height: 60px;
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     padding: 15px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -2528,12 +2526,12 @@ ul.cart-list>li.total>.btn:focus {
 
 .text-image {
     padding: 60px 0 55px;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
 .text-image.bg3 {
-    background: url(../images/jpg/img.jpg) center left no-repeat;
+    background: url(../images/img.jpg) center left no-repeat;
     background-size: cover;
     padding: 60px 0 50px;
 }
@@ -2542,12 +2540,12 @@ ul.cart-list>li.total>.btn:focus {
     background: #fff;
     border-top: 0;
     background-size: cover;
-    background: url(../images/jpg/bg-gray.jpg) center
+    background: url(../images/bg-gray.jpg) center
 }
 
 .text-image.bg-image {
     padding: 60px 0 40px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0.4) 100%), url(../images/jpg/text-bg.jpg) center;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0.4) 100%), url(../images/text-bg.jpg) center;
     background-size: cover
 
 }
@@ -2597,7 +2595,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .text-image .small-boxes .box1:hover {
-    background: #ff6c3a
+    background: #2D9EF2
 }
 
 .text-image .small-boxes .box1:hover h4,
@@ -2610,7 +2608,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .text-image .small-boxes .box1:hover .hidden-text {
-    background: #ff6c3a
+    background: #2D9EF2
 }
 
 .text-image .small-boxes .box1:hover p {
@@ -2663,7 +2661,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .text-image .small-boxes .fa {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 30px;
     box-shadow: 10px -10px 30px rgba(0, 0, 0, 0)
 }
@@ -2681,12 +2679,12 @@ ul.cart-list>li.total>.btn:focus {
 .text-image i {
     margin: 0 auto;
     font-size: 27px;
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-left: 5px
 }
 
 .text-image .about-stats h2 {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 30px;
     font-weight: 800
 }
@@ -2697,12 +2695,12 @@ ul.cart-list>li.total>.btn:focus {
 
 .testimonials {
     padding: 60px 0 20px;
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-size: cover
 }
 
 .testimonials.colorful {
-    background: url(../images/jpg/red-bg.jpg) center;
+    background: url(../images/red-bg.jpg) center;
     background-size: contain;
     border-top: 0
 }
@@ -2730,7 +2728,7 @@ ul.cart-list>li.total>.btn:focus {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.07);
     padding: 40px 20px 0;
     border-radius: 20px;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
@@ -2775,7 +2773,7 @@ ul.cart-list>li.total>.btn:focus {
 
 #quote-carousel .carousel-control {
     background: none;
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 2em;
     text-shadow: none;
     margin-top: 30px;
@@ -2818,7 +2816,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .item .fa {
-    color: #ff6c3a;
+    color: #14C0F2;
     margin: 0 10px
 }
 
@@ -2826,7 +2824,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .services6 {
     padding: 70px 0;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
@@ -2860,7 +2858,7 @@ ul.cart-list>li.total>.btn:focus {
     font-size: 22px;
     width: 55px;
     height: 55px;
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     padding: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -2920,7 +2918,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .partners.creative {
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 .partners .owl-carousel {
@@ -2963,24 +2961,24 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .stats .circles.c1 {
-    border-top-color: #ff6c3a;
-    border-right-color: #ff6c3a;
-    border-bottom-color: #ff6c3a
+    border-top-color: #14C0F2;
+    border-right-color: #14C0F2;
+    border-bottom-color: #2D9EF2
 }
 
 .stats .circles.c2 {
-    border-top-color: #ff6c3a
+    border-top-color: #2D9EF2
 }
 
 .stats .circles.c3 {
-    border-top-color: #ff6c3a;
-    border-right-color: #ff6c3a;
-    border-bottom-color: #ff6c3a
+    border-top-color: #14C0F2;
+    border-right-color: #14C0F2;
+    border-bottom-color: #2D9EF2
 }
 
 .stats .circles.c4 {
-    border-top-color: #ff6c3a;
-    border-right-color: #ff6c3a
+    border-top-color: #14C0F2;
+    border-right-color: #2D9EF2
 }
 
 /* stats end */
@@ -2989,7 +2987,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .error-404 {
     padding: 100px 0;
-    background: url(../images/jpg/404.jpg) center;
+    background: url(../images/404.jpg) center;
     background-size: contain
 }
 
@@ -2998,7 +2996,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .error-404 i {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 70px;
     background: transparent;
     margin-bottom: 20px
@@ -3011,7 +3009,7 @@ ul.cart-list>li.total>.btn:focus {
     border-radius: 25px;
     width: 650px;
     max-width: 100%;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain;
     margin: 0 auto
 }
@@ -3038,7 +3036,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .section3 .box2 {
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 .section3 .box1 {
@@ -3067,12 +3065,12 @@ ul.cart-list>li.total>.btn:focus {
 .section7 {
     padding: 50px 0 52px;
     border-top: 0 dotted #e3e3e3;
-    background: url(../images/jpg/white-elements.jpg) center no-repeat;
+    background: url(../images/white-elements.jpg) center no-repeat;
     background-size: contain
 }
 
 .section7.bg2 {
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-size: cover
 }
 
@@ -3090,7 +3088,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .section7 .text-container:hover h4 {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 .section7 p {
@@ -3160,7 +3158,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .faq-section .fa {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 .faq-section p {
@@ -3177,8 +3175,8 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .support-question.active {
-    border-left: 7px solid #ff6c3a;
-    background-color: #ff6c3a
+    border-left: 7px solid #2D9EF2;
+    background-color: #2D9EF2
 }
 
 .support-question {
@@ -3256,7 +3254,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .single-project .text-container {
     padding: 20px 30px 25px;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain;
     border-radius: 15px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
@@ -3273,7 +3271,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .single-project .info i {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 13px
 }
 
@@ -3345,7 +3343,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .single-project2 i {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 .single-project2 .info {
@@ -3359,7 +3357,7 @@ ul.cart-list>li.total>.btn:focus {
 .animation-stats {
     padding: 60px 0 50px;
     background-size: cover;
-    background: url(../images/jpg/animation-stats.jpg) center;
+    background: url(../images/animation-stats.jpg) center;
     background-size: cover
 }
 
@@ -3374,7 +3372,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .animation-stats i {
-    color: #ff6c3a;
+    color: #14C0F2;
     padding-bottom: 15px;
     font-size: 27px
 }
@@ -3462,7 +3460,7 @@ ul.cart-list>li.total>.btn:focus {
     border-radius: 4px;
     line-height: 35px;
     margin: 8px 0 5px;
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 /* newsletter end */
@@ -3471,12 +3469,12 @@ ul.cart-list>li.total>.btn:focus {
 
 .white-stats {
     padding: 70px 0;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
 .white-stats.red-bg {
-    background: url(../images/jpg/red-bg.jpg) center;
+    background: url(../images/red-bg.jpg) center;
     background-size: contain
 }
 
@@ -3494,7 +3492,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .white-stats.big-padding {
-    background: url(../images/jpg/red-bg.jpg) center;
+    background: url(../images/red-bg.jpg) center;
     background-size: contain;
     z-index: 2;
     position: relative;
@@ -3524,7 +3522,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .white-stats .text-container {
-    border-left: 5px solid #ff6c3a;
+    border-left: 5px solid #2D9EF2;
     padding-left: 15px
 }
 
@@ -3538,7 +3536,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .white-stats .stats-container h2 {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 42px;
     font-weight: 800;
     font-family: 'Nunito'
@@ -3550,7 +3548,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .entry-about {
     padding: 70px 0 30px;
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-size: contain
 }
 
@@ -3568,7 +3566,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .entry {
     padding: 50px 0 40px;
-    background: url(../images/jpg/red-bg.jpg) center;
+    background: url(../images/red-bg.jpg) center;
     background-size: cover;
     z-index: 2;
     position: relative
@@ -3576,7 +3574,7 @@ ul.cart-list>li.total>.btn:focus {
 
 .entry.big {
     padding: 60px 0 240px;
-    background: url(../images/jpg/red-bg.jpg) top;
+    background: url(../images/red-bg.jpg) top;
     background-size: cover;
     z-index: 2;
     position: relative
@@ -3603,14 +3601,14 @@ ul.cart-list>li.total>.btn:focus {
 
 .creative-tables {
     padding: 50px 0 90px;
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-size: contain
 }
 .creative-tables .title {
     padding-bottom: 20px;
 }
 .creative-tables.business {
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
@@ -3624,7 +3622,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .creative-tables .table-header {
-    border-bottom: 5px solid #ff6c3a;
+    border-bottom: 5px solid #2D9EF2;
     margin-bottom: 20px
 }
 
@@ -3641,7 +3639,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .table-bg {
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     height: 100%;
     width: calc(100% - 70px);
     position: absolute;
@@ -3673,7 +3671,7 @@ ul.cart-list>li.total>.btn:focus {
 }
 
 .creative-tables h3 {
-    color: #ff6c3a;
+    color: #14C0F2;
     margin-bottom: 25px
 }
 
@@ -3690,12 +3688,12 @@ ul.cart-list>li.total>.btn:focus {
 
 .contact-form {
     padding: 50px 0;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
 .section9.contact-form i {
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 .contact-form iframe {
@@ -3767,14 +3765,14 @@ textarea::placeholder {
 .box-content .row {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.08);
     border-radius: 30px;
-    background: url(../images/jpg/img.jpg) center;
+    background: url(../images/img.jpg) center;
     background-size: cover
 }
 
 .box-content.drag-up {
     margin-top: -280px;
     padding-bottom: 40px;
-    background: url(../images/jpg/white-elements.jpg) bottom;
+    background: url(../images/white-elements.jpg) bottom;
     background-size: contain
 }
 
@@ -3788,7 +3786,7 @@ textarea::placeholder {
 .box-content.drag-up .row {
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
     border-radius: 30px;
-    background: url(../images/jpg/img.jpg) center;
+    background: url(../images/img.jpg) center;
     background-size: cover;
     z-index: 5;
     position: relative
@@ -3821,7 +3819,7 @@ textarea::placeholder {
 }
 
 .box-content .white-bg {
-    background: url(../images/jpg/elements-dark.jpg) center;
+    background: url(../images/elements-dark.jpg) center;
     background-size: contain;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px
@@ -3830,7 +3828,7 @@ textarea::placeholder {
 .box-content .left-content i {
     font-size: 15px;
     padding-right: 5px;
-    color: #ff6c3a
+    color: #2D9EF2
 }
 
 .box-content .title {
@@ -3885,7 +3883,7 @@ textarea::placeholder {
 }
 
 .team-members.about {
-    background: url(../images/jpg/bg-gray.jpg) center;
+    background: url(../images/bg-gray.jpg) center;
     background-size: cover
 }
 
@@ -3937,14 +3935,14 @@ textarea::placeholder {
     border-radius: 50%;
     padding: 8px 9px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 13px;
     border-radius: 50%;
     transition: .2s linear
 }
 
 .team-members i:hover {
-    color: #ff6c3a;
+    color: #14C0F2;
     opacity: 1;
     transform: scale(1.3)
 }
@@ -3959,7 +3957,7 @@ textarea::placeholder {
 }
 
 .about-1 span {
-    color: #ff6c3a;
+    color: #14C0F2;
     font-size: 33px;
     font-weight: 900
 }
@@ -3996,26 +3994,26 @@ textarea::placeholder {
 /* header1 background images */
 
 .header1.services {
-    background: url(../images/header/services.jpg) top
+    background: url(../images/services.jpg) top
 }
 
 .header1.services-2 {
-    background: url(../images/header/services2.jpg) center;
+    background: url(../images/services2.jpg) center;
     background-size: cover;
 }
 
 .header1.contact-us {
-    background: url(../images/header/contact-us.jpg) center;
+    background: url(../images/contact-us.jpg) center;
     background-size: cover;
 }
 
 .header1.about-us {
-    background: url(../images/header/about-us.jpg) center;
+    background: url(../images/about-us.jpg) center;
     background-size: cover;
 }
 
 .header1.elements {
-    background: url(../images/header/services2.jpg) center;
+    background: url(../images/services2.jpg) center;
     background-size: cover;
 }
 
@@ -4028,7 +4026,7 @@ textarea::placeholder {
 }
 
 .header1 a {
-    color: #c05e1d
+    color: #2D89FF
 }
 
 .header1 p {
@@ -4044,7 +4042,7 @@ textarea::placeholder {
     list-style: none;
     padding: 40px 0 20px;
     position: relative;
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 
@@ -4115,7 +4113,7 @@ textarea::placeholder {
 
 .timeline>li.timeline-inverted>.timeline-panel {
     float: right;
-    background-color: #ff6c3a
+    background-color: #2D9EF2
 }
 
 .timeline>li.timeline-inverted>.timeline-panel:before {
@@ -4177,7 +4175,7 @@ textarea::placeholder {
 .long-line {
     width: 100px;
     margin: 18px auto;
-    border-bottom: 3px solid #ff6c3a
+    border-bottom: 3px solid #2D9EF2
 }
 
 .line {
@@ -4226,7 +4224,7 @@ textarea::placeholder {
 }
 
 .new-portfolio .btn-outline-dark:hover {
-    background-color: #ff6c3a !important;
+    background-color: #2D9EF2 !important;
     border: 1px solid transparent !important;
 }
 
@@ -4236,13 +4234,13 @@ textarea::placeholder {
 }
 
 .new-portfolio .toolbar .btn:hover {
-    background-color: #ff6c3a !important;
+    background-color: #2D9EF2 !important;
     color: #fff;
     border: 1px solid transparent !important;
 }
 
 .new-portfolio .toolbar .btn:focus {
-    background-color: #ff6c3a;
+    background-color: #14C0F2;
     color: #fff;
     border-style: none !important;
     border: 1px solid transparent !important;
@@ -4297,7 +4295,7 @@ textarea::placeholder {
 }
 
 .footer-1.creative {
-    background: url(../images/jpg/white-elements.jpg) center;
+    background: url(../images/white-elements.jpg) center;
     background-size: contain
 }
 .footer-1 .text-container {
@@ -4355,7 +4353,7 @@ padding-right: 50px;
 
 .footer-1 li>a:before {
     content: "\f105";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-weight: 900;
     padding-right: 5px
 }
@@ -4401,7 +4399,7 @@ padding-right: 50px;
 }
 
 .under-footer.creative {
-    background: url(../images/jpg/elements-dark.jpg) bottom;
+    background: url(../images/elements-dark.jpg) bottom;
     background-size: cover;
     padding: 60px 0 50px
 }

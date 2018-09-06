@@ -8,7 +8,7 @@
 @section('title_content', 'Traducciones')
 
 @section('content')
-    <div id="app">
+    <div id="app" v-cloak>
         <div class="x_panel">
             <div class="x_title">
                 <h2><i class="fa fa-file-code-o"></i> Agregar
@@ -39,7 +39,7 @@
                                         <input id="grupo" class="form-control col-md-7 col-xs-12 autocomplete_field"
                                                name="grupo"
                                                type="text" v-model="traduccion.group"
-                                               v-validate="'required|alpha_num|min:3|max:50'" autocomplete="off">
+                                               v-validate="'required|alpha_dash|min:3|max:50'" autocomplete="off">
                                         <span class="help-block">@{{ errors.first('grupo') }}</span>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                 }
             },
             methods: {
-                updateTradLista: function (accion) {
+                updateTradLista: function () {
                     this.$validator.validateAll().then(function () {
                         if (!vmContext.errors.any()) {
                             //aqui llamo api create
@@ -156,7 +156,7 @@
                         }
                     });
                 },
-                updateTradEdita: function (accion) {
+                updateTradEdita: function () {
                     this.$validator.validateAll().then(function () {
                         if (!vmContext.errors.any()) {
                             //aqui llamo api create

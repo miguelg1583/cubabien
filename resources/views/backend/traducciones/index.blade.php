@@ -8,8 +8,9 @@
 @section('title_content', 'Traducciones')
 
 @section('content')
-    <div id="app">
+    <div id="app" v-cloak>
         @include('backend.layouts.delete_modal')
+        @include('backend.layouts.show_modal')
         <div class="x_panel">
             <div class="x_title">
                 <h2><i class="fa fa-bars"></i> Listado
@@ -49,14 +50,24 @@
                                 <tr v-for="(trad,pos) in traducciones">
                                     <td>@{{ trad.group }}</td>
                                     <td>@{{ trad.key }}</td>
-                                    <td>@{{ trad.text[val.sigla] }}</td>
+                                    <td>
+                                        @{{String(trad.text[val.sigla]).length<30?trad.text[val.sigla]:trad.text[val.sigla].substring(0,30)+'(...)'
+                                        }}
+                                    </td>
                                     <td>@{{ getMomentFormat(trad.created_at) }}</td>
                                     {{--<td>@{{ createdMoment(pos) }}</td>--}}
                                     <td>@{{ getMomentFormat(trad.updated_at) }}</td>
-                                    <td><a :href="'{!! url('/admin/traduccion') !!}/'+trad.id+'/edit'" class="btn btn-round btn-info" :data-id="trad.id">
+                                    <td>
+                                        <button class="btn btn-round btn-success"
+                                                v-on:click.prevent="showTradu(trad, val.sigla)">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                        <a :href="'{!! url('/admin/traduccion') !!}/'+trad.id+'/edit'"
+                                           class="btn btn-round btn-info" :data-id="trad.id">
                                             <span class="glyphicon glyphicon-edit"></span>
                                         </a>
-                                        <button class="btn btn-round btn-danger delete-modal" @click="deleteTradu(trad)">
+                                        <button class="btn btn-round btn-danger delete-modal"
+                                                data-toggle="modal" data-target="#deleteModal" :data-id="trad.id">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </td>
@@ -82,6 +93,9 @@
             </div>
         </div>
     </div>
+
+
+
 @endsection
 
 @section('js')
@@ -95,28 +109,53 @@
             },
             methods: {
                 getMomentFormat: function (fecha) {
-                    return moment(fecha, 'YYYY-MM-DD HH:mm:ss').format("dddd, DD MMMM YYYY h:mm a");
+                    return moment(fecha, 'YYYY-MM-DD HH:mm:ss').format("dddd, DD/MM/YYYY h:mm a");
                 },
-                deleteTradu: function (trad) {
-                    $("#deleteModal").modal("show");
-                    $(".modal-footer").on("click", ".delete", function () {
-                        $.ajax({
-                            type: 'DELETE',
-                            url: "{!! url('admin/traduccion') !!}/"+trad.id,
-                            success: function (data) {
-                                if (data.errors) {
-                                    console.log(data);
-                                    App.showNotiError('Ha ocurrido un problema en el servidor');
-                                } else {
-                                    App.showNotiSuccess('Traducción eliminada satisfactoriamente');
-                                    let index = vmContext.traducciones.indexOf(trad);
-                                    vmContext.traducciones.splice(index,1);
-                                    $("#deleteModal").modal("hide");
-                                }
-                            },
-                        });
-                    });
-                }
+                {{--deleteTradu: function (trad) {--}}
+                        {{--$("#deleteModal").modal("show");--}}
+                        {{--$(".modal-footer").on("click", ".delete", function () {--}}
+                        {{--$.ajax({--}}
+                        {{--type: 'DELETE',--}}
+                        {{--url: "{!! url('admin/traduccion') !!}/" + trad.id,--}}
+                        {{--success: function (data) {--}}
+                        {{--if (data.errors) {--}}
+                        {{--console.log(data);--}}
+                        {{--App.showNotiError('Ha ocurrido un problema en el servidor');--}}
+                        {{--} else {--}}
+                        {{--App.showNotiSuccess('Traducción eliminada satisfactoriamente');--}}
+                        {{--let index = vmContext.traducciones.indexOf(trad);--}}
+                        {{--vmContext.traducciones.splice(index, 1);--}}
+                        {{--$("#deleteModal").modal("hide");--}}
+                        {{--}--}}
+                        {{--},--}}
+                        {{--});--}}
+                        {{--});--}}
+                        {{--},--}}
+                showTradu: function (trad, sigla) {
+                    console.log('entro');
+                    let contenido = "<div>" +
+                        "<div class='row'>" +
+                        "<div class='col-md-3'><b>Grupo:</b></div>" +
+                        "<div class='col-md-9'><p>" + trad.group + "</p></div>" +
+                        "</div>" +
+                        "<div class='row'>" +
+                        "<div class='col-md-3'><b>Llave:</b></div>" +
+                        "<div class='col-md-9'><p>" + trad.key + "</p></div>" +
+                        "</div>" +
+                        "<div class='row'>" +
+                        "<div class='col-md-3'><b>Valor:</b></div>" +
+                        "<div class='col-md-9'><p>" + trad.text[sigla] + "</p><div>" +
+                        "</div>" +
+                        "</div>";
+                    $("#show_modal_content").html(contenido);
+                    $("#showModal").modal("show");
+                },
+                // getTextTradu: function(trad, sigla){
+                //     trad.text[val.sigla].length>30?trad.text[val.sigla]:trad.text[val.sigla].substring(0,30)+'...'
+                //     if(trad.text[sigla].length>30){
+                //         return
+                //     }
+                // }
             },
             beforeCreate() {
                 App.init("{{config('app.url')}}");
@@ -132,6 +171,23 @@
                 .columns.adjust()
                 .responsive.recalc();
         });
+
+        //delete
+        let id = '';
+        let indexTrad = '';
+        $(document).on("click", ".delete-modal", function () {
+            id = $(this).data("id");
+        });
+        $(".modal-footer").on("click", ".delete", function () {
+            App.AjaxDel(id, '{!! url('/admin/traduccion') !!}');
+            vmContext.traducciones.forEach(function (item, index) {
+                if (item.id == id) {
+                    indexTrad = index;
+                }
+            });
+            vmContext.traducciones.splice(indexTrad, 1);
+        });
+
 
     </script>
 @endsection

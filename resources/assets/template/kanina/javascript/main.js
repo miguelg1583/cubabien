@@ -14,7 +14,7 @@ $(window).on('load', function () { // makes sure the whole site is loaded
   $('body').delay(350).css({
     'overflow': 'visible'
   });
-})
+});
 
 // CAROUSEL INTERVAL 
 $('.carousel').carousel({
@@ -33,25 +33,25 @@ $(document).ready(($) => {
 });
 // ANIMATION STATS - ENDS HERE
 
-//CONTACT FORM
-$(function () {
-  'use strict';
-  $("#contact-form").validator(), $("#contact-form").on("submit", function (t) {
-    if (!t.isDefaultPrevented()) {
-      return $.ajax({
-        type: "POST",
-        url: "contact.php",
-        data: $(this).serialize(),
-        success: function (t) {
-          var a = "alert-" + t.type,
-            e = t.message,
-            s = '<div class="alert ' + a + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + e + "</div>";
-          a && e && ($("#contact-form").find(".messages").html(s), $("#contact-form")[0].reset())
-        }
-      }), !1
-    }
-  })
-});
+// //CONTACT FORM
+// $(function () {
+//   'use strict';
+//   $("#contact-form").validator(), $("#contact-form").on("submit", function (t) {
+//     if (!t.isDefaultPrevented()) {
+//       return $.ajax({
+//         type: "POST",
+//         url: "contact.php",
+//         data: $(this).serialize(),
+//         success: function (t) {
+//           var a = "alert-" + t.type,
+//             e = t.message,
+//             s = '<div class="alert ' + a + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + e + "</div>";
+//           a && e && ($("#contact-form").find(".messages").html(s), $("#contact-form")[0].reset())
+//         }
+//       }), !1
+//     }
+//   })
+// });
 
 
 // magnificPopup Configuration (Portfolio)

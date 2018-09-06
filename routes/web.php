@@ -12,13 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('frontend.home');
+})->name('home');
+Route::get('/static/{blade_uri}', function ($blade_uri) {
+    return view('frontend.'.$blade_uri);
+})->name('static_page');
+Route::post('/lang', 'frontend\LenguajeController@changeLanguaje');
+
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () { return view('backend.dashboard');})->name('dashboard');
+    Route::get('/', function () {
+        return view('backend.dashboard');
+    })->name('dashboard');
 
     Route::get('/buscaGrupos', 'backend\TraduccionController@getGrupos')->name('buscaGrupos');
     Route::resource('traduccion', 'backend\TraduccionController');
 
+    Route::resource('categoria-faq', 'backend\CategoriaFaqController');
 });

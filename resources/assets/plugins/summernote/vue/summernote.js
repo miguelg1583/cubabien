@@ -41,7 +41,7 @@ Vue.component('fe-summernote', {
                 vm.elem.summernote("code", vm.value);
             }
         };
-        $(document).ready(function(){
+        vm.$nextTick().then(()=> {
             vm.elem.summernote(config).on("summernote.change",()=>{
                 if (!vm.changing){
                     vm.changing = true;
@@ -52,6 +52,9 @@ Vue.component('fe-summernote', {
                 }
             });
         });
+        // $(document).ready(function(){
+        //
+        // });
     },
     watch: {
         value(nv) {

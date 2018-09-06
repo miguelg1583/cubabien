@@ -4190,6 +4190,10 @@ ul.notifications {
    .dataTables_length { float:none; }
 }
 
+[v-cloak] {
+    display: none;
+}
+
 
 
 

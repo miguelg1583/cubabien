@@ -86,35 +86,37 @@ mix.styles([
 //------------------------------------------------------------------ ahora lo del front de aqui para abajo
 
 mix.babel([
-    'resources/assets/plugins/jquery/dist/jquery.js',
-    'resources/assets/plugins/bootstrap/dist/js/bootstrap.js',
+    'resources/assets/template/kanina/javascript/jquery.js',
+    'resources/assets/template/kanina/javascript/jquery.mixitup.min.js',
+    'resources/assets/template/kanina/javascript/aos.js',
+    'resources/assets/template/kanina/javascript/jquery.waypoints.min.js',
+    'resources/assets/template/kanina/javascript/jquery.counterup.js',
+    'resources/assets/template/kanina/javascript/jquery.magnific-popup.js',
+    'resources/assets/template/kanina/javascript/bootstrap.min.js',
 
-    'resources/assets/plugins/fastclick/lib/fastclick.js',
-    'resources/assets/plugins/nprogress/nprogress.js',
+    'resources/assets/template/kanina/javascript/navbar.js',
+    'resources/assets/template/kanina/javascript/main.js',
 
-    'resources/assets/plugins/gentelella-build/js/custom.js',
-
-    './node_modules/vue/dist/vue.js',
-    './node_modules/vee-validate/dist/vee-validate.js',
-    './node_modules/vee-validate/dist/locale/es.js',
-
-    'resources/assets/plugins/datatables/datatables.net/js/jquery.dataTables.js',
-    'resources/assets/plugins/datatables/datatables.net-bs/js/dataTables.bootstrap.js',
-    'resources/assets/plugins/datatables/datatables.net-responsive/js/dataTables.responsive.js',
-    'resources/assets/plugins/datatables/datatables.net-responsive-bs/js/responsive.bootstrap.js',
-
-    'resources/assets/plugins/moment/moment.js',
-    'resources/assets/plugins/moment/locale/es.js',
-
-    'resources/assets/plugins/summernote/summernote.js',
-    'resources/assets/plugins/summernote/vue/summernote.js',
-
-    'resources/assets/plugins/jQuery-Autocomplete/dist/jquery.autocomplete.js',
-
-    'resources/assets/plugins/pnotify/dist/pnotify.js',
-    'resources/assets/plugins/pnotify/dist/pnotify.buttons.js',
-    'resources/assets/plugins/pnotify/dist/pnotify.nonblock.js',
-
-    'resources/assets/js/cubabien.js'
+    'resources/assets/js/cubabien.js',
 
 ], 'public/frontend/js/cubabien.js');
+
+mix.styles([
+    'resources/assets/template/kanina/style/other/bootstrap.min.css',
+    'resources/assets/template/kanina/style/other/animate.css',
+    'resources/assets/plugins/font-awesome/css/font-awesome.css',
+    // 'resources/assets/plugins/font-awesome/css/all.css',
+    'resources/assets/template/kanina/style/other/magnific-popup.css',
+    'resources/assets/template/kanina/style/other/preload.css',
+    'resources/assets/template/kanina/style/other/aos.css',
+
+    'resources/assets/plugins/font-kanina/font-kanina.css',
+    'resources/assets/template/kanina/style/navbar.css',
+    'resources/assets/template/kanina/style/style.css',
+    'resources/assets/template/kanina/style/responsive.css'
+
+], 'public/frontend/css/cubabien.css');
+
+mix.copyDirectory('resources/assets/plugins/font-awesome/fonts', 'public/frontend/fonts');
+mix.copyDirectory('resources/assets/plugins/bootstrap/fonts', 'public/frontend/fonts');
+mix.copyDirectory('resources/assets/plugins/font-kanina/fonts', 'public/frontend/fonts');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use DB;
+use Debugbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
@@ -18,9 +19,9 @@ class TraduccionController extends Controller
      */
     public function index()
     {
-        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
+//        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
         $traducciones = LanguageLine::all();
-        return view('backend.traducciones.index', compact(['idiomas', 'traducciones']));
+        return view('backend.traducciones.index', compact(['traducciones']));
     }
 
     /**
@@ -30,8 +31,8 @@ class TraduccionController extends Controller
      */
     public function create()
     {
-        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
-        return view('backend.traducciones.create', compact('idiomas'));
+//        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
+        return view('backend.traducciones.create');
     }
 
     public function getGrupos(Request $request)
@@ -78,6 +79,7 @@ class TraduccionController extends Controller
 
 
         } catch (\Exception $e) {
+//            Debugbar::error($e);
             return response()->json(['errors' => $e]);
         }
     }
@@ -101,7 +103,7 @@ class TraduccionController extends Controller
      */
     public function edit($id)
     {
-        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
+//        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
         $trad = LanguageLine::findOrFail($id);
         $text_json = [];
         foreach ($trad->text as $key => $value) {
@@ -147,6 +149,7 @@ class TraduccionController extends Controller
             }
 
         } catch (\Exception $e) {
+//            Debugbar::error($e);
             return response()->json(['errors' => $e]);
         }
     }
@@ -165,6 +168,7 @@ class TraduccionController extends Controller
             if ($trad) return response()->json(['mensaje' => 'OK']);
 
         } catch (\Exception $e) {
+//            Debugbar::error($e);
             return response()->json(['errors' => $e]);
         }
     }

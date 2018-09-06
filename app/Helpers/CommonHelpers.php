@@ -25,12 +25,14 @@
 //        'description' => $description];
 //    return $actionData;
 //}
+use Spatie\TranslationLoader\LanguageLine;
 
 /**
  * @param string $file
  * @return string
  */
-function assets_file($file) {
+function assets_file($file)
+{
     return asset('/' . $file . APP_VERSION);
 }
 
@@ -38,7 +40,8 @@ function assets_file($file) {
  * @param string $file
  * @return string
  */
-function assets_frontend($file) {
+function assets_frontend($file)
+{
     return asset('/frontend/' . $file . APP_VERSION);
 }
 
@@ -46,8 +49,30 @@ function assets_frontend($file) {
  * @param string $file
  * @return string
  */
-function assets_backend($file) {
+function assets_backend($file)
+{
     return asset('/backend/' . $file . APP_VERSION);
+}
+
+function guarda_trad($grupo,$id,$arrText)
+{
+    //            despues guardo la traduccion
+    $arrKey = [];
+    $arrVal = [];
+
+    foreach ($arrText as $rtext) {
+        $arrKey[] = $rtext['lengua'];
+        $arrVal[] = $rtext['text'];
+    }
+
+    $ll = new LanguageLine();
+    $ll->group = $grupo;
+    $ll->key = 'id' . $id;
+    $ll->text = array_combine($arrKey, $arrVal);
+    $ll->save();
+    //termino guardar la traduccion
+
+    return $ll->group.".".$ll->key;
 }
 
 

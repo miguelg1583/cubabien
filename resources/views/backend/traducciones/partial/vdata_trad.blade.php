@@ -1,0 +1,5 @@
+traduccion: {
+// group: "",
+// key: "",
+text: []
+}

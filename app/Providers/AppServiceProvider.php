@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use DB;
 use Illuminate\Support\ServiceProvider;
 use Schema;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
+        View::share('idiomas', $idiomas);
     }
 
     /**

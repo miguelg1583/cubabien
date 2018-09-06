@@ -1,7 +1,8 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="{{route('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>CubaBien Admin</span></a>
+            <a href="{{route('dashboard')}}" class="site_title"><i class="fa fa-paw"></i>
+                <span>CubaBien Admin</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -19,7 +20,7 @@
         </div>
         <!-- /menu profile quick info -->
 
-        <br />
+        <br/>
 
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -30,17 +31,29 @@
                         <ul class="nav child_menu">
                             <li><a href="{{route('traduccion.index')}}">Listado</a></li>
                             <li><a href="{{route('traduccion.create')}}">Agregar</a></li>
-                            <li><a href="index3.html">Idiomas</a></li>
+                            <li><a href="#">Idiomas</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-question"></i> FAQ's <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="form.html">General Form</a></li>
-                            <li><a href="form_advanced.html">Advanced Components</a></li>
-                            <li><a href="form_validation.html">Form Validation</a></li>
-                            <li><a href="form_wizards.html">Form Wizard</a></li>
-                            <li><a href="form_upload.html">Form Upload</a></li>
-                            <li><a href="form_buttons.html">Form Buttons</a></li>
+                            <li><a>Categorias<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{route('categoria-faq.index')}}">Listado</a></li>
+                                    <li><a href="{{route('categoria-faq.create')}}">Agregar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Preguntas<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="#">Agregar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Respuestas<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="#">Agregar</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
@@ -118,7 +131,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
+                                    class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
             </div>
 
@@ -126,20 +140,20 @@
         <!-- /sidebar menu -->
 
         <!-- /menu footer buttons -->
-        {{--<div class="sidebar-footer hidden-small">--}}
-            {{--<a data-toggle="tooltip" data-placement="top" title="Settings">--}}
-                {{--<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>--}}
-            {{--</a>--}}
-            {{--<a data-toggle="tooltip" data-placement="top" title="FullScreen">--}}
-                {{--<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>--}}
-            {{--</a>--}}
-            {{--<a data-toggle="tooltip" data-placement="top" title="Lock">--}}
-                {{--<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>--}}
-            {{--</a>--}}
-            {{--<a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">--}}
-                {{--<span class="glyphicon glyphicon-off" aria-hidden="true"></span>--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        <!-- /menu footer buttons -->
+    {{--<div class="sidebar-footer hidden-small">--}}
+    {{--<a data-toggle="tooltip" data-placement="top" title="Settings">--}}
+    {{--<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>--}}
+    {{--</a>--}}
+    {{--<a data-toggle="tooltip" data-placement="top" title="FullScreen">--}}
+    {{--<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>--}}
+    {{--</a>--}}
+    {{--<a data-toggle="tooltip" data-placement="top" title="Lock">--}}
+    {{--<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>--}}
+    {{--</a>--}}
+    {{--<a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">--}}
+    {{--<span class="glyphicon glyphicon-off" aria-hidden="true"></span>--}}
+    {{--</a>--}}
+    {{--</div>--}}
+    <!-- /menu footer buttons -->
     </div>
 </div>

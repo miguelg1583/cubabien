@@ -32,6 +32,7 @@ App = function () {
         $("table[id^=DT]").each(function () {
             $(this).DataTable({
                 'paging': true,
+                'responsive': true,
                 'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'Todos']],
                 'lengthChange': true,
                 'searching': true,
@@ -72,7 +73,7 @@ App = function () {
                     App.showNotiError('Ha ocurrido un problema en el servidor');
                 } else {
                     App.showNotiSuccess('Elemento eliminado satisfactoriamente');
-                    window.location.reload();
+                    // window.location.reload();
                 }
             }
         });
@@ -109,6 +110,13 @@ App = function () {
         },
         AjaxDel: function (id, ruta) {
             ajaxDelEntity(id, ruta);
+        },
+        initAjaxFront: function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
         }
 
     }
