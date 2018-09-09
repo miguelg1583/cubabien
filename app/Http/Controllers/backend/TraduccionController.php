@@ -43,7 +43,6 @@ class TraduccionController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -55,7 +54,7 @@ class TraduccionController extends Controller
         try {
             $traduccion = $request->traduccion;
 
-            $regla= ['key'=>'unique:language_lines,key,null,null,group,'.$traduccion['group']];
+            $regla = ['key' => 'unique:language_lines,key,null,null,group,' . $traduccion['group']];
             $validator = Validator::make($traduccion, $regla);
             if ($validator->fails()) {
                 return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
@@ -107,9 +106,9 @@ class TraduccionController extends Controller
         $trad = LanguageLine::findOrFail($id);
         $text_json = [];
         foreach ($trad->text as $key => $value) {
-            $text_json[]=['lengua' => $key, 'text' => $value];
+            $text_json[] = ['lengua' => $key, 'text' => $value];
         }
-        $trad->text=$text_json;
+        $trad->text = $text_json;
 //        lengua: item.sigla,
 //                            text: ''
 
@@ -127,7 +126,7 @@ class TraduccionController extends Controller
     {
         try {
             $traduccion = $request->traduccion;
-            $regla= ['key'=>'unique:language_lines,key,'.$traduccion['id'].',id,group,'.$traduccion['group']];
+            $regla = ['key' => 'unique:language_lines,key,' . $traduccion['id'] . ',id,group,' . $traduccion['group']];
             $validator = Validator::make($traduccion, $regla);
             if ($validator->fails()) {
                 return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
@@ -139,7 +138,7 @@ class TraduccionController extends Controller
                     $arrVal[] = $rtext['text'];
                 }
 
-                $dbTrad=LanguageLine::findOrFail($id);
+                $dbTrad = LanguageLine::findOrFail($id);
                 $dbTrad->group = $traduccion['group'];
                 $dbTrad->key = $traduccion['key'];
                 $dbTrad->text = array_combine($arrKey, $arrVal);
@@ -171,5 +170,20 @@ class TraduccionController extends Controller
 //            Debugbar::error($e);
             return response()->json(['errors' => $e]);
         }
+    }
+
+    public function getTradToModal(Request $request)
+    {
+        try {
+            $rTrad = $request->trad;
+            $trad = DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$rTrad])->first();
+            return view('backend.traducciones.partial.show_modal_content', compact('trad'))->render();
+        } catch (\Exception $e) {
+            return response()->json(['errors' => $e]);
+        } catch (\Throwable $e) {
+            return response()->json(['errors' => $e]);
+        }
+
+
     }
 }

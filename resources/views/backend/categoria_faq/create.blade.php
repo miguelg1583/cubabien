@@ -1,11 +1,11 @@
 @extends('backend.layouts.master')
 
-@section('title', 'Traducciones - Crear')
+@section('title', 'Categoría - Crear')
 
 @section('css')
 @endsection
 
-@section('title_content', 'Traducciones')
+@section('title_content', 'Categoría')
 
 @section('content')
     <div id="app" v-cloak>

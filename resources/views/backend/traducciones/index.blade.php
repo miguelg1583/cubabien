@@ -67,7 +67,8 @@
                                             <span class="glyphicon glyphicon-edit"></span>
                                         </a>
                                         <button class="btn btn-round btn-danger delete-modal"
-                                                data-toggle="modal" data-target="#deleteModal" :data-id="trad.id">
+                                                data-toggle="modal" data-target="#deleteModal" :data-id="trad.id"
+                                                :data-index="pos">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </td>
@@ -111,26 +112,6 @@
                 getMomentFormat: function (fecha) {
                     return moment(fecha, 'YYYY-MM-DD HH:mm:ss').format("dddd, DD/MM/YYYY h:mm a");
                 },
-                {{--deleteTradu: function (trad) {--}}
-                        {{--$("#deleteModal").modal("show");--}}
-                        {{--$(".modal-footer").on("click", ".delete", function () {--}}
-                        {{--$.ajax({--}}
-                        {{--type: 'DELETE',--}}
-                        {{--url: "{!! url('admin/traduccion') !!}/" + trad.id,--}}
-                        {{--success: function (data) {--}}
-                        {{--if (data.errors) {--}}
-                        {{--console.log(data);--}}
-                        {{--App.showNotiError('Ha ocurrido un problema en el servidor');--}}
-                        {{--} else {--}}
-                        {{--App.showNotiSuccess('Traducción eliminada satisfactoriamente');--}}
-                        {{--let index = vmContext.traducciones.indexOf(trad);--}}
-                        {{--vmContext.traducciones.splice(index, 1);--}}
-                        {{--$("#deleteModal").modal("hide");--}}
-                        {{--}--}}
-                        {{--},--}}
-                        {{--});--}}
-                        {{--});--}}
-                        {{--},--}}
                 showTradu: function (trad, sigla) {
                     console.log('entro');
                     let contenido = "<div>" +
@@ -144,18 +125,12 @@
                         "</div>" +
                         "<div class='row'>" +
                         "<div class='col-md-3'><b>Valor:</b></div>" +
-                        "<div class='col-md-9'><p>" + trad.text[sigla] + "</p><div>" +
+                        "<div class='col-md-9'><p>" + trad.text[sigla] + "</p></div>" +
                         "</div>" +
                         "</div>";
                     $("#show_modal_content").html(contenido);
                     $("#showModal").modal("show");
                 },
-                // getTextTradu: function(trad, sigla){
-                //     trad.text[val.sigla].length>30?trad.text[val.sigla]:trad.text[val.sigla].substring(0,30)+'...'
-                //     if(trad.text[sigla].length>30){
-                //         return
-                //     }
-                // }
             },
             beforeCreate() {
                 App.init("{{config('app.url')}}");
@@ -177,15 +152,14 @@
         let indexTrad = '';
         $(document).on("click", ".delete-modal", function () {
             id = $(this).data("id");
+            indexTrad = $(this).data("index");
         });
         $(".modal-footer").on("click", ".delete", function () {
             App.AjaxDel(id, '{!! url('/admin/traduccion') !!}');
-            vmContext.traducciones.forEach(function (item, index) {
-                if (item.id == id) {
-                    indexTrad = index;
-                }
-            });
             vmContext.traducciones.splice(indexTrad, 1);
+            $("table[id^=DT]").each(function () {
+                $(this).DataTable().row(indexTrad).remove().draw()
+            });
         });
 
 

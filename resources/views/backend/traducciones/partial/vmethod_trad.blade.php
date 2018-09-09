@@ -1,7 +1,5 @@
 setInicialTrad: function () {
 this.traduccion = {
-// group: "categoria-faq",
-// key: "",
 text: []
 };
 this.idiomas.forEach(function (item) {

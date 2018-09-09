@@ -28,5 +28,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/buscaGrupos', 'backend\TraduccionController@getGrupos')->name('buscaGrupos');
     Route::resource('traduccion', 'backend\TraduccionController');
 
+    Route::post('/get-trad', 'backend\TraduccionController@getTradToModal')->name('getTrad');
+
     Route::resource('categoria-faq', 'backend\CategoriaFaqController');
 });

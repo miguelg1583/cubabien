@@ -4258,3 +4258,10 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
     background-color: #ffff !important;
 }
 /** /bootstrap-datetimepicker **/
+
+.show_modal_table {
+    border-bottom: 1px dotted #000;
+}
+.show_modal_table:hover {
+    cursor: pointer;
+}

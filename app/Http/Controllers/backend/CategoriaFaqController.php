@@ -79,7 +79,8 @@ class CategoriaFaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categ = CategoriaFaq::findOrFail($id);
+        return view('backend.categoria_faq.edit', compact('categ'));
     }
 
     /**
@@ -91,7 +92,19 @@ class CategoriaFaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $rcateg = $request->categoria;
+            $dbcateg = CategoriaFaq::findOrFail($id);
+            $dbcateg->nb = $rcateg['nb']['valor'];
+            $dbcateg->save();
+
+            return response()->json(['mensaje' => 'OK']);
+
+
+        } catch (\Exception $e) {
+//            Debugbar::error($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     /**

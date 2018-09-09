@@ -400,7 +400,7 @@ body.on-side {
 
 .side .close-side {
     float: right;
-    color: #FE5623;
+    color: #2D89FF;
     position: relative;
     z-index: 2;
     font-size: 20px;
@@ -437,7 +437,7 @@ body.on-side {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 9px;
-        color: #fe5623;
+        color: #2D89FF;
         padding-right: 5px;
 }
 .side .widget ul.link li a:focus,
