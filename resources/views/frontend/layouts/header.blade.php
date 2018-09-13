@@ -16,11 +16,11 @@
         <div class="attr-nav">
             <ul>
                 <li class="button">
-                    <a href="#" class="button btn btn-md btn-default btn-outline-dark radius5">
+                    <a href="{{route('static_page',['contact_us'])}}" class="button btn btn-md btn-default btn-outline-dark radius5">
                         <i class="fa fa-user fa-lg"></i>{{__('menu.contact')}}</a>
                 </li>
                 <li class="button">
-                    <a href="#" class="button btn btn-md btn-default btn-outline-dark radius5">
+                    <a href="{{route('faq.index')}}" class="button btn btn-md btn-default btn-outline-dark radius5">
                         <i class="fa fa-question fa-lg"></i>{{__('menu.faq')}}</a>
                 </li>
                 <li class="side-menu">

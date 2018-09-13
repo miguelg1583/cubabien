@@ -146,7 +146,7 @@
                     <a href="#">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="#">FAQ</a>
+                    <a href="{{route('faq.index')}}">{{__('menu.faq')}}</a>
                 </li>
                 <li>
                     <a href="#">Contact Us</a>

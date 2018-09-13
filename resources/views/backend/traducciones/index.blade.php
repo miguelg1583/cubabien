@@ -51,7 +51,7 @@
                                     <td>@{{ trad.group }}</td>
                                     <td>@{{ trad.key }}</td>
                                     <td>
-                                        @{{String(trad.text[val.sigla]).length<30?trad.text[val.sigla]:trad.text[val.sigla].substring(0,30)+'(...)'
+                                        @{{String(trad.text[val.sigla]).length<30?trad.text[val.sigla]:trad.text[val.sigla].substring(0,30)+' (...)'
                                         }}
                                     </td>
                                     <td>@{{ getMomentFormat(trad.created_at) }}</td>

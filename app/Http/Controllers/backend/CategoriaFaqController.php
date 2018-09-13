@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\CategoriaFaq;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\TranslationLoader\LanguageLine;
@@ -116,8 +117,13 @@ class CategoriaFaqController extends Controller
     public function destroy($id)
     {
         try {
-            $categ = CategoriaFaq::findOrFail($id)->delete();
-            if ($categ) return response()->json(['mensaje' => 'OK']);
+            $categ = CategoriaFaq::findOrFail($id);
+            $trad = DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$categ->nb_trad]);
+
+            $categ->delete();
+            $trad->delete();
+
+            return response()->json(['mensaje' => 'OK']);
 
         } catch (\Exception $e) {
 //            Debugbar::error($e);

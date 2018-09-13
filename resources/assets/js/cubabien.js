@@ -18,7 +18,18 @@ App = function () {
             request.status === 419 ? window.location.reload(true) : pNoty("Error :(", "Ha ocurrido un problema, recargue la página", "error");
             console.log(thrownError);
         });
-    }
+    };
+
+    let handleAjaxFront = function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).ajaxError(function (data) {
+            console.log(data);
+        });
+    };
 
     let handleVue = function () {
         // window.Vue = require('vue');
@@ -112,11 +123,7 @@ App = function () {
             ajaxDelEntity(id, ruta);
         },
         initAjaxFront: function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+            handleAjaxFront();
         }
 
     }

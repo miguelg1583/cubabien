@@ -23,5 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CategoriaFaq extends Model
 {
-    //
+    public function preguntas_resp()
+    {
+        return $this->hasMany(PreguntaResp::class);
+    }
 }

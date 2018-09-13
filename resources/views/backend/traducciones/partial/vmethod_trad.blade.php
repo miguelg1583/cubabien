@@ -15,6 +15,11 @@ this.$validator.reset('modal_trad.*');
 });
 },
 showTradModal: function (campo) {
-$("#tradModalTitle").text("Traducción del " + campo);
+if(typeof this.campo_trad !== 'undefined'){
+this.$nextTick().then(()=>{this.campo_trad=campo;});
+$("#tradModalTitle").text("Traducción de " + campo);
 $("#tradModal").modal("show");
+}else{
+$("#tradModalTitle").text("Traducción de " + campo);
+$("#tradModal").modal("show");}
 },

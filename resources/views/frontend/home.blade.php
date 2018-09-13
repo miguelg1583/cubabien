@@ -51,28 +51,30 @@
     </div>
     <!-- home image -->
 
-    <!-- call to action -->
-    <section class="short-info">
+    <section class="text-image creative">
         <div class="container">
             <div class="row">
-                <div class="col-sm-8">
-                    <div class="text-container" data-aos="zoom-out">
-                        <h3>
-                            <span class="red-color">Do</span> you want to grow and scale your business?</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatem provident,
-                            pariatur placeat.
-                            Odio quidem nobis amet ipsum maxime quaerat, itaque, debitisma.</p>
-                    </div>
+                <div class="col-sm-6 aos-init aos-animate" data-aos="fade-right">
+                    <img src="{{assets_frontend('images/front-1.jpg')}}" class="img-responsive img-relative" alt="">
                 </div>
-                <div class="col-sm-4">
-                    <div class="text-container" data-aos="fade-right">
-                        <a href="#" class="button btn btn-lg btn-red radius25">Get Started Now</a>
+                <div class="col-sm-6">
+                    <div class="title text-left">
+                        <h2>
+                            <span class="red-color">{{__('word.discover')}}</span> {{__('home.header-1')}}</h2>
+                    </div>
+                    <div class="text-container">
+                        <div class="text">
+                            {!! __('home.content-p-1')!!}
+                            {{--<div class="buttons">--}}
+                                {{--<a href="#" class="button btn btn-md btn-default btn-red radius5 btn-margin-right">Get Started Now </a>--}}
+                                {{--<a href="#" class="button btn btn-md btn-default btn-outline-dark radius5 btn-margin-right">Get Started Now </a>--}}
+                            {{--</div>--}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- call to action  end -->
 
 @endsection
 

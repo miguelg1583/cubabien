@@ -44,8 +44,8 @@
                             </li>
                             <li><a>Preguntas y Respuestas<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Listado</a></li>
-                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="{{route('pregunta-resp.index')}}">Listado</a></li>
+                                    <li><a href="{{route('pregunta-resp.create')}}">Agregar</a></li>
                                 </ul>
                             </li>
                         </ul>

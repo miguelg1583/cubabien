@@ -17,9 +17,9 @@ class CreatePreguntaRespsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('categoria_faq_id');
             $table->string('pregunta');
-            $table->string('pregunta_trad');
+            $table->string('pregunta_trad')->nullable();
             $table->text('respuesta');
-            $table->string('respuesta_trad');
+            $table->string('respuesta_trad')->nullable();
             $table->unsignedInteger('visitas')->nullable();
             $table->timestamps();
 
