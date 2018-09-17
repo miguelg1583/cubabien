@@ -4371,6 +4371,10 @@ padding-right: 50px;
     margin-top: 10px
 }
 
+.footer-1 .social-links a{
+    margin-left: 10px
+}
+
 .footer-1 .contacts a {
     color: #adafc7
 }
@@ -4423,4 +4427,8 @@ padding-right: 50px;
     text-align: center;
     color: #b6b6b6;
     padding-top: 15px
+}
+
+[v-cloak] {
+    display: none;
 }

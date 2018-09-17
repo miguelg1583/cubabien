@@ -94,6 +94,15 @@ mix.babel([
     'resources/assets/template/kanina/javascript/jquery.magnific-popup.js',
     'resources/assets/template/kanina/javascript/bootstrap.min.js',
 
+    './node_modules/vue/dist/vue.js',
+    './node_modules/vee-validate/dist/vee-validate.js',
+    './node_modules/vee-validate/dist/locale/es.js',
+    './node_modules/vee-validate/dist/locale/en.js',
+
+    'resources/assets/plugins/pnotify/dist/pnotify.js',
+    'resources/assets/plugins/pnotify/dist/pnotify.buttons.js',
+    'resources/assets/plugins/pnotify/dist/pnotify.nonblock.js',
+
     'resources/assets/template/kanina/javascript/navbar.js',
     'resources/assets/template/kanina/javascript/main.js',
 
@@ -109,6 +118,10 @@ mix.styles([
     'resources/assets/template/kanina/style/other/magnific-popup.css',
     'resources/assets/template/kanina/style/other/preload.css',
     'resources/assets/template/kanina/style/other/aos.css',
+
+    'resources/assets/plugins/pnotify/dist/pnotify.css',
+    'resources/assets/plugins/pnotify/dist/pnotify.buttons.css',
+    'resources/assets/plugins/pnotify/dist/pnotify.nonblock.css',
 
     'resources/assets/plugins/font-kanina/font-kanina.css',
     'resources/assets/template/kanina/style/navbar.css',

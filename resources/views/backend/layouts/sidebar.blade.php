@@ -50,6 +50,9 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{route('contact.index')}}"><i class="fa fa-envelope"></i> Contactos</a>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CategoriaFaq whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CategoriaFaq whereVisitas($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\PreguntaResp[] $preguntas_resp
  */
 class CategoriaFaq extends Model
 {

@@ -23,18 +23,20 @@
     <div id="status"></div>
 </div>
 <!-- Preloader End-->
-    @include('frontend.layouts.header')
-    {{--Content Per Page--}}
-    @yield('content')
-    {{--Content Per Page End--}}
-    @include('frontend.layouts.footer')
+@include('frontend.layouts.header')
+{{--Content Per Page--}}
+@yield('content')
+{{--Content Per Page End--}}
+@include('frontend.layouts.footer')
 
 <!-- JScript -->
 <script src="{{assets_frontend('js/cubabien.js')}}"></script>
 <script type="text/javascript">
+    $(document).ready(() => {
+        App.initAjaxFront();
+    });
     $("ul.dropdown-menu>li").on("click", ".idioma-select", function () {
-       let lang = $(this).data("lang");
-       App.initAjaxFront();
+        let lang = $(this).data("lang");
         $.ajax({
             type: 'POST',
             url: "{!! url('lang') !!}",
@@ -42,7 +44,7 @@
                 'lang': lang,
             },
             success: function (data) {
-                if (data.mensaje==="OK") {
+                if (data.mensaje === "OK") {
                     window.location.reload(true);
                 }
             },

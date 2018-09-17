@@ -61,7 +61,8 @@ return [
      * Nulls last sql pattern for Posgresql & Oracle.
      * For MySQL, use '-%s %s'
      */
-    'nulls_last_sql' => '%s %s NULLS LAST',
+//    'nulls_last_sql' => '%s %s NULLS LAST',
+    'nulls_last_sql' => '-%s %s',
 
     /*
      * User friendly message to be displayed on user if error occurs.

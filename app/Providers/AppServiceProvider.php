@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
+        $idiomas = DB::table('idiomas')->get(['id', 'sigla', 'nombre']);
         View::share('idiomas', $idiomas);
     }
 

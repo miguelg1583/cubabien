@@ -36,7 +36,7 @@
                                                 class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="grupo" class="form-control col-md-7 col-xs-12 autocomplete_field"
+                                        <input :id="'grupo-'+creaRandomStr(4)" class="form-control col-md-7 col-xs-12 autocomplete_field"
                                                name="grupo"
                                                type="text" v-model="traduccion.group"
                                                v-validate="'required|alpha_dash|min:3|max:50'" autocomplete="off">
@@ -123,6 +123,11 @@
                 }
             },
             methods: {
+                creaRandomStr: function (length) {
+                    let str = "";
+                    for (; str.length < length; str += Math.random().toString(36).substr(2)) ;
+                    return str.substr(0, length);
+                },
                 updateTradLista: function () {
                     this.$validator.validateAll().then(function () {
                         if (!vmContext.errors.any()) {

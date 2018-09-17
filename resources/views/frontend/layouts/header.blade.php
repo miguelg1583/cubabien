@@ -16,7 +16,8 @@
         <div class="attr-nav">
             <ul>
                 <li class="button">
-                    <a href="{{route('static_page',['contact_us'])}}" class="button btn btn-md btn-default btn-outline-dark radius5">
+{{--                    <a href="{{route('static_page',['contact_us'])}}" class="button btn btn-md btn-default btn-outline-dark radius5">--}}
+                    <a href="{{route('contact.index')}}" class="button btn btn-md btn-default btn-outline-dark radius5">
                         <i class="fa fa-user fa-lg"></i>{{__('menu.contact')}}</a>
                 </li>
                 <li class="button">
@@ -40,32 +41,32 @@
                     <a href="{{route('home')}}" class="submenu {{ Route::is('home') ? 'active' : '' }}">{{__('menu.home')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="submenu {{ Route::is('travel_cuba') ? 'active' : '' }}">{{__('menu.travel_cuba')}}</a>
+                    <a href="#" class=" {{ Route::is('travel_cuba') ? 'active' : '' }}">{{__('menu.travel_cuba')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="submenu {{ Route::is('lodging') ? 'active' : '' }}">{{__('menu.lodging')}}</a>
+                    <a href="#" class=" {{ Route::is('lodging') ? 'active' : '' }}">{{__('menu.lodging')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="submenu {{ Route::is('visa') ? 'active' : '' }}">{{__('menu.visa')}}</a>
+                    <a href="#" class=" {{ Route::is('visa') ? 'active' : '' }}">{{__('menu.visa')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="submenu {{ Route::is('flights') ? 'active' : '' }}">{{__('menu.flights')}}</a>
+                    <a href="#" class=" {{ Route::is('flights') ? 'active' : '' }}">{{__('menu.flights')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="submenu {{ Route::is('transfer') ? 'active' : '' }}">{{__('menu.transfer')}}</a>
+                    <a href="#" class=" {{ Route::is('transfer') ? 'active' : '' }}">{{__('menu.transfer')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="submenu {{ Route::is('rent_car') ? 'active' : '' }}">{{__('menu.rent_car')}}</a>
+                    <a href="#" class=" {{ Route::is('rent_car') ? 'active' : '' }}">{{__('menu.rent_car')}}</a>
                 </li>
                 <li>
-                    <a href="#" class="{{ Route::is('exper') ? 'active' : '' }}">{{__('menu.exper')}}</a>
+                    <a href="#" class=" {{ Route::is('exper') ? 'active' : '' }}">{{__('menu.exper')}}</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="submenu dropdown-toggle active" data-toggle="dropdown">{{__('menu.lang')}}</a>
+                    <a href="#idiom-{!! $idiomas[0]->id !!}" class="submenu dropdown-toggle active" data-toggle="dropdown">{{__('menu.lang')}}</a>
                     <ul class="dropdown-menu">
                         @foreach ($idiomas as $idioma)
                             <li>
-                                <a href="#" class="idioma-select" data-lang="{{$idioma->sigla}}">{{$idioma->nombre}}</a>
+                                <a id="idiom-{!! $idioma->id !!}" href="#" class="idioma-select" data-lang="{{$idioma->sigla}}">{{$idioma->nombre}}</a>
                             </li>
                         @endforeach
                     </ul>

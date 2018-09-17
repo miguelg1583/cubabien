@@ -83,22 +83,25 @@
                     <div class="footer-title">
                         <h4>Contact Us</h4>
                     </div>
-                    <p>United States,Las Vegas</p>
-                    <p>Down Town - NS68001</p>
+                    <p>7360 SW 24th St #22</p>
+                    <p>Miami, FL 33155, USA</p>
                     <br>
-                    <a href="mailto:hello@themekolor.co">Email: hello@themekolor.co</a>
+                    <a href="mailto:sales@cubabientravel.com">sales@cubabientravel.com</a>
                     <div class="social-links">
-                        <a href="#">
+                        <a href="https://facebook.com/Cubabien">
                             <i class="fa fa-facebook-f fa-md"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://twitter.com/cubabientravel">
                             <i class="fa fa-twitter fa-md"></i>
                         </a>
-                        <a href="#">
-                            <i class="fa fa-slack-hash fa-md"></i>
+                        <a href="https://www.instagram.com/cubabientravel/">
+                            <i class="fa fa-instagram fa-md"></i>
                         </a>
-                        <a href="#">
-                            <i class="fa fa-linkedin-in fa-md"></i>
+                        <a href="https://plus.google.com/111594830073416892444/posts">
+                            <i class="fa fa-google-plus fa-md"></i>
+                        </a>
+                        <a href="mailto:sales@cubabientravel.com">
+                            <i class="fa fa-envelope fa-md"></i>
                         </a>
                     </div>
                 </div>
@@ -149,7 +152,7 @@
                     <a href="{{route('faq.index')}}">{{__('menu.faq')}}</a>
                 </li>
                 <li>
-                    <a href="#">Contact Us</a>
+                    <a href="{{route('contact.index')}}">{{__('menu.contact')}}</a>
                 </li>
             </ul>
         </div>

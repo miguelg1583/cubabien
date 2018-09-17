@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use DataTables;
 use DB;
 use Debugbar;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class TraduccionController extends Controller
         $traducciones = LanguageLine::all();
         return view('backend.traducciones.index', compact(['traducciones']));
     }
+
 
     /**
      * Show the form for creating a new resource.
