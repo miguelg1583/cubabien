@@ -247,7 +247,7 @@
             // }
 
         }).on('focus', function () {
-            $(this).keydown();
+            $(this).autocomplete();
         });
     </script>
 @endsection

@@ -51,7 +51,31 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{route('contact.index')}}"><i class="fa fa-envelope"></i> Contactos</a>
+                        <a href="{{route('contact.index')}}"><i class="fa fa-envelope"></i> Mensajes</a>
+                    </li>
+                    <li><a><i class="fa fa-binoculars"></i> Tours <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Listado</a></li>
+                            <li><a href="{{route('tour.create')}}">Agregar</a></li>
+                            <li><a>Itinerarios<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="#">Agregar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Calendarios<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="#">Agregar</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Mapas<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="#">Agregar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

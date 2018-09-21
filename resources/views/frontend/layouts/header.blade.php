@@ -17,7 +17,7 @@
             <ul>
                 <li class="button">
 {{--                    <a href="{{route('static_page',['contact_us'])}}" class="button btn btn-md btn-default btn-outline-dark radius5">--}}
-                    <a href="{{route('contact.index')}}" class="button btn btn-md btn-default btn-outline-dark radius5">
+                    <a href="{{route('contact_us.index')}}" class="button btn btn-md btn-default btn-outline-dark radius5">
                         <i class="fa fa-user fa-lg"></i>{{__('menu.contact')}}</a>
                 </li>
                 <li class="button">
@@ -66,7 +66,7 @@
                     <ul class="dropdown-menu">
                         @foreach ($idiomas as $idioma)
                             <li>
-                                <a id="idiom-{!! $idioma->id !!}" href="#" class="idioma-select" data-lang="{{$idioma->sigla}}">{{$idioma->nombre}}</a>
+                                <a id="idiom-{!! $idioma->id !!}" href="javascript:;" class="idioma-select" data-lang="{{$idioma->sigla}}">{{$idioma->nombre}}</a>
                             </li>
                         @endforeach
                     </ul>

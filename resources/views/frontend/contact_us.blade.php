@@ -33,8 +33,9 @@
     <div class="container-fluid">
         <div class="row">
             {{--<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDyOnCxk3saEx4Ep_KCENBLq9cpUWJ6znU&q=Cubabien+Travel" width="100%" height="300px;" frameborder="0" allowfullscreen></iframe>--}}
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3593.6813635258154!2d-80.3169097!3d25.7480488!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b85bf6cc7de1%3A0x4500a784417f60a7!2sCubabien+Travel!5e0!3m2!1ses!2sph!4v1536956331189"
-                    width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            {{--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3593.6813635258154!2d-80.3169097!3d25.7480488!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b85bf6cc7de1%3A0x4500a784417f60a7!2sCubabien+Travel!5e0!3m2!1ses!2sph!4v1536956331189"--}}
+                    {{--width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>--}}
+            <div id="gmap" style="border:0; height: 350px; width: 100%"></div>
         </div>
     </div>
     <!-- contact form end -->
@@ -87,6 +88,7 @@
 @endsection
 
 @section('js')
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyOnCxk3saEx4Ep_KCENBLq9cpUWJ6znU&callback=initMap"></script>
     <script type="text/javascript">
         ("{{session('locale')}}"==="")?Vue.use(VeeValidate, {locale: 'en'}):Vue.use(VeeValidate, {locale: '{{session('locale')}}'});
         window.vmContext = new Vue({
@@ -144,5 +146,28 @@
                 },
             }
         });
+
+        function initMap() {
+            let mapOptions = {
+                center: new google.maps.LatLng(25.7480838, -80.3146732),
+                zoom: 17.25,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            let map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
+
+            let marker = new google.maps.Marker({
+                position: new google.maps.LatLng(25.7480838, -80.3146732),
+                map: map
+            });
+
+            let infowindow = new google.maps.InfoWindow({
+                content: "CubaBien Travel"
+            });
+
+            google.maps.event.addListener(marker, 'mouseover', function () {
+                infowindow.close(map, marker);
+                infowindow.open(map, marker);
+            });
+        }
     </script>
 @endsection

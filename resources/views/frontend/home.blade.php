@@ -57,7 +57,7 @@
                 <div class="col-sm-6 aos-init aos-animate" data-aos="fade-right">
                     <img src="{{assets_frontend('images/front-1.jpg')}}" class="img-responsive img-relative" alt="">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6" data-aos="fade-left">
                     <div class="title text-left">
                         <h2>
                             <span class="red-color">{{__('word.discover')}}</span> {{__('home.header-1')}}</h2>
@@ -75,6 +75,109 @@
             </div>
         </div>
     </section>
+
+    <!-- pricing tables - creative -->
+    <div class="creative-tables">
+        <div class="container">
+            <div class="modern-title">
+                <div class="col-sm-6">
+                    <div class="text-right">
+                        <h2>
+                            {!! __('home.header-2') !!}
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-left">
+                        <p>{!! __('slogan.text') !!}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <div class="tables" data-aos="fade-right">
+                        <div class="table1">
+                            <div class="table-header">
+                                <h3>79.99$</h3>
+                                <h2>Starting</h2>
+                            </div>
+                            <div class="table-body">
+                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mode
+                                </p>
+                                <ul>
+                                    <li>Create and modern designs</li>
+                                    <li>Team that love details</li>
+                                    <li>Unlimited free support</li>
+                                    <li>Create and modern designs</li>
+                                    <li>Unlimited free support</li>
+                                    <li>Unlimited free support</li>
+                                </ul>
+                                <br>
+                                <a href="#" class="btn button btn-sm btn-outline-dark radius25">Get Started Now</a>
+                            </div>
+                        </div>
+                        <div class="table-bg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <div class="tables" data-aos="fade-right" data-aos-delay="200">
+                        <div class="table1">
+                            <div class="table-header">
+                                <h3>59.99$</h3>
+                                <h2>Medium</h2>
+                            </div>
+                            <div class="table-body">
+                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mode
+                                </p>
+                                <ul>
+                                    <li>Create and modern designs</li>
+                                    <li>Team that love details</li>
+                                    <li>Unlimited free support</li>
+                                    <li>Create and modern designs</li>
+                                    <li>Unlimited free support</li>
+                                    <li>Unlimited free support</li>
+                                </ul>
+                                <br>
+                                <a href="#" class="btn button btn-sm btn-outline-dark radius25">Get Started Now</a>
+                            </div>
+                        </div>
+                        <div class="table-bg recommended">
+                            <h4>Recommended Plan</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <div class="tables" data-aos="fade-right" data-aos-delay="400">
+                        <div class="table1">
+                            <div class="table-header">
+                                <h3>99.99$</h3>
+                                <h2>Advanced</h2>
+                            </div>
+                            <div class="table-body">
+                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mode
+                                </p>
+                                <ul>
+                                    <li>Create and modern designs</li>
+                                    <li>Team that love details</li>
+                                    <li>Unlimited free support</li>
+                                    <li>Create and modern designs</li>
+                                    <li>Unlimited free support</li>
+                                    <li>Unlimited free support</li>
+                                </ul>
+                                <br>
+                                <a href="#" class="btn button btn-sm btn-outline-dark radius25">Get Started Now</a>
+                            </div>
+                        </div>
+                        <div class="table-bg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pricing tables creative end -->
 
 @endsection
 

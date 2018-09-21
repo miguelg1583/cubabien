@@ -1778,24 +1778,24 @@ if (typeof NProgress != 'undefined') {
 	
 		}
 	   
-	   /* SMART WIZARD */
-		
-		function init_SmartWizard() {
-			
-			if( typeof ($.fn.smartWizard) === 'undefined'){ return; }
-			// console.log('init_SmartWizard');
-			
-			$('#wizard').smartWizard();
-
-			$('#wizard_verticle').smartWizard({
-			  transitionEffect: 'slide'
-			});
-
-			$('.buttonNext').addClass('btn btn-success');
-			$('.buttonPrevious').addClass('btn btn-primary');
-			$('.buttonFinish').addClass('btn btn-default');
-			
-		};
+	   // /* SMART WIZARD */
+		//
+		// function init_SmartWizard() {
+		//
+		// 	if( typeof ($.fn.smartWizard) === 'undefined'){ return; }
+		// 	// console.log('init_SmartWizard');
+		//
+		// 	$('#wizard').smartWizard();
+       //
+		// 	$('#wizard_verticle').smartWizard({
+		// 	  transitionEffect: 'slide'
+		// 	});
+       //
+		// 	$('.buttonNext').addClass('btn btn-success');
+		// 	$('.buttonPrevious').addClass('btn btn-primary');
+		// 	$('.buttonFinish').addClass('btn btn-default');
+		//
+		// };
 	   
 	   
 	  /* VALIDATOR */
@@ -5022,7 +5022,7 @@ if (typeof NProgress != 'undefined') {
 		init_daterangepicker_right();
 		init_daterangepicker_single_call();
 		init_daterangepicker_reservation();
-		init_SmartWizard();
+		// init_SmartWizard();
 		init_EasyPieChart();
 		init_charts();
 		init_echarts();

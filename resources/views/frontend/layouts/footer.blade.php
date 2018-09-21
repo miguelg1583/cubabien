@@ -1,3 +1,39 @@
+<!-- colors -->
+<div class="colors">
+    <div class="no-padding container-fluid">
+        <span class="col-sm-3 col-xs-3 color4"></span>
+        <span class="col-sm-3 col-xs-3 color3"></span>
+        <span class="col-sm-3 col-xs-3 color2"></span>
+        <span class="col-sm-3 col-xs-3 color1"></span>
+    </div>
+</div>
+<!--   colors -->
+<!-- partners -->
+<div class="partners">
+    <div class="container">
+        <div class="images">
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right">
+                <img src="{{assets_frontend('images/partners/partner1.png')}}" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="100">
+                <img src="{{assets_frontend('images/partners/partner2.png')}}" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="200">
+                <img src="{{assets_frontend('images/partners/partner3.png')}}" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="300">
+                <img src="{{assets_frontend('images/partners/partner4.png')}}" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="400">
+                <img src="{{assets_frontend('images/partners/partner5.png')}}" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="500">
+                <img src="{{assets_frontend('images/partners/partner6.png')}}" class="img-responsive" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partners -->
 <!-- footer style 1 -->
 <!-- colors -->
 <div class="colors">

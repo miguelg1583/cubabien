@@ -50,6 +50,10 @@ mix.babel([
     'resources/assets/plugins/pnotify/dist/pnotify.buttons.js',
     'resources/assets/plugins/pnotify/dist/pnotify.nonblock.js',
 
+    'resources/assets/plugins/daterangepicker/daterangepicker.js',
+
+    'resources/assets/plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js',
+
     'resources/assets/js/cubabien.js'
 
 ], 'public/backend/js/cubabien.js');
@@ -78,6 +82,10 @@ mix.styles([
     'resources/assets/plugins/pnotify/dist/pnotify.css',
     'resources/assets/plugins/pnotify/dist/pnotify.buttons.css',
     'resources/assets/plugins/pnotify/dist/pnotify.nonblock.css',
+
+    'resources/assets/plugins/daterangepicker/daterangepicker.css',
+
+    'resources/assets/plugins/jQuery-Smart-Wizard/styles/smart_wizard.css',
 
     'resources/assets/plugins/gentelella-build/css/custom.css',
 

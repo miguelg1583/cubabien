@@ -90,6 +90,26 @@ App = function () {
         });
     };
 
+    let handleSmartWizard = function (objProperties) {
+
+        if (typeof ($.fn.smartWizard) === 'undefined') {
+            return console.log('SmartWizard no esta definido');
+        }
+        // console.log('init_SmartWizard');
+
+        $("div[id ^= wizard]").each(function () {
+            $(this).smartWizard(objProperties);
+        });
+
+        // $('#wizard_verticle').smartWizard({
+        //     transitionEffect: 'slide'
+        // });
+
+        $('.buttonNext').addClass('btn btn-success');
+        $('.buttonPrevious').addClass('btn btn-primary');
+        $('.buttonFinish').addClass('btn btn-default');
+
+    };
 
     return {
         init: function (url) {
@@ -124,6 +144,9 @@ App = function () {
         },
         initAjaxFront: function () {
             handleAjaxFront();
+        },
+        initSmartWizard: function (objProperties) {
+            handleSmartWizard(objProperties);
         }
 
     }

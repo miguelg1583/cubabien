@@ -26,7 +26,7 @@ Route::get('/faqs/full', 'frontend\FaqController@full')->name('faq.full');
 Route::post('/sum/categoria', 'frontend\FaqController@addVisitaCateg')->name('sum_categ');
 Route::post('/sum/pregunta_resp', 'frontend\FaqController@addVisitaPreg')->name('sum_preg');
 
-Route::get('/contact','frontend\ContactController@index')->name('contact.index');
+Route::get('/contact','frontend\ContactController@index')->name('contact_us.index');
 Route::post('/contact','frontend\ContactController@store')->name('contact.store');
 
 
@@ -46,6 +46,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('pregunta-resp', 'backend\PreguntaRespController');
     Route::post('/contactlist', 'backend\ContactController@getList')->name('contact.list');
     Route::get('/contact', 'backend\ContactController@index')->name('contact.index');
+    Route::resource('tour', 'backend\TourController');
+
 
 
 });
