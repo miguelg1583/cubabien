@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -50,8 +51,41 @@ class Tour extends Model
 
     public function itinerario()
     {
-        return $this->hasMany(ItinerarioTour::class);
+        return $this->hasMany(ItinerarioTour::class)->orderBy('dia');
     }
 
+    public function getNearFecha()
+    {
+        $diff = 2000000;
+        $fecha = "";
+        foreach ($this->fechas as $fechaTour) {
+            $fechaDesde = Carbon::createFromFormat('Y-m-d', $fechaTour->desde);
+            if ($fechaDesde > Carbon::now()) {
+                $dife = $fechaDesde->diffInDays();
+                if ($dife < $diff) {
+                    $diff = $dife;
+                    $fecha = $fechaTour;
+                }
+            }
+        }
+        return $fecha;
+    }
+
+    public function getNearCantFecha()
+    {
+        $sum = 0;
+        foreach ($this->fechas as $fechaTour) {
+            $fechaDesde = Carbon::createFromFormat('Y-m-d', $fechaTour->desde);
+            if ($fechaDesde > Carbon::now()) {
+                $sum += 1;
+            }
+        }
+        return $sum;
+    }
+
+    public function getAllFechaAfterToday()
+    {
+        return $this->hasMany(FechaTour::class)->whereDate('desde','>',now())->get();
+    }
 
 }

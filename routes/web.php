@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+Route::get('/', 'frontend\HomeController@index')->name('home');
 
 Route::get('/static/{blade_uri}', function ($blade_uri) {
     return view('frontend.'.$blade_uri);
@@ -28,7 +26,9 @@ Route::post('/sum/pregunta_resp', 'frontend\FaqController@addVisitaPreg')->name(
 
 Route::get('/contact','frontend\ContactController@index')->name('contact_us.index');
 Route::post('/contact','frontend\ContactController@store')->name('contact.store');
-
+Route::get('/travel_cuba', 'frontend\TourController@index')->name('travel_cuba.index');
+Route::get('/travel_cuba/{id}', 'frontend\TourController@show')->name('travel_cuba.show');
+Route::post('/fechas-after-list', 'frontend\TourController@getFechasAfterTodayList')->name('fechasAfter.list');
 
 
 
@@ -47,7 +47,6 @@ Route::prefix('admin')->group(function () {
     Route::post('/contactlist', 'backend\ContactController@getList')->name('contact.list');
     Route::get('/contact', 'backend\ContactController@index')->name('contact.index');
     Route::resource('tour', 'backend\TourController');
-
 
 
 });

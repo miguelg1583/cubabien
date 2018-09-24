@@ -41,25 +41,25 @@
                     <a href="{{route('home')}}" class="submenu {{ Route::is('home') ? 'active' : '' }}">{{__('menu.home')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('travel_cuba') ? 'active' : '' }}">{{__('menu.travel_cuba')}}</a>
+                    <a href="{{route('travel_cuba.index')}}" class=" {{ Request::is('travel_cuba*') ? 'active' : '' }}">{{__('menu.travel_cuba')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('lodging') ? 'active' : '' }}">{{__('menu.lodging')}}</a>
+                    <a href="#" class=" {{ Request::is('lodging') ? 'active' : '' }}">{{__('menu.lodging')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('visa') ? 'active' : '' }}">{{__('menu.visa')}}</a>
+                    <a href="#" class=" {{ Request::is('visa') ? 'active' : '' }}">{{__('menu.visa')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('flights') ? 'active' : '' }}">{{__('menu.flights')}}</a>
+                    <a href="#" class=" {{ Request::is('flights') ? 'active' : '' }}">{{__('menu.flights')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('transfer') ? 'active' : '' }}">{{__('menu.transfer')}}</a>
+                    <a href="#" class=" {{ Request::is('transfer') ? 'active' : '' }}">{{__('menu.transfer')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('rent_car') ? 'active' : '' }}">{{__('menu.rent_car')}}</a>
+                    <a href="#" class=" {{ Request::is('rent_car') ? 'active' : '' }}">{{__('menu.rent_car')}}</a>
                 </li>
                 <li>
-                    <a href="#" class=" {{ Route::is('exper') ? 'active' : '' }}">{{__('menu.exper')}}</a>
+                    <a href="#" class=" {{ Request::is('exper') ? 'active' : '' }}">{{__('menu.exper')}}</a>
                 </li>
                 <li class="dropdown">
                     <a href="#idiom-{!! $idiomas[0]->id !!}" class="submenu dropdown-toggle active" data-toggle="dropdown">{{__('menu.lang')}}</a>

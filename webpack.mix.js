@@ -111,6 +111,11 @@ mix.babel([
     'resources/assets/plugins/pnotify/dist/pnotify.buttons.js',
     'resources/assets/plugins/pnotify/dist/pnotify.nonblock.js',
 
+    'resources/assets/plugins/datatables/datatables.net/js/jquery.dataTables.js',
+    'resources/assets/plugins/datatables/datatables.net-bs/js/dataTables.bootstrap.js',
+    'resources/assets/plugins/datatables/datatables.net-responsive/js/dataTables.responsive.js',
+    'resources/assets/plugins/datatables/datatables.net-responsive-bs/js/responsive.bootstrap.js',
+
     'resources/assets/template/kanina/javascript/navbar.js',
     'resources/assets/template/kanina/javascript/main.js',
 
@@ -130,6 +135,9 @@ mix.styles([
     'resources/assets/plugins/pnotify/dist/pnotify.css',
     'resources/assets/plugins/pnotify/dist/pnotify.buttons.css',
     'resources/assets/plugins/pnotify/dist/pnotify.nonblock.css',
+
+    'resources/assets/plugins/datatables/datatables.net-bs/css/dataTables.bootstrap.css',
+    'resources/assets/plugins/datatables/datatables.net-responsive-bs/css/responsive.bootstrap.css',
 
     'resources/assets/plugins/font-kanina/font-kanina.css',
     'resources/assets/template/kanina/style/navbar.css',
