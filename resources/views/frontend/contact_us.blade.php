@@ -45,26 +45,39 @@
             <div class="row">
                 <div class="col-sm-6" id="app" v-cloak>
                     <form id="contact-form">
-                        <div class="form-group form_left">
+                        <div class="{'form-group':true, 'form_left':true, 'has-error':errors.has('contacto.nombre')}">
                             <input id="form_name" type="text" name="nombre" class="form-control"
                                    placeholder="{{__('labelplaceholder.nombre')}} *" v-model="contacto.nombre"
                                    data-vv-scope="contacto" v-validate="'required|min:3|max:100'">
                             <div class="help-block with-errors">@{{ errors.first('contacto.nombre') }}</div>
                         </div>
 
-                        <div class="form-group form_left">
+                        <div class="{'form-group':true, 'form_left':true, 'has-error':errors.has('contacto.email')}">
                             <input id="form_email" type="email" name="email" class="form-control"
                                    placeholder="{{__('labelplaceholder.email')}} *" v-model="contacto.email"
                                    data-vv-scope="contacto" v-validate="'required|email|min:3|max:100'">
                             <div class="help-block with-errors">@{{ errors.first('contacto.email') }}</div>
                         </div>
 
-                        <div class="form-group form_left">
+                        <div class="{'form-group':true, 'form_left':true, 'has-error':errors.has('contacto.mensaje')}">
                             <textarea id="form_message" name="mensaje" class="form-control"
                                       placeholder="{{__('labelplaceholder.mensaje')}} *" rows="4" v-model="contacto.mensaje"
                                       data-vv-scope="contacto" v-validate="'required|min:3'"></textarea>
                             <div class="help-block with-errors">@{{ errors.first('contacto.mensaje') }}</div>
-                            <br>
+                        </div>
+
+                        <div class="{'form-group':true, 'form_left':true, 'has-error':errors.has('contacto.captcha')}">
+                            <div class="captcha">
+                                <span id="captcha-img">{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-red btn-sm radius25" v-on:click.prevent="refreshCaptcha()"><span class="fa fa-refresh"></span></button>
+                                <input id="form_captcha" type="text" name="captcha" class="form-control"
+                                       placeholder="Captcha *" v-model="contacto.captcha"
+                                       data-vv-scope="contacto" v-validate="'required'">
+                                <div class="help-block with-errors">@{{ errors.first('contacto.captcha') }}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form_left">
                             <button class="btn btn-red btn-sm radius25" v-on:click.prevent="sendContact()"><span
                                         class="fa fa-envelope"></span> {{__('button.send-message')}} </button>
                         </div>
@@ -90,7 +103,7 @@
 @section('js')
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyOnCxk3saEx4Ep_KCENBLq9cpUWJ6znU&callback=initMap"></script>
     <script type="text/javascript">
-        ("{{session('locale')}}"==="")?Vue.use(VeeValidate, {locale: 'en'}):Vue.use(VeeValidate, {locale: '{{session('locale')}}'});
+        ("{{session('locale')}}"==="" || "{{session('locale')}}"!=="es")?Vue.use(VeeValidate, {locale: 'en'}):Vue.use(VeeValidate, {locale: '{{session('locale')}}'});
         window.vmContext = new Vue({
             el: "#app",
             beforeCreate() {
@@ -105,20 +118,38 @@
                 contacto: {
                     nombre: "",
                     email: "",
-                    mensaje: ""
+                    mensaje: "",
+                    captcha: ""
                 }
             },
             methods: {
+                refreshCaptcha: function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: '{!! route('captcha.refresh') !!}',
+                        success: function (data) {
+                            if (data.errors) {
+                                console.log(data);
+                                App.showNotiError('{{__('message.error')}}');
+                            } else {
+                                $("#captcha-img").html(data.captcha)
+                            }
+                        },
+                    });
+                },
                 setInicial: function () {
                     self = this;
                     this.contacto.nombre = "";
                     this.contacto.email = "";
                     this.contacto.mensaje = "";
+                    this.contacto.captcha = "";
                     this.$nextTick()
                         .then(() => {
                             this.$validator.reset('contacto');
                             this.errors.clear();
+                            self.refreshCaptcha();
                         });
+
                 },
                 sendContact: function () {
                     this.$validator.validateAll('contacto').then(function (result) {
@@ -133,9 +164,18 @@
                                 success: function (data) {
                                     if (data.errors) {
                                         console.log(data);
-                                        App.showNotiError('Ha ocurrido un problema en el servidor');
+                                        if (data.errors.captcha) {
+                                            App.showNotiNotice('{{__('message.noti-contact')}}');
+                                            const fieldError = {
+                                                field: 'contacto.captcha',
+                                                msg: '{{__('contact.captcha-error')}}'
+                                            };
+                                            vmContext.errors.add(fieldError);
+                                        } else {
+                                            App.showNotiError('{{__('message.error')}}');
+                                        }
                                     } else {
-                                        App.showNotiSuccess('Mensaje Enviado Satisfactoriamente');
+                                        App.showNotiSuccess('{{__('message.success-contact')}}');
                                         vmContext.setInicial();
                                     }
                                 },

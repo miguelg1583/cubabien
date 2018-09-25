@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Validator;
 
 class ContactController extends Controller
 {
@@ -18,13 +19,18 @@ class ContactController extends Controller
         try {
             $rcontacto = $request->contacto;
 
+            $regla = ['captcha' => 'required|captcha'];
+            $validator = Validator::make($rcontacto, $regla);
+            if ($validator->fails()) {
+                return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
+            } else {
             $dbcontacto= new Contact();
             $dbcontacto->nombre= $rcontacto['nombre'];
             $dbcontacto->email= $rcontacto['email'];
             $dbcontacto->mensaje= $rcontacto['mensaje'];
             $dbcontacto->save();
 
-            return response()->json(['mensaje' => 'OK']);
+            return response()->json(['mensaje' => 'OK']);}
         } catch (\Exception $e) {
             return response()->json(['errors' => $e]);
         }

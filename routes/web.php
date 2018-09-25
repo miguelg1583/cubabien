@@ -26,6 +26,7 @@ Route::post('/sum/pregunta_resp', 'frontend\FaqController@addVisitaPreg')->name(
 
 Route::get('/contact','frontend\ContactController@index')->name('contact_us.index');
 Route::post('/contact','frontend\ContactController@store')->name('contact.store');
+Route::get('/refresh-captcha', 'frontend\CaptchaController@refresh')->name('captcha.refresh');
 Route::get('/travel_cuba', 'frontend\TourController@index')->name('travel_cuba.index');
 Route::get('/travel_cuba/{id}', 'frontend\TourController@show')->name('travel_cuba.show');
 Route::post('/fechas-after-list', 'frontend\TourController@getFechasAfterTodayList')->name('fechasAfter.list');
