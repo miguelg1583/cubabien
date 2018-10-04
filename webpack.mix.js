@@ -37,6 +37,8 @@ mix.babel([
     'resources/assets/plugins/datatables/datatables.net-bs/js/dataTables.bootstrap.js',
     'resources/assets/plugins/datatables/datatables.net-responsive/js/dataTables.responsive.js',
     'resources/assets/plugins/datatables/datatables.net-responsive-bs/js/responsive.bootstrap.js',
+    'resources/assets/plugins/datatables/RowGroup-1.0.3/js/dataTables.rowGroup.js',
+    'resources/assets/plugins/datatables/RowGroup-1.0.3/js/rowGroup.bootstrap.js',
 
     'resources/assets/plugins/moment/moment.js',
     'resources/assets/plugins/moment/locale/es.js',
@@ -53,6 +55,8 @@ mix.babel([
     'resources/assets/plugins/daterangepicker/daterangepicker.js',
 
     'resources/assets/plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js',
+
+    'resources/assets/plugins/bootstrap-toggle/js/bootstrap-toggle.js',
 
     'resources/assets/js/cubabien.js'
 
@@ -74,6 +78,7 @@ mix.styles([
 
     'resources/assets/plugins/datatables/datatables.net-bs/css/dataTables.bootstrap.css',
     'resources/assets/plugins/datatables/datatables.net-responsive-bs/css/responsive.bootstrap.css',
+    'resources/assets/plugins/datatables/RowGroup-1.0.3/css/rowGroup.bootstrap.css',
 
     'resources/assets/plugins/summernote/summernote.css',
 
@@ -86,6 +91,8 @@ mix.styles([
     'resources/assets/plugins/daterangepicker/daterangepicker.css',
 
     'resources/assets/plugins/jQuery-Smart-Wizard/styles/smart_wizard.css',
+
+    'resources/assets/plugins/bootstrap-toggle/css/bootstrap-toggle.css',
 
     'resources/assets/plugins/gentelella-build/css/custom.css',
 
@@ -119,6 +126,9 @@ mix.babel([
     'resources/assets/template/kanina/javascript/navbar.js',
     'resources/assets/template/kanina/javascript/main.js',
 
+    // ahora lo del carrito
+    'resources/assets/plugins/add-to-cart-interaction/js/main.js',
+
     'resources/assets/js/cubabien.js',
 
 ], 'public/frontend/js/cubabien.js');
@@ -142,10 +152,15 @@ mix.styles([
     'resources/assets/plugins/font-kanina/font-kanina.css',
     'resources/assets/template/kanina/style/navbar.css',
     'resources/assets/template/kanina/style/style.css',
-    'resources/assets/template/kanina/style/responsive.css'
+    'resources/assets/template/kanina/style/responsive.css',
+
+    // ahora lo del carrito
+    'resources/assets/plugins/add-to-cart-interaction/css/style.css',
 
 ], 'public/frontend/css/cubabien.css');
 
 mix.copyDirectory('resources/assets/plugins/font-awesome/fonts', 'public/frontend/fonts');
 mix.copyDirectory('resources/assets/plugins/bootstrap/fonts', 'public/frontend/fonts');
 mix.copyDirectory('resources/assets/plugins/font-kanina/fonts', 'public/frontend/fonts');
+mix.copyDirectory('resources/assets/plugins/add-to-cart-interaction/img', 'public/frontend/images');
+

@@ -22,8 +22,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ItinerarioTour whereTourId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ItinerarioTour whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Tour $tour
  */
 class ItinerarioTour extends Model
 {
-    //
+    public function tour()
+    {
+        return $this->belongsTo(Tour::class);
+    }
 }

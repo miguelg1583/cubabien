@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Tour;
 use DataTables;
+use function foo\func;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Routing\Middleware\ThrottleRequestsWithRedis;
@@ -12,11 +13,11 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with('mapa')->get();
+        $tours = Tour::with('mapa')->whereActivo(1)->get();
         $marcadores = [];
         foreach ($tours as $tour) {
             foreach ($tour->mapa as $item_mapa) {
-                $marcadores[] = [$item_mapa->latitud, $item_mapa->latitud, $item_mapa->etiqueta_trad];
+                $marcadores[] = [$item_mapa->latitud, $item_mapa->longitud, __($item_mapa->etiqueta_trad)];
             }
         }
         return view('frontend.tours.index', compact(['tours', 'marcadores']));
@@ -28,7 +29,7 @@ class TourController extends Controller
             $marcadores = [];
             $tour = Tour::findOrFail($id);
             foreach ($tour->mapa as $item_mapa) {
-                $marcadores[] = [$item_mapa->latitud, $item_mapa->latitud, $item_mapa->etiqueta_trad];
+                $marcadores[] = [$item_mapa->latitud, $item_mapa->longitud, __($item_mapa->etiqueta_trad)];
             }
             return view('frontend.tours.details', compact(['tour', 'marcadores']));
         } catch (\Exception $e) {
@@ -44,7 +45,13 @@ class TourController extends Controller
         try {
             return Datatables::of($fechasDesde)
                 ->addColumn('operaciones', function ($row) {
-                    return '<button class="btn button btn-red radius5 btn-sm" data-id="' . $row->id . '">' . __('button.add-cart') . '</button>';
+                    return '<a href="javascript:;" class="btn button btn-red radius5 btn-sm cd-add-to-cart" data-id="' . $row->id . '" data-price="' . $row->precio_d_pax . '">' . __('button.add-cart') . '</a>';
+                })
+                ->editColumn('precio_s_pax', function ($row) {
+                    return '$ ' . number_format((float)$row->precio_s_pax, 2, '.', '');
+                })
+                ->editColumn('precio_d_pax', function ($row) {
+                    return '$ ' . number_format((float)$row->precio_d_pax, 2, '.', '');
                 })
                 ->rawColumns(['operaciones'])
                 ->make(true);

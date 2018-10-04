@@ -136,7 +136,7 @@
                                        class="button btn btn-md btn-default btn-outline-dark delay4 radius25">{!! __('button.details') !!}</a>
                                     <br>
                                     <a data-animation-in="zoomIn" href="#"
-                                       class="button btn btn-md btn-default btn-outline-dark delay4 radius25">{!! __('button.add-cart') !!}</a>
+                                       class="button btn btn-md btn-default btn-outline-dark delay4 radius25 cd-add-to-cart" data-price="{{$tour->getNearFecha()->precio_d_pax}}">{!! __('button.add-cart') !!}</a>
                                 </div>
                             </div>
                         </div>
@@ -156,15 +156,7 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyOnCxk3saEx4Ep_KCENBLq9cpUWJ6znU&callback=initMap"></script>
     <script type="text/javascript">
         function initMap() {
-            // let mapOptions = {
-            //     center: new google.maps.LatLng(21.504186, -79.683838),
-            //     zoom: 7,
-            //     mapTypeId: google.maps.MapTypeId.ROADMAP
-            // };
-            // let map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
-            var locations = [{!! json_encode($marcadores) !!}];
-
-            console.log(locations);
+            var locations = {!! json_encode($marcadores) !!};
 
             var map = new google.maps.Map(document.getElementById('gmap'), {
                 zoom: 7,

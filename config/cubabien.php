@@ -7,4 +7,4 @@
  */
 
 /* System Version */
-define('APP_VERSION', '?v=1.2');
+define('APP_VERSION', '?v=1.3');

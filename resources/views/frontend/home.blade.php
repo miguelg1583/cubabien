@@ -101,55 +101,11 @@
                             <div class="tables" data-aos="fade-right">
                                 <div class="table1">
                                     <div class="table-header">
-                                        {{--@php--}}
-                                        {{--$sumS=0;--}}
-                                        {{--$sumD=0;--}}
-                                        {{--foreach ($tour->fechas as $fecha)--}}
-                                        {{--$sumS += $fecha->precio_s_pax;--}}
-                                        {{--$sumD += $fecha->precio_d_pax;--}}
-                                        {{--endforeach--}}
-                                        {{--$promS=$sumS/count($tour->fechas);--}}
-                                        {{--$promD=$sumD/count($tour->fechas);--}}
-                                        {{--@endphp--}}
-
-                                        {{--<table style="width: 100%">--}}
-                                            {{--<tr>--}}
-                                                {{--<td><h3>~${{$tour->fechas->first()->precio_s_pax}}</h3></td>--}}
-                                                {{--<td style="text-align: right"><h3>--}}
-                                                        {{--~${{$tour->fechas->first()->precio_d_pax}}</h3></td>--}}
-                                            {{--</tr>--}}
-                                        {{--</table>--}}
                                         <h2>{{__($tour->nb_trad)}}</h2>
                                     </div>
                                     <div class="table-body">
                                         <p>{!! __($tour->introd_trad) !!}
                                         </p>
-                                        {{--<ul>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-1') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-2') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-3') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-4') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-5') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-6') !!}--}}
-                                            {{--</li>--}}
-                                        {{--</ul>--}}
                                         <br>
                                         <a href="{{route('travel_cuba.show',[$tour->id])}}" class="btn button btn-sm btn-outline-dark radius25">{{__('button.details')}}</a>
                                     </div>
@@ -163,55 +119,11 @@
                             <div class="tables" data-aos="fade-right" data-aos-delay="{{$loop->index*200}}">
                                 <div class="table1">
                                     <div class="table-header">
-                                        {{--@php--}}
-                                        {{--$sumS=0;--}}
-                                        {{--$sumD=0;--}}
-                                        {{--foreach ($tour->fechas as $fecha)--}}
-                                        {{--$sumS += $fecha->precio_s_pax;--}}
-                                        {{--$sumD += $fecha->precio_d_pax;--}}
-                                        {{--endforeach--}}
-                                        {{--$promS=$sumS/count($tour->fechas);--}}
-                                        {{--$promD=$sumD/count($tour->fechas);--}}
-                                        {{--@endphp--}}
-
-                                        {{--<table style="width: 100%">--}}
-                                            {{--<tr>--}}
-                                                {{--<td><h3>~${{$tour->fechas->first()->precio_s_pax}}</h3></td>--}}
-                                                {{--<td style="text-align: right"><h3>--}}
-                                                        {{--~${{$tour->fechas->first()->precio_d_pax}}</h3></td>--}}
-                                            {{--</tr>--}}
-                                        {{--</table>--}}
                                         <h2>{{__($tour->nb_trad)}}</h2>
                                     </div>
                                     <div class="table-body">
                                         <p>{!! __($tour->introd_trad) !!}
                                         </p>
-                                        {{--<ul>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-1') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-2') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-3') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-4') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-5') !!}--}}
-                                            {{--</li>--}}
-                                            {{--<li>--}}
-                                                {{--<span><i class="fa fa-check-circle fa-sm"></i></span>--}}
-                                                {{--{!! __('about_us.time-h-6') !!}--}}
-                                            {{--</li>--}}
-                                        {{--</ul>--}}
                                         <br>
                                         <a href="{{route('travel_cuba.show',[$tour->id])}}" class="btn button btn-sm btn-outline-dark radius25">{{__('button.details')}}</a>
                                     </div>

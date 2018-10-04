@@ -20,7 +20,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <table id="DTC_preguntas_resp" class="table table-striped table-bordered dt-responsive nowrap"
+                <table id="preguntas_resp_DTG" class="table table-striped table-bordered dt-responsive nowrap"
                        width="100%">
                     <thead>
                     <tr>
@@ -133,6 +133,26 @@
                         },
                     });
                 },
+                initDatatableGroup: function () {
+                    $('#preguntas_resp_DTG').DataTable({
+                        'paging': true,
+                        'responsive': true,
+                        'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'Todos']],
+                        'lengthChange': true,
+                        'searching': true,
+                        'ordering': true,
+                        'info': true,
+                        'autoWidth': true,
+                        'language': {
+                            'url': "{{config('app.url')}}" + '/backend/js/Spanish.json'
+                        },
+                        order: [[0, 'asc']],
+                        rowGroup: {
+                            dataSrc: 0
+                        },
+                        columnDefs: [{targets: 0, visible: false}],
+                    });
+                }
 
             },
             beforeCreate() {
@@ -140,7 +160,8 @@
                 App.initAjax();
             },
             mounted: function () {
-                App.initDatatable();
+                // App.initDatatable();
+                this.initDatatableGroup();
             },
 
         });

@@ -48,6 +48,13 @@ Route::prefix('admin')->group(function () {
     Route::post('/contactlist', 'backend\ContactController@getList')->name('contact.list');
     Route::get('/contact', 'backend\ContactController@index')->name('contact.index');
     Route::resource('tour', 'backend\TourController');
+    Route::post('/get-tour', 'backend\TourController@getDataToModal')->name('getDatosTour');
+    Route::put('/tour/activo/{id}', 'backend\TourController@setActivo')->name('setActivo');
+    Route::resource('itinerario-tour', 'backend\ItinerarioTourController');
+    Route::post('/get-itinerario-tour', 'backend\ItinerarioTourController@getDataToModal')->name('getDatosItinerarioTour');
+    Route::resource('calendario-tour', 'backend\CalendarioTourController');
+    Route::post('/calendario-tour-list', 'backend\CalendarioTourController@getList')->name('calendario-tour.list');
+
 
 
 });

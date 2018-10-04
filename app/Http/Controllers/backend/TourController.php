@@ -21,7 +21,8 @@ class TourController extends Controller
      */
     public function index()
     {
-        //
+        $tours = Tour::all();
+        return view('backend.tours.index', compact(['tours']));
     }
 
     /**
@@ -157,5 +158,40 @@ class TourController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getDataToModal(Request $request)
+    {
+        try {
+            $rTour = $request->id;
+            $rdato = $request->dato;
+            $resp = "";
+            switch ($rdato) {
+                case "introd":
+                    $resp = Tour::findOrFail($rTour)->introd;
+                    break;
+//                case "respuesta":
+//                    $resp = PreguntaResp::findOrFail($rTour)->respuesta;
+//                    break;
+            }
+            return $resp;
+        } catch (\Exception $e) {
+            return response()->json(['errors' => $e]);
+        } catch (\Throwable $e) {
+            return response()->json(['errors' => $e]);
+        }
+    }
+
+    public function setActivo(Request $request, $id)
+    {
+        try {
+            $dbTour = Tour::findOrFail($id);
+            $dbTour->activo = ($request->valor == "false") ? 0 : 1;
+            $dbTour->save();
+            return response()->json(['mensaje' => 'OK']);
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 }

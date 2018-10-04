@@ -55,17 +55,17 @@
                     </li>
                     <li><a><i class="fa fa-binoculars"></i> Tours <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Listado</a></li>
+                            <li><a href="{{route('tour.index')}}">Listado</a></li>
                             <li><a href="{{route('tour.create')}}">Agregar</a></li>
                             <li><a>Itinerarios<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="{{route('itinerario-tour.index')}}">Listado</a></li>
                                     <li><a href="#">Agregar</a></li>
                                 </ul>
                             </li>
                             <li><a>Calendarios<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Listado</a></li>
+                                    <li><a href="{{route('calendario-tour.index')}}">Listado</a></li>
                                     <li><a href="#">Agregar</a></li>
                                 </ul>
                             </li>

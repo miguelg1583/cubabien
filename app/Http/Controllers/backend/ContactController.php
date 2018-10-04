@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function getList()
     {
-        $contactos = Contact::all();
+        $contactos = Contact::all()->sortKeysDesc();
         try {
             return Datatables::of($contactos)
                 ->editColumn('email', function ($row){
@@ -22,7 +22,7 @@ class ContactController extends Controller
                     Date::setLocale('es');
                     return $row->created_at->format('D, d/m/y h:i a');
                 })
-                ->rawColumns(['email'])
+                ->rawColumns(['email','mensaje'])
                 ->make(true);
         } catch (\Exception $e) {
             return response()->json(['errors' => $e]);

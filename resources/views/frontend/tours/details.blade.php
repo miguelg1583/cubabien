@@ -63,14 +63,14 @@
                             <br>
                             <p>{!! __($tour->introd_trad) !!}</p>
                             <br>
-                            <p><b>{!! __('word.price-s') !!}:</b> $ {{$tour->getNearFecha()->precio_s_pax}}</p>
-                            <p><b>{!! __('word.price-d') !!}:</b> $ {{$tour->getNearFecha()->precio_d_pax}}</p>
+                            <p><b>{!! __('word.price-s') !!}:</b> $ {{number_format((float)$tour->getNearFecha()->precio_s_pax, 2, '.', '')}}</p>
+                            <p><b>{!! __('word.price-d') !!}:</b> $ {{number_format((float)$tour->getNearFecha()->precio_d_pax, 2, '.', '')}}</p>
                             {{--<div class="buttons">--}}
                                 {{--<a href="#" class="button btn btn-md btn-default btn-outline-dark btn-margin-right"><span><i class="fa fa-shopping-cart fa-sm"></i>&nbsp;&nbsp; $ {{$tour->getNearFecha()->precio_s_pax}} / 1</span></a>--}}
                                 {{--<a href="#" class="button btn btn-md btn-default btn-outline-dark radius5 btn-margin-right"><span><i class="fa fa-shopping-cart fa-sm"></i>&nbsp;&nbsp; $ {{$tour->getNearFecha()->precio_d_pax}} / 2</span></a>--}}
                             {{--</div>--}}
                             <div class="buttons">
-                                <a href="#" class="button btn btn-md btn-default btn-outline-dark radius5 btn-margin-right">{!! __('button.add-cart') !!}</a>
+                                <a href="#" class="button btn btn-md btn-default btn-outline-dark radius5 btn-margin-right cd-add-to-cart" data-price="{{$tour->getNearFecha()->precio_d_pax}}">{!! __('button.add-cart') !!}</a>
                                 {{--<a href="#" class="button btn btn-md btn-default btn-red radius5 btn-margin-right">{!! __('button.add-cart') !!}</a>--}}
                             </div>
                         </div>
@@ -251,7 +251,7 @@
             //     mapTypeId: google.maps.MapTypeId.ROADMAP
             // };
             // let map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
-            var locations = [{!! json_encode($marcadores) !!}];
+            var locations = {!! json_encode($marcadores) !!};
 
             console.log(locations);
 

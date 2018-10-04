@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.34 on 2018-09-24 16:10:19.
+ * Generated for Laravel 5.6.34 on 2018-09-25 16:08:00.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -13200,6 +13200,38 @@ namespace Mews\Captcha\Facades {
  
 }
 
+namespace Mews\Purifier\Facades { 
+
+    class Purifier {
+        
+        /**
+         * 
+         *
+         * @param $dirty
+         * @param null $config
+         * @return mixed 
+         * @static 
+         */ 
+        public static function clean($dirty, $config = null)
+        {
+            return \Mews\Purifier\Purifier::clean($dirty, $config);
+        }
+        
+        /**
+         * Get HTMLPurifier instance.
+         *
+         * @return \HTMLPurifier 
+         * @static 
+         */ 
+        public static function getInstance()
+        {
+            return \Mews\Purifier\Purifier::getInstance();
+        }
+         
+    }
+ 
+}
+
 namespace Stevebauman\Location\Facades { 
 
     class Location {
@@ -16237,6 +16269,8 @@ namespace  {
     class Date extends \Jenssegers\Date\Date {}
 
     class Captcha extends \Mews\Captcha\Facades\Captcha {}
+
+    class Purifier extends \Mews\Purifier\Facades\Purifier {}
 
     class Location extends \Stevebauman\Location\Facades\Location {}
 

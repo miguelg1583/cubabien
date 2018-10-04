@@ -27,7 +27,7 @@ class ContactController extends Controller
             $dbcontacto= new Contact();
             $dbcontacto->nombre= $rcontacto['nombre'];
             $dbcontacto->email= $rcontacto['email'];
-            $dbcontacto->mensaje= $rcontacto['mensaje'];
+            $dbcontacto->mensaje= clean($rcontacto['mensaje']);
             $dbcontacto->save();
 
             return response()->json(['mensaje' => 'OK']);}

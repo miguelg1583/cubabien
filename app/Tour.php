@@ -57,7 +57,7 @@ class Tour extends Model
     public function getNearFecha()
     {
         $diff = 2000000;
-        $fecha = "";
+        $fecha = new FechaTour();
         foreach ($this->fechas as $fechaTour) {
             $fechaDesde = Carbon::createFromFormat('Y-m-d', $fechaTour->desde);
             if ($fechaDesde > Carbon::now()) {

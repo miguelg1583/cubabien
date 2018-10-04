@@ -56,7 +56,7 @@
                     'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'Todos']],
                     'lengthChange': true,
                     'searching': true,
-                    'ordering': true,
+                    // 'ordering': true,
                     'info': true,
                     'autoWidth': true,
                     'language': {
@@ -64,19 +64,20 @@
                     },
                     searchDelay: 800,
                     serverSide: true,
-                    // order: [[5, 'asc']],
+                    // order: [[0, 'desc']],
                     ajax: {
                         url: "{!! route('contact.list') !!}",
                         type: "POST",
-                        // data: {"_token": $('meta[name="_token"]').attr("content")}
                     },
 
                     columns: [
-                        {data: 'nombre'},
-                        {data: 'email'},
-                        {data: 'mensaje'},
-                        {data: 'created_at'}
+                        // {data: 'id'},
+                        {data: 'nombre', orderable: false},
+                        {data: 'email', orderable: false},
+                        {data: 'mensaje', orderable: false},
+                        {data: 'created_at', orderable: false}
                     ],
+                    // columnDefs: [{targets: 0, visible: false}],
                 });
         });
     </script>
