@@ -153,7 +153,7 @@
 
 @section('js')
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyOnCxk3saEx4Ep_KCENBLq9cpUWJ6znU&callback=initMap"></script>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3OX0imnBu0_B6HuBPAekTzVcxkwwYm-w&callback=initMap"></script>
     <script type="text/javascript">
         function initMap() {
             var locations = {!! json_encode($marcadores) !!};

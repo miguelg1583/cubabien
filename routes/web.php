@@ -42,6 +42,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/buscaGrupos', 'backend\TraduccionController@getGrupos')->name('buscaGrupos');
     Route::post('/get-trad', 'backend\TraduccionController@getTradToModal')->name('getTrad');
     Route::resource('traduccion', 'backend\TraduccionController');
+
+//    Route::get('/server/traduccion', 'backend\TraduccionController@index2')->name('trad.index');
+    Route::post('/server/traduccionlist', 'backend\TraduccionController@getList2')->name('trad.list');
+
     Route::resource('categoria-faq', 'backend\CategoriaFaqController');
     Route::post('/get-preg-resp', 'backend\PreguntaRespController@getDataToModal')->name('getDatosPregResp');
     Route::resource('pregunta-resp', 'backend\PreguntaRespController');

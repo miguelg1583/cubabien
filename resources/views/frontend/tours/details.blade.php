@@ -187,7 +187,7 @@
 
 @section('js')
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyOnCxk3saEx4Ep_KCENBLq9cpUWJ6znU&callback=initMap"></script>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3OX0imnBu0_B6HuBPAekTzVcxkwwYm-w&callback=initMap"></script>
     <script type="text/javascript">
         $(document).ready(()=>{
             App.init("{{config('app.url')}}");
@@ -201,6 +201,7 @@
                 'ordering': true,
                 'info': true,
                 'autoWidth': true,
+                'responsive': true,
                 language: {
                     "decimal":        "",
                     "emptyTable":     "{{__('datatable.emptyTable')}}",

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\backend;
 
+use Carbon\Carbon;
 use DataTables;
+use Date;
 use DB;
 use Debugbar;
 use Illuminate\Http\Request;
@@ -18,13 +20,57 @@ class TraduccionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+//    public function index()
+//    {
+////        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
+//        $traducciones = LanguageLine::all();
+//        return view('backend.traducciones.index', compact(['traducciones']));
+//    }
+
     public function index()
     {
-//        $idiomas = DB::table('idiomas')->get(['sigla', 'nombre']);
-        $traducciones = LanguageLine::all();
-        return view('backend.traducciones.index', compact(['traducciones']));
+        return view('backend.traducciones.index2');
     }
 
+    public function getList2(Request $request)
+    {
+        $traducciones = LanguageLine::all();
+        $idioma = $request->idioma;
+//        foreach ($traducciones as $traduccione) {
+//            $traduccione->text = $traduccione->text[$idioma];
+//        }
+        try {
+            return Datatables::of($traducciones)
+                ->addColumn('operaciones', function ($row) {
+                    return '<button class="btn btn-round btn-success show-modal" data-id="' . $row->id . '">' .
+                        '<span class="glyphicon glyphicon-search"></span>' .
+                        '</button>' .
+                        '<a href="' . url('/admin/traduccion/' . $row->id . '/edit') . '"' .
+                        'class="btn btn-round btn-info" data-id="' . $row->id . '">' .
+                        '<span class="glyphicon glyphicon-edit"></span></a>' .
+                        '<button class="btn btn-round btn-danger delete-modal"' .
+                        'data-toggle="modal" data-target="#deleteModal" data-id="' . $row->id . '">' .
+                        '<span class="glyphicon glyphicon-trash"></span>' .
+                        '</button>';
+                })
+                ->editColumn('text', function ($row) use($idioma){
+                    return str_limit($row->text[$idioma], 30, ' (...)');
+                })
+                ->editColumn('created_at', function ($row) {
+                    Date::setLocale('es');
+                    return $row->created_at->format('D, d/m/y h:i a');
+                })
+                ->editColumn('updated_at', function ($row) {
+                    Date::setLocale('es');
+                    return $row->updated_at->format('D, d/m/y h:i a');
+                })
+                ->rawColumns(['operaciones'])
+                ->make(true);
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -93,7 +139,17 @@ class TraduccionController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $trad = DB::table('language_lines')->whereRaw('id=?', [$id])->first();
+            return view('backend.traducciones.partial.show_modal_content', compact('trad'))->render();
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        } catch (\Throwable $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
+
     }
 
     /**

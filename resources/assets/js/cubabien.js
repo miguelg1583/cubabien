@@ -75,7 +75,7 @@ App = function () {
     };
 
     let ajaxDelEntity = function (id, ruta) {
-        $.ajax({
+        return $.ajax({
             type: 'DELETE',
             url: ruta + '/' + id,
             success: function (data) {
@@ -88,6 +88,7 @@ App = function () {
                 }
             }
         });
+
     };
 
     let handleSmartWizard = function (objProperties) {
@@ -140,7 +141,7 @@ App = function () {
             return base_url;
         },
         AjaxDel: function (id, ruta) {
-            ajaxDelEntity(id, ruta);
+            return ajaxDelEntity(id, ruta);
         },
         initAjaxFront: function () {
             handleAjaxFront();
