@@ -64,6 +64,7 @@
 <script type="text/javascript">
     $(document).ready(() => {
         App.initAjaxFront();
+        App.showNotiInfoFull('{!! __("noti-info.title")!!}','{!! __("noti-info.mensaje-desarrollo")!!}');
     });
     $("ul.dropdown-menu>li").on("click", ".idioma-select", function () {
         let lang = $(this).data("lang");

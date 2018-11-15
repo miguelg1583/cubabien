@@ -63,6 +63,7 @@ App = function () {
             text: msg,
             type: type,
             styling: "bootstrap3",
+            addClass: "nonblock",
             buttons: {
                 closer: true, //Provide a button for the user to manually close the notice.
                 closer_hover: false, //Only show the closer button on hover.
@@ -136,6 +137,9 @@ App = function () {
         },
         showNotiNotice: function (msg) {
             pNoty("Error :(", msg, "notice");
+        },
+        showNotiInfoFull: function (titulo, msg){
+            pNoty(titulo, msg, "info");
         },
         getBaseUrl: function () {
             return base_url;
