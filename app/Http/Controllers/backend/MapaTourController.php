@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\CategoriaFaq;
+use App\MapaTour;
+use App\Tour;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Spatie\TranslationLoader\LanguageLine;
 
-class CategoriaFaqController extends Controller
+class MapaTourController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class CategoriaFaqController extends Controller
      */
     public function index()
     {
-        $categorias = CategoriaFaq::all();
-        return view('backend.categoria_faq.index', compact(['categorias']));
+        $tours = Tour::with('mapa')->get();
+        return view('backend.mapa_tours.index', compact('tours'));
     }
 
     /**
@@ -28,7 +28,8 @@ class CategoriaFaqController extends Controller
      */
     public function create()
     {
-        return view('backend.categoria_faq.create');
+        $tours = DB::table('tours')->selectRaw('tours.id, tours.nb as text')->get();
+        return view('backend.mapa_tours.create', compact('tours'));
     }
 
     /**
@@ -40,23 +41,27 @@ class CategoriaFaqController extends Controller
     public function store(Request $request)
     {
         try {
-            $rcateg = $request->categoria;
+            $r_mapa_tour = $request->mapa_tour;
+            foreach ($r_mapa_tour as $r_mapa) {
+                $mapa = new MapaTour();
+                $mapa->tour_id = $r_mapa['tour_id'];
+                $mapa->latitud = $r_mapa['latitud'];
+                $mapa->longitud = $r_mapa['longitud'];
+                $mapa->etiqueta = $r_mapa['etiqueta']['valor'];
+                $mapa->save();
 
-            $categoria = new CategoriaFaq();
-            $categoria->nb = $rcateg['nb']['valor'];
-            $categoria->save();
+                $id_mapa = $mapa->id;
 
-            $id = $categoria->id;
-
-            $categoria = CategoriaFaq::findOrFail($id);
-            $categoria->nb_trad = guarda_trad('categoria-faq', $id, $rcateg['nb']['traduccion']['text']);
-            $categoria->save();
+//                $mapa = MapaTour::findOrFail($id_mapa);
+                $mapa->etiqueta_trad = guarda_trad('mapa_etiqueta', $id_mapa, $r_mapa['etiqueta']['traduccion']['text']);
+                $mapa->update();
+            }
 
             return response()->json(['mensaje' => 'OK']);
 
 
         } catch (\Exception $e) {
-//            Debugbar::error($e);
+            report($e);
             return response()->json(['errors' => $e]);
         }
     }
@@ -80,8 +85,7 @@ class CategoriaFaqController extends Controller
      */
     public function edit($id)
     {
-        $categ = CategoriaFaq::findOrFail($id);
-        return view('backend.categoria_faq.edit', compact('categ'));
+        //
     }
 
     /**
@@ -93,19 +97,7 @@ class CategoriaFaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
-            $rcateg = $request->categoria;
-            $dbcateg = CategoriaFaq::findOrFail($id);
-            $dbcateg->nb = $rcateg['nb']['valor'];
-            $dbcateg->save();
-
-            return response()->json(['mensaje' => 'OK']);
-
-
-        } catch (\Exception $e) {
-//            Debugbar::error($e);
-            return response()->json(['errors' => $e]);
-        }
+        //
     }
 
     /**
@@ -117,10 +109,11 @@ class CategoriaFaqController extends Controller
     public function destroy($id)
     {
         try {
-            $categ = CategoriaFaq::findOrFail($id);
-            DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$categ->nb_trad])->delete();
+            $mapa = MapaTour::findOrFail($id);
 
-            $categ->delete();
+            DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$mapa->etiqueta_trad])->delete();
+
+            $mapa->delete();
 
             return response()->json(['mensaje' => 'OK']);
 

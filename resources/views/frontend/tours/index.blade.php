@@ -100,7 +100,7 @@
                         @endif
                         <div class="col-sm-4">
                             <div class="box-container text-center" data-aos="fade-right">
-                                <div class="box-title">
+                                <div class="box-title" style="min-height: 160px">
                                     <span class="price-top">${{$tour->getNearFecha()->precio_s_pax}} /1</span>
                                     <span class="price-top">${{$tour->getNearFecha()->precio_d_pax}} /2</span>
                                     {{--<i class="fa fa-lg fa-trophy"></i>--}}

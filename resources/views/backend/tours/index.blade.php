@@ -26,13 +26,13 @@
                         {{--<th>id</th>--}}
                         <th>Nombre</th>
                         <th>Traduccion</th>
+                        <th>Activo</th>
                         <th>Introduccion</th>
                         <th>Traduccion</th>
                         <th>Días</th>
                         <th>Noches</th>
                         <th>Salida</th>
                         <th>Llegada</th>
-                        <th>Activo</th>
                         <th>Creado</th>
                         <th>Modificado</th>
                         <th>Operaciones</th>
@@ -43,14 +43,17 @@
                         <td>@{{ tour.nb }}</td>
                         <td><a v-on:click.stop.prevent="showTradu(tour.nb_trad)" class="show_modal_table">@{{
                                 tour.nb_trad }}</a></td>
-                        <td><a v-on:click.stop.prevent="showData(tour.id,'introd')" class="show_modal_table">@{{tour.introd.length<30?tour.introd:tour.introd.substring(0,30)+' (...)'}}</a></td>
+                        <td><input type="checkbox" class="btog-activo" :id="'check'+tour.id" :data-id="tour.id"
+                                   :checked="(tour.activo == 1)"></td>
+                        <td><a v-on:click.stop.prevent="showData(tour.id,'introd')" class="show_modal_table">@{{
+                                tour.introd.length < 30 ? tour.introd : tour.introd.substring(0,30) + '(...)' }}</a>
+                        </td>
                         <td><a v-on:click.stop.prevent="showTradu(tour.introd_trad)" class="show_modal_table">@{{
                                 tour.introd_trad }}</a></td>
                         <td>@{{ tour.num_dias }}</td>
                         <td>@{{ tour.num_noches }}</td>
                         <td>@{{ capitalize(getMomentIsoWeek(tour.salida_dia_trad)) }}</td>
                         <td>@{{ capitalize(getMomentIsoWeek(tour.llegada_dia_trad)) }}</td>
-                        <td><input type="checkbox" class="btog-activo" :id="'check'+tour.id" :data-id="tour.id" :checked="(tour.activo == 1)"></td>
                         <td>@{{ getMomentFormat(tour.created_at) }}</td>
                         <td>@{{ getMomentFormat(tour.updated_at) }}</td>
                         <td>
@@ -115,6 +118,7 @@
                     $('#DTC_tours').DataTable({
                         'paging': true,
                         'responsive': true,
+                        // 'scrollX': true,
                         'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'Todos']],
                         'lengthChange': true,
                         'searching': true,
@@ -129,18 +133,34 @@
                         //     dataSrc: 0
                         // },
                         // columnDefs: [{targets: 0, visible: false}],
-                        'drawCallback': function( settings ) {
-                            $("input[id^=check]").each(function () {
-                                $(this).bootstrapToggle({
-                                    on: 'Si',
-                                    off: 'No',
-                                    onstyle: 'success',
-                                    offstyle: 'danger',
-                                    size: 'mini'
-                                });
-                            });
-                            }
+
+                        // 'drawCallback': function (settings) {
+                        //     console.log('btoggle');
+                        //     $("input[id^=check]").each(function () {
+                        //         $(this).bootstrapToggle({
+                        //             on: 'Si',
+                        //             off: 'No',
+                        //             onstyle: 'success',
+                        //             offstyle: 'danger',
+                        //             size: 'mini'
+                        //         });
+                        //     });
+                        // },
+
+                        // 'rowCallback': function (row, data) {
+                        //     // console.log('funcion rowCallback row', row);
+                        //     // console.log('funcion rowCallback data', data.id);
+                        //     $(row).find('input[id^="check"]').bootstrapToggle({
+                        //         on: 'Si',
+                        //         off: 'No',
+                        //         onstyle: 'success',
+                        //         offstyle: 'danger',
+                        //         size: 'mini'
+                        //     });
+                        //     // console.log('esta el ', data.id, data.uid);
+                        // }
                     });
+
                 },
                 showTradu: function (trad_string) {
                     $.ajax({
@@ -180,6 +200,15 @@
                         },
                     });
                 },
+                activaBtoggle: function () {
+                    $('input[id^="check"]').bootstrapToggle({
+                        on: 'Si',
+                        off: 'No',
+                        onstyle: 'success',
+                        offstyle: 'danger',
+                        size: 'mini'
+                    });
+                }
             },
             beforeCreate() {
                 App.init("{{config('app.url')}}");
@@ -188,6 +217,7 @@
             mounted: function () {
                 // App.initDatatable();
                 this.initDatatable();
+                this.activaBtoggle()
             },
 
         });
@@ -210,27 +240,27 @@
         //activar o desactivar
         // $('#DTC_tours').find('tbody').on('click', 'tr', function () {
         //     $(this).find(".btog-activo").change(function () {
-            $(".btog-activo").change(function () {
-                id = $(this).data("id");
-                valor = this.checked;
-                // console.log(valor);
-                    $.ajax({
-                        type: 'PUT',
-                        url: '/admin/tour/activo/' + id,
-                        data: {
-                            'id': id,
-                            'valor': valor
-                        },
-                        success: function (data) {
-                            if ((data.errors)) {
-                                console.log(data);
-                                App.showNotiError('Ha ocurrido un problema en el servidor');
-                            }else{
-                                App.showNotiSuccess('Cambio de estado realizado correctamente')
-                            }
-                        }
-                    });
+        $(".btog-activo").change(function () {
+            id = $(this).data("id");
+            valor = this.checked;
+            // console.log(valor);
+            $.ajax({
+                type: 'PUT',
+                url: '/admin/tour/activo/' + id,
+                data: {
+                    'id': id,
+                    'valor': valor
+                },
+                success: function (data) {
+                    if ((data.errors)) {
+                        console.log(data);
+                        App.showNotiError('Ha ocurrido un problema en el servidor');
+                    } else {
+                        App.showNotiSuccess('Cambio de estado realizado correctamente')
+                    }
+                }
             });
+        });
         // });
     </script>
 @endsection

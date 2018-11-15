@@ -71,8 +71,8 @@
                             </li>
                             <li><a>Mapas<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Listado</a></li>
-                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="{{route('mapa-tour.index')}}">Listado</a></li>
+                                    <li><a href="{{route('mapa-tour.create')}}">Agregar</a></li>
                                 </ul>
                             </li>
                         </ul>

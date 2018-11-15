@@ -1,4 +1,5 @@
 setInicialTrad: function () {
+self = this;
 this.traduccion = {
 text: []
 };

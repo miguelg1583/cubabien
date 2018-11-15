@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/get-preg-resp', 'backend\PreguntaRespController@getDataToModal')->name('getDatosPregResp');
     Route::resource('pregunta-resp', 'backend\PreguntaRespController');
     Route::post('/contactlist', 'backend\ContactController@getList')->name('contact.list');
+    Route::put('/contact/atendido/{id}', 'backend\ContactController@setAtendido')->name('setAtendido');
     Route::get('/contact', 'backend\ContactController@index')->name('contact.index');
     Route::resource('tour', 'backend\TourController');
     Route::post('/get-tour', 'backend\TourController@getDataToModal')->name('getDatosTour');
@@ -58,6 +59,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/get-itinerario-tour', 'backend\ItinerarioTourController@getDataToModal')->name('getDatosItinerarioTour');
     Route::resource('calendario-tour', 'backend\CalendarioTourController');
     Route::post('/calendario-tour-list', 'backend\CalendarioTourController@getList')->name('calendario-tour.list');
+    Route::resource('mapa-tour', 'backend\MapaTourController');
 
 
 

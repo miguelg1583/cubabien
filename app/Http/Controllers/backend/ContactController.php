@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function getList()
     {
-        $contactos = Contact::all()->sortKeysDesc();
+        $contactos = Contact::all()->sortByDesc('created_at');
         try {
             return Datatables::of($contactos)
                 ->editColumn('email', function ($row){
@@ -22,9 +22,28 @@ class ContactController extends Controller
                     Date::setLocale('es');
                     return $row->created_at->format('D, d/m/y h:i a');
                 })
-                ->rawColumns(['email','mensaje'])
+                ->editColumn('atendido', function ($row){
+                    if($row->atendido){
+                        return '<input type="checkbox" class="btog-activo" id="check'.$row->id.'" data-id="'.$row->id.'" checked>';
+                    }
+                    return '<input type="checkbox" class="btog-activo" id="check'.$row->id.'" data-id="'.$row->id.'">';
+                })
+                ->rawColumns(['email','mensaje','atendido'])
                 ->make(true);
         } catch (\Exception $e) {
+            return response()->json(['errors' => $e]);
+        }
+    }
+
+    public function setAtendido(Request $request, $id)
+    {
+        try {
+            $dbContact = Contact::findOrFail($id);
+            $dbContact->atendido ? $dbContact->atendido = false : $dbContact->atendido = true;
+            $dbContact->update();
+            return response()->json(['mensaje' => 'OK']);
+        } catch (\Exception $e) {
+            report($e);
             return response()->json(['errors' => $e]);
         }
     }
