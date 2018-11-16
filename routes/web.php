@@ -31,6 +31,8 @@ Route::get('/travel_cuba', 'frontend\TourController@index')->name('travel_cuba.i
 Route::get('/travel_cuba/{id}', 'frontend\TourController@show')->name('travel_cuba.show');
 Route::post('/fechas-after-list', 'frontend\TourController@getFechasAfterTodayList')->name('fechasAfter.list');
 
+Route::get('/request', 'frontend\PruebaController@getRequestData');
+
 
 Route::prefix('admin')->group(function () {
 
