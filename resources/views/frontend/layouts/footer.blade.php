@@ -140,6 +140,8 @@
                             <i class="fa fa-envelope fa-md"></i>
                         </a>
                     </div>
+                    <br>
+                    <p>"Fla. Seller of Travel Ref. No. ST38416"</p>
                 </div>
             </div>
             {{--<div class="container footer-img">--}}
