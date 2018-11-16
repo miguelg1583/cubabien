@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-sm-3 contacts" data-aos="fade-right" data-aos-delay="150">
                     <div class="footer-title">
-                        <h4>Contact Us</h4>
+                        <h4>{{__('menu.contact')}}</h4>
                     </div>
                     <p>7360 SW 24th St #22</p>
                     <p>Miami, FL 33155, USA</p>
