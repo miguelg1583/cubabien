@@ -27,8 +27,8 @@ class ImagenController extends Controller
         }
 
         //if thumbnail exist returns it
-        if (File::exists(public_path("{$images_path}/thumbs/" . "{$width}x{$height}/" . $path))) {
-            return url("{$images_path}/thumbs/" . "{$width}x{$height}/" . $path);
+        if (File::exists(public_path("frontend/images/thumbs/" . "{$width}x{$height}/" . $path))) {
+            return url("frontend/images/thumbs/" . "{$width}x{$height}/" . $path);
         }
 
         //If original image doesn't exists returns a default image which shows that original image doesn't exist.
@@ -79,19 +79,19 @@ class ImagenController extends Controller
             $dir_path = (dirname($path) == '.') ? "" : dirname($path);
 
             //Create the directory if it doesn't exist
-            if (!File::exists(public_path("{$images_path}/thumbs/" . "{$width}x{$height}/" . $dir_path))) {
-                File::makeDirectory(public_path("{$images_path}/thumbs/" . "{$width}x{$height}/" . $dir_path), 0775, true);
+            if (!File::exists(public_path("frontend/images/thumbs/" . "{$width}x{$height}/" . $dir_path))) {
+                File::makeDirectory(public_path("frontend/images/thumbs/" . "{$width}x{$height}/" . $dir_path), 0775, true);
             }
 
             //Save the thumbnail
-            $image->save(public_path("{$images_path}/thumbs/" . "{$width}x{$height}/" . $path));
+            $image->save(public_path("frontend/images/thumbs/" . "{$width}x{$height}/" . $path));
 
             $image->insert($this->getWatermark($width, $height), 'bottom-right');
 
-            $image->save(public_path("{$images_path}/thumbs/" . "{$width}x{$height}/" . str_replace_last('.','_watermark.',$path)));
+            $image->save(public_path("frontend/images/thumbs/" . "{$width}x{$height}/" . str_replace_last('.','_watermark.',$path)));
 
             //return the url of the thumbnail
-            return url("{$images_path}/thumbs/" . "{$width}x{$height}/" . $path);
+            return url("frontend/images/thumbs/" . "{$width}x{$height}/" . $path);
         } else {
 
             //return a placeholder image
