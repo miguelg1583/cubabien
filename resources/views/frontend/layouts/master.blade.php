@@ -83,7 +83,9 @@
     });
     $('img').on('mousedown', function (event) {
         if (event.which === 3) {
-            this.src = this.src.replace('.jpg', '_watermark.jpg');
+            if(this.src.indexOf('_watermark') !== -1){
+                this.src = this.src.replace('.jpg', '_watermark.jpg');
+            }
         }
     });
 </script>
