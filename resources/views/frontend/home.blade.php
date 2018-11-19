@@ -55,7 +55,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 aos-init aos-animate" data-aos="fade-right">
-                    <img src="{{assets_frontend('images/front-1.jpg')}}" class="img-responsive img-relative" alt="">
+                    <img src="{{getImageThumbnail('front-1.jpg',640,480, 'fit')}}" class="img-responsive img-relative" alt="">
                 </div>
                 <div class="col-sm-6" data-aos="fade-left">
                     <div class="title text-left">

@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 
 class PruebaController extends Controller
 {
-    public function getRequestData()
+    public function getRequestData(Request $request)
     {
-        dd(\request());
+        dd($request);
     }
 }

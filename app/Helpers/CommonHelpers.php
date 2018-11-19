@@ -54,6 +54,10 @@ function assets_backend($file)
     return asset('/backend/' . $file . APP_VERSION);
 }
 
+function getImageThumbnail($path, $width, $height, $type){
+    return app('App\Http\Controllers\ImagenController')->getImageThumbnail($path, $width, $height, $type);
+}
+
 function guarda_trad($grupo,$id,$arrText)
 {
     //            despues guardo la traduccion

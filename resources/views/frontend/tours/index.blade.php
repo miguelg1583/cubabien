@@ -43,7 +43,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-12 left-image">
-                    <img src="{{assets_frontend('images/travel_index.jpg')}}" class="img-responsive" alt="">
+                    <img src="{{getImageThumbnail('4.jpg',700,780, 'fit')}}" class="img-responsive" alt="">
                 </div>
                 <div class="col-lg-7 col-sm-12">
                     <div class="title text-left">
