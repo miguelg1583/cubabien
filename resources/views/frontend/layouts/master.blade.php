@@ -90,9 +90,9 @@
         }
     }).on('taphold', function (e, touch) {
         // let self = this;
-        App.showNotiInfoFull('target', touch.target);
-        if (touch.target.src.indexOf('_watermark') === -1) {
-            touch.target.src = touch.target.src.replace('.jpg', '_watermark.jpg');
+        // App.showNotiInfoFull('target', touch.target);
+        if (this.src.indexOf('_watermark') === -1) {
+            this.src = this.src.replace('.jpg', '_watermark.jpg');
         }
     })
 </script>
