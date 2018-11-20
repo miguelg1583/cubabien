@@ -123,6 +123,8 @@ mix.babel([
     'resources/assets/plugins/datatables/datatables.net-responsive/js/dataTables.responsive.js',
     'resources/assets/plugins/datatables/datatables.net-responsive-bs/js/responsive.bootstrap.js',
 
+    './node_modules/jquery-touch-events/src/jquery.mobile-events.js',
+
     'resources/assets/template/kanina/javascript/navbar.js',
     'resources/assets/template/kanina/javascript/main.js',
 

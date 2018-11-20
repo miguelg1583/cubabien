@@ -64,7 +64,7 @@
 <script type="text/javascript">
     $(document).ready(() => {
         App.initAjaxFront();
-        App.showNotiInfoFull('{!! __("noti-info.title")!!}','{!! __("noti-info.mensaje-desarrollo")!!}');
+        App.showNotiInfoFull('{!! __("noti-info.title")!!}', '{!! __("noti-info.mensaje-desarrollo")!!}');
     });
     $("ul.dropdown-menu>li").on("click", ".idioma-select", function () {
         let lang = $(this).data("lang");
@@ -84,11 +84,16 @@
     $('img').on('mousedown', function (event) {
         if (event.which === 3) {
             let self = this;
-            if(self.src.indexOf('_watermark') === -1){
+            if (self.src.indexOf('_watermark') === -1) {
                 self.src = self.src.replace('.jpg', '_watermark.jpg');
             }
         }
-    });
+    }).taphold(function (e, touch) {
+        // let self = this;
+        if (touch.target.src.indexOf('_watermark') === -1) {
+            touch.target.src = touch.target.src.replace('.jpg', '_watermark.jpg');
+        }
+    })
 </script>
 @yield('js')
 </body>
