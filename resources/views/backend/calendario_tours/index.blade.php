@@ -79,7 +79,7 @@
                     // data: {"_token": $('meta[name="_token"]').attr("content")}
                 },
                 columns: [
-                    {data: 'tour.nb'},
+                    {data: 'tour.nb', name: 'tour_id'},
                     {data: 'desde'},
                     {data: 'hasta'},
                     {data: 'precio_s_pax'},
