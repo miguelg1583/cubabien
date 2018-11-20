@@ -85,7 +85,9 @@ class MapaTourController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tours = DB::table('tours')->selectRaw('tours.id, tours.nb as text')->get();
+        $mapa = MapaTour::findOrFail($id);
+        return view('backend.mapa_tours.edit', compact('tours', 'mapa'));
     }
 
     /**
@@ -97,7 +99,20 @@ class MapaTourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $r_mapa = $request->mapa;
+            $db_mapa = MapaTour::findOrFail($id);
+            $db_mapa->latitud=$r_mapa['latitud'];
+            $db_mapa->longitud=$r_mapa['longitud'];
+            $db_mapa->etiqueta=$r_mapa['etiqueta'];
+            $db_mapa->save();
+
+            return response()->json(['mensaje' => 'OK']);
+
+        } catch (\Exception $e) {
+//            Debugbar::error($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     /**
