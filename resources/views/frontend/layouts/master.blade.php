@@ -88,7 +88,7 @@
                 self.src = self.src.replace('.jpg', '_watermark.jpg');
             }
         }
-    }).on('taphold', function (e, touch) {
+    }).on('tapstart', function (e, touch) {
         if (this.src.indexOf('_watermark') === -1) {
             this.src = this.src.replace('.jpg', '_watermark.jpg');
         }
