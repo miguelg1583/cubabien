@@ -74,12 +74,16 @@
 
                 columns: [
                     {data: 'nombre'},
-                    {data: 'atendido'},
+                    {
+                        data: 'atendido',
+                        orderable: false,
+                        searchabke: false
+                    },
                     {data: 'email'},
                     {data: 'mensaje'},
                     {
                         data: 'created_at',
-                        order: 'desc'
+                        // order: 'desc'
                     }
                 ],
                 // columnDefs: [{targets: 0, visible: false}],

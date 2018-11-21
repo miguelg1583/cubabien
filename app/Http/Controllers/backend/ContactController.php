@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function getList()
     {
-        $contactos = Contact::all()->sortByDesc('created_at');
+        $contactos = Contact::query()->orderByDesc('created_at');
 //        $contactos = Contact::query();
         try {
             return Datatables::of($contactos)

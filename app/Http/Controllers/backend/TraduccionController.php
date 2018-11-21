@@ -34,7 +34,7 @@ class TraduccionController extends Controller
 
     public function getList2(Request $request)
     {
-        $traducciones = LanguageLine::all();
+        $traducciones = LanguageLine::query();
         $idioma = $request->idioma;
 //        foreach ($traducciones as $traduccione) {
 //            $traduccione->text = $traduccione->text[$idioma];
