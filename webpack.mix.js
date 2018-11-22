@@ -27,7 +27,6 @@ mix.babel([
     'resources/assets/plugins/fastclick/lib/fastclick.js',
     'resources/assets/plugins/nprogress/nprogress.js',
 
-    'resources/assets/plugins/gentelella-build/js/custom.js',
 
     './node_modules/vue/dist/vue.js',
     './node_modules/vee-validate/dist/vee-validate.js',
@@ -58,6 +57,9 @@ mix.babel([
 
     'resources/assets/plugins/bootstrap-toggle/js/bootstrap-toggle.js',
 
+    'resources/assets/plugins/gentelella-build/js/custom.js',
+
+
     'resources/assets/js/cubabien.js'
 
 ], 'public/backend/js/cubabien.js');
@@ -69,6 +71,9 @@ mix.copyDirectory('resources/assets/plugins/bootstrap/fonts', 'public/backend/fo
 mix.copyDirectory('resources/assets/plugins/summernote/font', 'public/backend/fonts');
 
 mix.copyDirectory('resources/assets/plugins/gentelella-build/images', 'public/backend/images');
+
+mix.copyDirectory('./node_modules/fullcalendar', 'public/vendor/fullcalendar');
+mix.copyDirectory('./node_modules/leaflet', 'public/vendor/leaflet');
 
 mix.styles([
     'resources/assets/plugins/bootstrap/dist/css/bootstrap.css',

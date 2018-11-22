@@ -8,6 +8,7 @@ use DataTables;
 use Date;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use function Sodium\crypto_box_publickey_from_secretkey;
 
 class CalendarioTourController extends Controller
 {
@@ -105,25 +106,25 @@ class CalendarioTourController extends Controller
             return Datatables::of($calendarios)
                 ->editColumn('desde', function ($row) {
                     Date::setLocale('es');
-                    return Date::createFromFormat('Y-m-d',$row->desde)->format('D, d/m/y');
+                    return Date::createFromFormat('Y-m-d', $row->desde)->format('D, d/m/y');
                 })
                 ->editColumn('hasta', function ($row) {
                     Date::setLocale('es');
-                    return Date::createFromFormat('Y-m-d',$row->hasta)->format('D, d/m/y');
+                    return Date::createFromFormat('Y-m-d', $row->hasta)->format('D, d/m/y');
                 })
-                ->editColumn('precio_s_pax', function ($row){
-                    return '$ '.number_format((float)$row->precio_s_pax, 2, '.', '');
+                ->editColumn('precio_s_pax', function ($row) {
+                    return '$ ' . number_format((float)$row->precio_s_pax, 2, '.', '');
                 })
-                ->editColumn('precio_d_pax', function ($row){
-                    return '$ '.number_format((float)$row->precio_d_pax, 2, '.', '');
+                ->editColumn('precio_d_pax', function ($row) {
+                    return '$ ' . number_format((float)$row->precio_d_pax, 2, '.', '');
                 })
                 ->editColumn('created_at', function ($row) {
                     Date::setLocale('es');
-                    return Date::createFromFormat('Y-m-d H:i:s',$row->created_at)->format('D, d/m/y h:i a');
+                    return Date::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('D, d/m/y h:i a');
                 })
                 ->editColumn('updated_at', function ($row) {
                     Date::setLocale('es');
-                    return Date::createFromFormat('Y-m-d H:i:s',$row->updated_at)->format('D, d/m/y h:i a');
+                    return Date::createFromFormat('Y-m-d H:i:s', $row->updated_at)->format('D, d/m/y h:i a');
                 })
                 ->addColumn('operaciones', function ($row) {
                     return
@@ -142,5 +143,21 @@ class CalendarioTourController extends Controller
         } catch (\Exception $e) {
             return response()->json(['errors' => $e]);
         }
+    }
+
+    public function getCalendar(Request $request)
+    {
+        $intervalo = [$request->start, $request->end];
+
+        $fecha_tours = FechaTour::with('tour')->whereBetween('desde', $intervalo)->orWhereBetween('hasta', $intervalo)->get();
+
+        $arrEvent = [];
+
+        foreach ($fecha_tours as $fecha_tour) {
+
+            $arrEvent[] = ['id' => $fecha_tour->id, 'title' => $fecha_tour->tour->nb.' | Precio S: $'.$fecha_tour->precio_s_pax.' | Precio D: $'.$fecha_tour->precio_d_pax, 'start' => $fecha_tour->desde, 'end' => $fecha_tour->hasta, 'objeto'=>$fecha_tour];
+        }
+
+        return response()->json($arrEvent);
     }
 }
