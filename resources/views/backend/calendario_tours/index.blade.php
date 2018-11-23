@@ -25,7 +25,6 @@
         </div>
         <div class="x_content">
             <div id="calendar"></div>
-            l
         </div>
     </div>
 @endsection
@@ -37,7 +36,7 @@
         $(document).ready(init_calendar());
 
         function render_calendar() {
-            $('#calendar').fullCalendar('render');
+            $('#calendar').fullCalendar('refetchEvents');
             console.log('renderizado');
         }
 
@@ -57,7 +56,7 @@
                             // other view-specific options here
                         }
                     },
-                    selectable: true,
+                    // selectable: true,
                     editable: true,
                     locale: 'es',
                     themeSystem: 'bootstrap3',
@@ -78,37 +77,39 @@
                         console.log(jsEvent);
                     },
                     eventClick: function (calEvent, jsEvent, view) {
+                        let footer_html = '<a href="{{url('/admin/calendario-tour')}}/'+calEvent.id+'/edit" class="btn btn-info" data-id="'+calEvent.id+'"><span class="glyphicon glyphicon-edit"></span> Editar</a>';
+                        footer_html += '<button type="button" class="btn btn-danger delete-modal" data-dismiss="modal" data-toggle="modal" data-target="#deleteModal" data-id="'+calEvent.id+'"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';
+                        footer_html += '<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>';
+                        $.ajax({
+                            type: 'POST',
+                            url: '{{route('calendario-tour.getCalendar')}}',
+                            data: {
+                                'id': calEvent.id,
+                            }
+                        }).done(function (data) {
+                            if (data.errors) {
+                                console.log(data);
+                                App.showNotiError('Ha ocurrido un problema en el servidor');
+                            } else {
+                                $("#show_modal_content").html(data);
+                                $("#show_footer").html(footer_html);
 
-                        alert('Event: ' + calEvent.title + 'Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY + 'View: ' + view.name);
-                        console.log(calEvent.objeto);
-                        $('#showModal').modal('show');
-                        // change the border color just for fun
-                        $(this).css('border-color', 'red');
-
+                                $("#showModal").modal("show");
+                            }
+                        });
                     }
-                    {{--events: function (start, end, timezone, callback) {--}}
-                    {{--console.log(start.format('DD-MM-YYYY'));--}}
-                    {{--console.log(end.format('DD-MM-YYYY'));--}}
-                    {{--$.ajax({--}}
-                    {{--url: '{{route('calendario-tour.calendar')}}',--}}
-                    {{--type: 'POST',--}}
-                    {{--data: {--}}
-                    {{--start: start,--}}
-                    {{--end: end,--}}
-                    {{--},--}}
-                    {{--// success: function (doc) {--}}
-                    {{--//     var events = [];--}}
-                    {{--//     $(doc).find('event').each(function () {--}}
-                    {{--//         events.push({--}}
-                    {{--//             title: $(this).attr('title'),--}}
-                    {{--//             start: $(this).attr('start') // will be parsed--}}
-                    {{--//         });--}}
-                    {{--//     });--}}
-                    {{--//     callback(events);--}}
-                    {{--// }--}}
-                    {{--});--}}
-                    {{--}--}}
                 })
         }
+
+        let id = '';
+        $(document).on("click", ".delete-modal", function () {
+            id=$(this).data("id");
+        });
+
+        $(".modal-footer").on("click", ".delete", function () {
+            App.AjaxDel(id, '{!! url('/admin/calendario-tour') !!}').done(function () {
+                render_calendar();
+            });
+        });
     </script>
 @endsection

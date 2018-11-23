@@ -65,6 +65,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('calendario-tour', 'backend\CalendarioTourController');
         Route::post('/calendario-tour-list', 'backend\CalendarioTourController@getList')->name('calendario-tour.list');
         Route::post('/calendario-tour-fullcalendar', 'backend\CalendarioTourController@getCalendar')->name('calendario-tour.calendar');
+        Route::post('/get-calendario', 'backend\CalendarioTourController@showCalendar')->name('calendario-tour.getCalendar');
         Route::resource('mapa-tour', 'backend\MapaTourController');
 
 

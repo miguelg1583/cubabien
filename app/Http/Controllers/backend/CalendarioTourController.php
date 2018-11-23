@@ -155,9 +155,24 @@ class CalendarioTourController extends Controller
 
         foreach ($fecha_tours as $fecha_tour) {
 
-            $arrEvent[] = ['id' => $fecha_tour->id, 'title' => $fecha_tour->tour->nb.' | Precio S: $'.$fecha_tour->precio_s_pax.' | Precio D: $'.$fecha_tour->precio_d_pax, 'start' => $fecha_tour->desde, 'end' => $fecha_tour->hasta, 'objeto'=>$fecha_tour];
+            $arrEvent[] = ['id' => $fecha_tour->id, 'title' => $fecha_tour->tour->nb.' | Precio S: $'.$fecha_tour->precio_s_pax.' | Precio D: $'.$fecha_tour->precio_d_pax, 'start' => $fecha_tour->desde, 'end' => $fecha_tour->hasta];
         }
 
         return response()->json($arrEvent);
+    }
+
+    public function showCalendar(Request $request)
+    {
+        try {
+            $calendario = FechaTour::with('tour')->findOrFail($request->id);
+            Date::setLocale('es');
+            $calendario->desde=Date::createFromFormat('Y-m-d', $calendario->desde)->format('D, d/m/y');
+            $calendario->hasta=Date::createFromFormat('Y-m-d', $calendario->hasta)->format('D, d/m/y');
+            return view('backend.calendario_tours.partial.show_modal_content', compact('calendario'))->render();
+        } catch (\Exception $e) {
+            return response()->json(['errors' => $e]);
+        } catch (\Throwable $e) {
+            return response()->json(['errors' => $e]);
+        }
     }
 }

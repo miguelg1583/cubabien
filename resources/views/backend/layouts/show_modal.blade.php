@@ -10,7 +10,7 @@
 
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="show_footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
