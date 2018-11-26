@@ -65,8 +65,9 @@
                             </li>
                             <li><a>Calendarios<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('calendario-tour.index')}}">Listado</a></li>
-                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="{{route('calendario-tour.index')}}">Calendario</a></li>
+                                    <li><a href="{{route('calendario-tour.index_datatable')}}">Listado</a></li>
+                                    <li><a href="{{route('calendario-tour.create')}}">Agregar</a></li>
                                 </ul>
                             </li>
                             <li><a>Mapas<span class="fa fa-chevron-down"></span></a>

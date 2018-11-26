@@ -6,6 +6,7 @@ use App\FechaTour;
 use Carbon\Carbon;
 use DataTables;
 use Date;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use function Sodium\crypto_box_publickey_from_secretkey;
@@ -19,8 +20,14 @@ class CalendarioTourController extends Controller
      */
     public function index()
     {
-        $calendarios = FechaTour::with('tour')->get();
-        return view('backend.calendario_tours.index', compact('calendarios'));
+//        $calendarios = FechaTour::with('tour')->get();
+        return view('backend.calendario_tours.index');
+    }
+
+    public function index_datatable()
+    {
+//        $calendarios = FechaTour::with('tour')->get();
+        return view('backend.calendario_tours.index_datatable');
     }
 
     /**
@@ -30,7 +37,8 @@ class CalendarioTourController extends Controller
      */
     public function create()
     {
-        //
+        $tours = DB::table('tours')->selectRaw('tours.id, tours.nb as text')->get();
+        return view('backend.calendario_tours.create', compact('tours'));
     }
 
     /**
@@ -41,7 +49,20 @@ class CalendarioTourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        try {
+            $r_fecha = $request->fecha;
+            $fecha = new FechaTour();
+            $fecha->tour_id = $r_fecha['tour_id'];
+            $fecha->desde = Carbon::createFromFormat('d/m/Y', $r_fecha['desde'])->format('Y-m-d');
+            $fecha->hasta = Carbon::createFromFormat('d/m/Y', $r_fecha['hasta'])->format('Y-m-d');
+            $fecha->precio_s_pax = $r_fecha['precio_s_pax'];
+            $fecha->precio_d_pax = $r_fecha['precio_d_pax'];
+            $fecha->save();
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     /**
@@ -128,7 +149,7 @@ class CalendarioTourController extends Controller
                 })
                 ->addColumn('operaciones', function ($row) {
                     return
-                        '<a href="' . url('/admin/calendario-tour') . '/' . $row->id . '" class="btn btn-round btn-info" ' .
+                        '<a href="' . url('/admin/calendario-tour') . '/' . $row->id . '/edit'.'" class="btn btn-round btn-info" ' .
                         'data-id="' . $row->id . '" ' . '>' .
                         '<span class="glyphicon glyphicon-edit"></span>' .
                         '</a>' .
@@ -155,7 +176,7 @@ class CalendarioTourController extends Controller
 
         foreach ($fecha_tours as $fecha_tour) {
 
-            $arrEvent[] = ['id' => $fecha_tour->id, 'title' => $fecha_tour->tour->nb.' | Precio S: $'.$fecha_tour->precio_s_pax.' | Precio D: $'.$fecha_tour->precio_d_pax, 'start' => $fecha_tour->desde, 'end' => $fecha_tour->hasta];
+            $arrEvent[] = ['id' => $fecha_tour->id, 'title' => $fecha_tour->tour->nb . ' | Precio S: $' . $fecha_tour->precio_s_pax . ' | Precio D: $' . $fecha_tour->precio_d_pax, 'start' => $fecha_tour->desde, 'end' => Carbon::createFromFormat('Y-m-d', $fecha_tour->hasta)->addDay()->format('Y-m-d')];
         }
 
         return response()->json($arrEvent);
@@ -166,8 +187,8 @@ class CalendarioTourController extends Controller
         try {
             $calendario = FechaTour::with('tour')->findOrFail($request->id);
             Date::setLocale('es');
-            $calendario->desde=Date::createFromFormat('Y-m-d', $calendario->desde)->format('D, d/m/y');
-            $calendario->hasta=Date::createFromFormat('Y-m-d', $calendario->hasta)->format('D, d/m/y');
+            $calendario->desde = Date::createFromFormat('Y-m-d', $calendario->desde)->format('D, d/m/y');
+            $calendario->hasta = Date::createFromFormat('Y-m-d', $calendario->hasta)->format('D, d/m/y');
             return view('backend.calendario_tours.partial.show_modal_content', compact('calendario'))->render();
         } catch (\Exception $e) {
             return response()->json(['errors' => $e]);

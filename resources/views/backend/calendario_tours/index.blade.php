@@ -63,7 +63,7 @@
                     defaultView: 'month',
                     fixedWeekCount: false,
                     height: 'auto',
-                    allDayDefault: true,
+                    // allDayDefault: true,
                     events: {
                         url: '{{route('calendario-tour.calendar')}}',
                         type: 'POST',
@@ -72,10 +72,10 @@
                         element.css("font-size", "1em");
                         element.css("padding", "3px");
                     },
-                    select: function (start, end, jsEvent) {
-                        alert('Inicio: ' + start.format('DD-MM-YYYY') + 'Fin: ' + end.subtract(1, 'days').format('DD-MM-YYYY'));
-                        console.log(jsEvent);
-                    },
+                    // select: function (start, end, jsEvent) {
+                    //     alert('Inicio: ' + start.format('DD-MM-YYYY') + 'Fin: ' + end.subtract(1, 'days').format('DD-MM-YYYY'));
+                    //     console.log(jsEvent);
+                    // },
                     eventClick: function (calEvent, jsEvent, view) {
                         let footer_html = '<a href="{{url('/admin/calendario-tour')}}/'+calEvent.id+'/edit" class="btn btn-info" data-id="'+calEvent.id+'"><span class="glyphicon glyphicon-edit"></span> Editar</a>';
                         footer_html += '<button type="button" class="btn btn-danger delete-modal" data-dismiss="modal" data-toggle="modal" data-target="#deleteModal" data-id="'+calEvent.id+'"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';

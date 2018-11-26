@@ -25,7 +25,7 @@
                 <div class="dashboard-widget-content">
                     <div class="col-md-6 table-responsive">
                         <h2><i class="fa fa-bars"></i> Puntos</h2>
-                        <table class="table table-striped">
+                        <table class="table table-striped" :id="'DT'+posTour">
                             <thead>
                             <tr>
                                 <th>Latitud</th>
@@ -162,6 +162,7 @@
             },
             mounted: function () {
                 this.cargaMapaAll();
+                App.initDatatable();
             },
 
         });
