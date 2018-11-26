@@ -74,6 +74,7 @@ mix.copyDirectory('resources/assets/plugins/gentelella-build/images', 'public/ba
 
 mix.copyDirectory('./node_modules/fullcalendar', 'public/vendor/fullcalendar');
 mix.copyDirectory('./node_modules/leaflet', 'public/vendor/leaflet');
+mix.copyDirectory('resources/assets/plugins/Gallery', 'public/vendor/gallery');
 
 mix.styles([
     'resources/assets/plugins/bootstrap/dist/css/bootstrap.css',

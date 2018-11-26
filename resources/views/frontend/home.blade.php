@@ -55,7 +55,50 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 aos-init aos-animate" data-aos="fade-right">
-                    <img src="{{getImageThumbnail('front-1.jpg',640,480, 'fit')}}" class="img-responsive img-relative" alt="">
+                    {{--<img src="{{getImageThumbnail('front-1.jpg',640,480, 'fit')}}" class="img-responsive img-relative" alt="">--}}
+                    <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#homeCarousel" data-slide-to="1"></li>
+                            <li data-target="#homeCarousel" data-slide-to="2"></li>
+                            <li data-target="#homeCarousel" data-slide-to="3"></li>
+                            <li data-target="#homeCarousel" data-slide-to="4"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{{getImageThumbnail('6.jpg',700,540, 'fit')}}">
+                            </div>
+
+                            <div class="item">
+                                <img src="{{getImageThumbnail('7.jpg',700,540, 'fit')}}">
+                            </div>
+
+                            <div class="item">
+                                <img src="{{getImageThumbnail('8.jpg',700,540, 'fit')}}">
+                            </div>
+
+                            <div class="item">
+                                <img src="{{getImageThumbnail('9.jpg',700,540, 'fit')}}">
+                            </div>
+
+                            <div class="item">
+                                <img src="{{getImageThumbnail('10.jpg',700,540, 'fit')}}">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#homeCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#homeCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-sm-6" data-aos="fade-left">
                     <div class="title text-left">
