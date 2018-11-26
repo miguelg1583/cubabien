@@ -11,7 +11,7 @@
     <div id="app" v-cloak>
         <div class="x_panel">
             <div class="x_title">
-                <h2><i class="fa fa-file-code-o"></i> Agregar
+                <h2><i class="fa fa-file-code-o"></i> Editar
                 </h2>
                 <div class="clearfix"></div>
             </div>
@@ -80,12 +80,12 @@
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button type="submit" class="btn btn-primary" :disabled="isNoValido"
-                                v-on:click.prevent="createLista()"><span
+                                v-on:click.prevent="updateLista()"><span
                                     class='fa fa-list'></span>Guardar y Regresar al listado
                         </button>
                         <button id="send" type="submit" class="btn btn-success" :disabled="isNoValido"
-                                v-on:click.prevent="createAgrega()"><span
-                                    class='fa fa-check'></span>Guardar y Agregar otro
+                                v-on:click.prevent="updateEdita()"><span
+                                    class='fa fa-check'></span>Guardar
                         </button>
                     </div>
                 </div>
@@ -104,21 +104,22 @@
                 App.initVue();
             },
             created() {
-                this.setInicial();
                 App.initAjax();
             },
             mounted() {
                 this.initDateRangePicker();
+                this.setDateRange();
             },
 
             data: {
                 tours: {!! json_encode($tours) !!},
                 fecha: {
-                    desde: "",
-                    hasta: "",
-                    precio_s_pax: "",
-                    precio_d_pax: "",
-                    tour_id: ""
+                    desde: '{!! Carbon\Carbon::createFromFormat('Y-m-d', $calendario->desde)->format('d/m/Y') !!}',
+                    hasta: '{!! Carbon\Carbon::createFromFormat('Y-m-d', $calendario->hasta)->format('d/m/Y') !!}',
+                    precio_s_pax: '{!! $calendario->precio_s_pax !!}',
+                    precio_d_pax: '{!! $calendario->precio_d_pax !!}',
+                    tour_id: '{!! $calendario->tour_id !!}',
+                    id: '{!! $calendario->id !!}'
                 }
             },
             computed: {
@@ -143,29 +144,13 @@
 
             },
             methods: {
-                setInicial: function () {
-                    this.fecha = {
-                        desde: "",
-                        hasta: "",
-                        precio_s_pax: "",
-                        precio_d_pax: "",
-                        tour_id: ""
-                    };
-                    this.$nextTick()
-                        .then(() => {
-                            this.$validator.reset().then(() => {
-                                this.errors.clear()
-                            });
-                            // this.errors.clear();
-                        });
-                },
-                createLista: function () {
+                updateLista: function () {
                     this.$validator.validate('fecha.*').then(function (result) {
                         if (result) {
                             //aqui llamo api create
                             $.ajax({
-                                type: 'POST',
-                                url: '{!! route('calendario-tour.store') !!}',
+                                type: 'PUT',
+                                url: '{!! url('/admin/calendario-tour') !!}/' + vmContext.fecha.id,
                                 data: {
                                     'fecha': vmContext.fecha,
                                 }
@@ -183,13 +168,13 @@
                     });
                 }
                 ,
-                createAgrega: function () {
+                updateEdita: function () {
                     this.$validator.validate('fecha.*').then(function (result) {
                         if (result) {
                             //aqui llamo api create
                             $.ajax({
-                                type: 'POST',
-                                url: '{!! route('calendario-tour.store') !!}',
+                                type: 'PUT',
+                                url: '{!! url('/admin/calendario-tour') !!}/' + vmContext.fecha.id,
                                 data: {
                                     'fecha': vmContext.fecha,
                                 }
@@ -198,18 +183,24 @@
                                     console.log(data);
                                     App.showNotiError('Ha ocurrido un problema Revise los datos');
                                 } else {
-                                    App.showNotiSuccess('Calendario creado satisfactoriamente');
-                                    vmContext.setInicial();
+                                    App.showNotiSuccess('Calendario actualizado satisfactoriamente');
                                 }
                             });
 
                         }
                     });
                 },
+                setDateRange: function(){
+                    let picker = $('#fecha-rango').data('daterangepicker');
+                    picker.setStartDate( moment('{!! $calendario->desde !!}', "YYYY-MM-DD", true));
+                    picker.setEndDate( moment('{!! $calendario->hasta !!}', "YYYY-MM-DD", true));
+                    $('#fecha-rango').find('span').html(picker.startDate.format('ddd DD/MM/YYYY') + ' - ' + picker.endDate.format('ddd DD/MM/YYYY'));
+                },
                 initDateRangePicker: function () {
                     $('#fecha-rango').daterangepicker({
                         autoUpdateInput: false,
                         alwaysShowCalendars: true,
+
                         // minDate: start,
                         // maxDate: end,
                         // ranges: {

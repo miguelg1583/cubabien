@@ -84,7 +84,10 @@ class CalendarioTourController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tours = DB::table('tours')->selectRaw('tours.id, tours.nb as text')->get();
+        $calendario = FechaTour::findOrFail($id,['id','tour_id','desde','hasta','precio_s_pax','precio_d_pax']);
+//        dd($calendario);
+        return view('backend.calendario_tours.edit', compact('tours', 'calendario'));
     }
 
     /**
@@ -96,7 +99,22 @@ class CalendarioTourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $r_fecha = $request->fecha;
+            $fecha = FechaTour::findOrFail($id);
+            $fecha->tour_id = $r_fecha['tour_id'];
+            $fecha->desde = Carbon::createFromFormat('d/m/Y', $r_fecha['desde'])->format('Y-m-d');
+            $fecha->hasta = Carbon::createFromFormat('d/m/Y', $r_fecha['hasta'])->format('Y-m-d');
+            $fecha->precio_s_pax = $r_fecha['precio_s_pax'];
+            $fecha->precio_d_pax = $r_fecha['precio_d_pax'];
+            $fecha->save();
+
+            return response()->json(['mensaje' => 'OK']);
+
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     /**
