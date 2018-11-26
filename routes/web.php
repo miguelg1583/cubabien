@@ -68,6 +68,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/get-calendario', 'backend\CalendarioTourController@showCalendar')->name('calendario-tour.getCalendar');
         Route::get('/calendario-list', 'backend\CalendarioTourController@index_datatable')->name('calendario-tour.index_datatable');
         Route::resource('mapa-tour', 'backend\MapaTourController');
+        Route::get('/imagen-generada/{path}/{width}/{height}/{type}', 'ImagenController@getImagenGenerada')->name('buscaGrupos');
 
 
     });

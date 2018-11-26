@@ -169,4 +169,12 @@ class ImagenController extends Controller
             //return the url of the thumbnail
             return public_path("/frontend/images/thumbs/" . "{$width}x{$height}/watermark.png");
     }
+
+    public function getImagenGenerada($path, $width, $height, $type)
+    {
+//        $path_image=$path.'.jpg';
+//        return $this->getImageThumbnail($path_image, $width, $height, $type);
+//        $path . '.jpg';
+        return $this->getImageThumbnail($path, $width, $height, $type);
+    }
 }
