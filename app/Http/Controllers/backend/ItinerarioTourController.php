@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\ItinerarioTour;
+use App\Tour;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,8 +17,15 @@ class ItinerarioTourController extends Controller
      */
     public function index()
     {
+//        $itinerarios = ItinerarioTour::with('tour')->get();
+        $tours = Tour::has('itinerario')->with('itinerario')->get(['id','nb']);
+        return view('backend.itinerario_tours.index', compact( 'tours'));
+    }
+
+    public function index_datatable()
+    {
         $itinerarios = ItinerarioTour::with('tour')->get();
-        return view('backend.itinerario_tours.index', compact('itinerarios'));
+        return view('backend.itinerario_tours.index_datatable', compact('itinerarios'));
     }
 
     /**

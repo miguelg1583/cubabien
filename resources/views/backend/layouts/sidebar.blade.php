@@ -61,7 +61,8 @@
                             <li><a href="{{route('tour.create')}}">Agregar</a></li>
                             <li><a>Itinerarios<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('itinerario-tour.index')}}">Listado</a></li>
+                                    <li><a href="{{route('itinerario-tour.index')}}">Linea de Tiempo</a></li>
+                                    <li><a href="{{route('itinerario-tour.index_datatable')}}">Listado</a></li>
                                     <li><a href="#">Agregar</a></li>
                                 </ul>
                             </li>

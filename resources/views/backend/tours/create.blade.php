@@ -247,7 +247,7 @@
                             <li v-for="(itine, pos_itine) in itinerario_tour">
                                 <div class="block">
                                     <div class="tags">
-                                        <a href="" class="tag">
+                                        <a href="javascript:void;" class="tag">
                                             <span>Día @{{ itine.dia }}</span>
                                         </a>
                                         {{--<span class="tag">Día @{{ itine.dia }}</span>--}}

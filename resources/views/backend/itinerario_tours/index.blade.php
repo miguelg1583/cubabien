@@ -8,73 +8,81 @@
 @section('title_content', 'Itinerarios de los Tours')
 
 @section('content')
+
+    @include('backend.layouts.delete_modal')
+    @include('backend.layouts.show_modal')
+    <a href="{{route('itinerario-tour.create')}}" class="navbar-right btn btn-round btn-success">Agregar</a>
+    <div class="clearfix"></div>
     <div id="app" v-cloak>
-        @include('backend.layouts.delete_modal')
-        @include('backend.layouts.show_modal')
-        <div class="x_panel">
-            <div class="x_title">
-                <h2><i class="fa fa-bars"></i> Listado
-                    <small>links para mostrar las traducciones</small>
-                </h2>
-                <a href="{{route('itinerario-tour.create')}}" class="navbar-right btn btn-round btn-success">Agregar</a>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <table id="itinerario_tour_DTG" class="table table-striped table-bordered dt-responsive nowrap"
-                       width="100%">
-                    <thead>
-                    <tr>
-                        {{--<th>id</th>--}}
-                        <th>Tour</th>
-                        <th>Día</th>
-                        <th>Contenido</th>
-                        <th>Traduccion</th>
-                        <th>Creado</th>
-                        <th>Modificado</th>
-                        <th>Operaciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="(itine_tour,pos) in itinerarios">
-                        <td>@{{ itine_tour.tour.nb }}</td>
-                        <td>@{{ itine_tour.dia }}</td>
-                        <td><a v-on:click.stop.prevent="showData(itine_tour.id,'contenido')" class="show_modal_table">@{{String(itine_tour.contenido).length<30?itine_tour.contenido:itine_tour.contenido.substring(0,30)+' (...)'}}</a></td>
-                        <td><a v-on:click.stop.prevent="showTradu(itine_tour.contenido_trad)" class="show_modal_table">@{{
-                                itine_tour.contenido_trad }}</a></td>
-                        <td>@{{ getMomentFormat(itine_tour.created_at) }}</td>
-                        <td>@{{ getMomentFormat(itine_tour.updated_at) }}</td>
-                        <td>
-                            <a :href="'{!! url('/admin/itinerario-tour') !!}/'+itine_tour.id+'/edit'"
-                               class="btn btn-round btn-info" :data-id="itine_tour.id">
-                                <span class="glyphicon glyphicon-edit"></span>
-                            </a>
-                            <button class="btn btn-round btn-danger delete-modal"
-                                    data-toggle="modal" data-target="#deleteModal" :data-id="itine_tour.id"
-                                    :data-index="pos">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        {{--<th>id</th>--}}
-                        <th>Tour</th>
-                        <th>Día</th>
-                        <th>Contenido</th>
-                        <th>Traduccion</th>
-                        <th>Creado</th>
-                        <th>Modificado</th>
-                        <th>Operaciones</th>
-                    </tr>
-                    </tfoot>
-                </table>
+        <div class="col-md-6 col-sm-6 col-xs-12" v-for="(tour,pos) in tours">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>@{{ tour.nb }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <ul class="list-unstyled timeline">
+                        <li v-for="(itine, pos_itine) in tour.itinerario">
+                            <div class="block">
+                                <div class="tags">
+                                    <a href="javascript:void;" class="tag">
+                                        <span>Día @{{ itine.dia }}</span>
+                                    </a>
+                                </div>
+                                <div class="block_content">
+                                    {{--<h2 class="title">--}}
+                                    {{--<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>--}}
+                                    {{--</h2>--}}
+                                    <div class="byline">
+                                        <span>@{{getMomentDiffHuman(itine.created_at)}}</span>
+                                    </div>
+                                    <div class="excerpt" v-html="itine.contenido"></div>
+                                </div>
+                            </div>
+                        </li>
+                        {{--<li>--}}
+                        {{--<div class="block">--}}
+                        {{--<div class="tags">--}}
+                        {{--<a href="" class="tag">--}}
+                        {{--<span>Entertainment</span>--}}
+                        {{--</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="block_content">--}}
+                        {{--<h2 class="title">--}}
+                        {{--<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>--}}
+                        {{--</h2>--}}
+                        {{--<div class="byline">--}}
+                        {{--<span>13 hours ago</span> by <a>Jane Smith</a>--}}
+                        {{--</div>--}}
+                        {{--<p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>--}}
+                        {{--</p>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                        {{--<div class="block">--}}
+                        {{--<div class="tags">--}}
+                        {{--<a href="" class="tag">--}}
+                        {{--<span>Entertainment</span>--}}
+                        {{--</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="block_content">--}}
+                        {{--<h2 class="title">--}}
+                        {{--<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>--}}
+                        {{--</h2>--}}
+                        {{--<div class="byline">--}}
+                        {{--<span>13 hours ago</span> by <a>Jane Smith</a>--}}
+                        {{--</div>--}}
+                        {{--<p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>--}}
+                        {{--</p>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--</li>--}}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
-
-
 @endsection
 
 @section('js')
@@ -83,11 +91,15 @@
             el: "#app",
             data: {
                 idiomas: {!! json_encode($idiomas) !!},
-                itinerarios: {!! json_encode($itinerarios) !!},
+                tours: {!! json_encode($tours) !!},
+                {{--itinerarios: {!! json_encode($itinerarios) !!},--}}
             },
             methods: {
                 getMomentFormat: function (fecha) {
                     return moment(fecha, 'YYYY-MM-DD HH:mm:ss').format("dddd, DD/MM/YYYY h:mm a");
+                },
+                getMomentDiffHuman: function (fecha) {
+                    return moment(fecha, 'YYYY-MM-DD HH:mm:ss').fromNow();
                 },
                 showTradu: function (trad_string) {
                     $.ajax({

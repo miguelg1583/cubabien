@@ -64,6 +64,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/get-tour', 'backend\TourController@getDataToModal')->name('getDatosTour');
         Route::put('/tour/activo/{id}', 'backend\TourController@setActivo')->name('setActivo');
         Route::resource('itinerario-tour', 'backend\ItinerarioTourController');
+        Route::get('/itinerario-list', 'backend\ItinerarioTourController@index_datatable')->name('itinerario-tour.index_datatable');
         Route::post('/get-itinerario-tour', 'backend\ItinerarioTourController@getDataToModal')->name('getDatosItinerarioTour');
         Route::resource('calendario-tour', 'backend\CalendarioTourController');
         Route::post('/calendario-tour-list', 'backend\CalendarioTourController@getList')->name('calendario-tour.list');
