@@ -18,11 +18,11 @@
 </head>
 
 <body>
-<!-- Preloader -->
-<div id="preloader">
-    <div id="status"></div>
-</div>
-<!-- Preloader End-->
+{{--<!-- Preloader -->--}}
+{{--<div id="preloader">--}}
+    {{--<div id="status"></div>--}}
+{{--</div>--}}
+{{--<!-- Preloader End-->--}}
 @include('frontend.layouts.header')
 {{--Content Per Page--}}
 @yield('content')

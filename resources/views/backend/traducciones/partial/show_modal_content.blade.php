@@ -8,6 +8,7 @@
 </div>
 <div class='row'>
     <div class='col-md-3'><b>Valores:</b></div>
+    <div class="pull-right"><a href="{!! route('traduccion.edit',$trad->id)!!}" class="btn btn-info" data-id="{!! $trad->id !!}"><span class="glyphicon glyphicon-edit"></span> Editar</a></div>
 </div>
 @foreach (json_decode($trad->text) as $key => $value)
     <div class='row'>

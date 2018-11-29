@@ -116,7 +116,18 @@
                                     <div class="timeline-body">
                                         <p>{!! __($itine->contenido_trad) !!}</p>
                                     </div>
+{{--                                    @if($loop->iteration % 2 === 1)--}}
+                                        <div>
+                                            <img src="{{getImageThumbnail('6.jpg',640,480, 'fit')}}" class="img-responsive img-relative">
+                                        </div>
+                                    {{--@else--}}
+                                        {{--<div>--}}
+                                            {{--<img src="{{getImageThumbnail('6.jpg',640,480, 'fit')}}" class="img-responsive img-relative">--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
                                 </div>
+
+
                             </li>
                     @endforeach
                 </ul>
@@ -165,7 +176,7 @@
                         {{--@endforeach--}}
                         {{--<!-- part 2 ends here -->--}}
                     {{--</table>--}}
-                    <table id="DT_fechas" class="table table-striped custab dt-responsive nowrap">
+                    <table id="DT_fechas" class="table table-striped custab dt-responsive nowrap" width="100%">
                         <thead>
                         <tr>
                             <th>{{__('word.dep')}}</th>

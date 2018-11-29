@@ -1,7 +1,9 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="{{route('dashboard')}}" class="site_title"><i class="fa fa-paw"></i>
+            <a href="{{route('dashboard')}}" class="site_title">
+                {{--<i class="fa fa-paw"></i>--}}
+                <img src="{{assets_backend('images/icon.png')}}">
                 <span>CubaBien Admin</span></a>
         </div>
 

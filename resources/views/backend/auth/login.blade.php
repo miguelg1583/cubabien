@@ -54,7 +54,8 @@
                         <br />
 
                         <div>
-                            <h1><i class="fa fa-paw"></i> Cubabien Travel</h1>
+                            {{--<h1><i class="fa fa-paw"></i> Cubabien Travel</h1>--}}
+                            <img src="{{assets_backend('images/icon_dark.png')}}">
                             <p>©2018 All Rights Reserved.</p>
                         </div>
                     </div>
