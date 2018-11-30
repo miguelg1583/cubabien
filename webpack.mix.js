@@ -64,6 +64,9 @@ mix.babel([
 
 ], 'public/backend/js/cubabien.js');
 
+/*PROBANDO VUE UPLOAD COMPONENT*/
+mix.js('resources/assets/js/Myapp.js', 'public/backend/js');
+
 mix.copy('resources/assets/plugins/datatables/Spanish.json', 'public/backend/js/Spanish.json');
 
 mix.copyDirectory('resources/assets/plugins/font-awesome/fonts', 'public/backend/fonts');

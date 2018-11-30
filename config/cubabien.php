@@ -7,5 +7,5 @@
  */
 
 /* System Version */
-define('APP_VERSION', '?v=1.5');
+define('APP_VERSION', '?v=1.6');
 define('FRONT_IMAGE_PATH', 'frontend/images/uploads');

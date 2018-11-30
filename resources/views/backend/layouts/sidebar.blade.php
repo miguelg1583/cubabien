@@ -81,6 +81,12 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-image"></i> Imágenes <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="javascript:void;">Subir</a></li>
+                            <li><a href="javascript:void;">Galería</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
