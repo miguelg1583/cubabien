@@ -88,7 +88,9 @@ class ItinerarioTourController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tours = Tour::all();
+        $itinerario = ItinerarioTour::findOrFail($id);
+        return view('backend.itinerario_tours.edit', compact('itinerario', 'tours'));
     }
 
     /**
@@ -100,7 +102,19 @@ class ItinerarioTourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $r_itine = $request->itinerario_tour;
+            $db_itine = ItinerarioTour::findOrFail($id);
+            $db_itine->dia=$r_itine['dia'];
+            $db_itine->contenido=$r_itine['contenido'];
+            $db_itine->save();
+
+            return response()->json(['mensaje' => 'OK']);
+
+        } catch (\Exception $e) {
+//            Debugbar::error($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     /**
