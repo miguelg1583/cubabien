@@ -13,7 +13,10 @@
     @include('backend.layouts.show_modal')
     <a href="{{route('itinerario-tour.create')}}" class="navbar-right btn btn-round btn-success">Agregar</a>
     <div class="clearfix"></div>
+    {{--<div class="grid" style="position: relative; height: 1318px;">--}}
     <div id="app" v-cloak>
+        {{--<div class="grid-item" style="position: absolute; left: 0px; top: 0px;">--}}
+
         <div class="col-md-6 col-sm-6 col-xs-12" v-for="(tour,pos) in tours">
             <div class="x_panel">
                 <div class="x_title">
@@ -29,14 +32,30 @@
                                         <span>Día @{{ itine.dia }}</span>
                                     </a>
                                 </div>
+                                <div>
+                                    <a :href="'{!! url('/admin/itinerario-tour') !!}/'+itine.id+'/edit'"
+                                       class="btn btn-round btn-info" :data-id="itine.id">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                    <button class="btn btn-round btn-danger delete-modal"
+                                            data-toggle="modal" data-target="#deleteModal" :data-id="itine.id"
+                                            :data-index="pos_itine" :data-tour-index="pos">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                    <b>Traducción: </b><a v-on:click.stop.prevent="showTradu(itine.contenido_trad)"
+                                                          class="show_modal_table">@{{itine.contenido_trad}}</a>
+                                </div>
+
                                 <div class="block_content">
                                     {{--<h2 class="title">--}}
                                     {{--<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>--}}
                                     {{--</h2>--}}
                                     <div class="byline">
-                                        <span>@{{getMomentDiffHuman(itine.created_at)}}</span>
+                                        <span>Creado @{{getMomentDiffHuman(itine.created_at)}}</span>
                                     </div>
                                     <div class="excerpt" v-html="itine.contenido"></div>
+                                    <br>
+                                    <img src="{{getImageThumbnail('4.jpg',300,200, 'fit')}}" class="img-responsive" alt="">
                                 </div>
                             </div>
                         </li>
@@ -83,9 +102,23 @@
             </div>
         </div>
     </div>
+    {{--</div>--}}
+    {{--</div>--}}
 @endsection
 
 @section('js')
+    <style>
+        .grid {
+            margin-bottom: 0;
+        }
+
+        .grid-item {
+            margin-bottom: 25px;
+            width: 300px;
+        }
+    </style>
+
+    <script src="{{assets_file('vendor/masonary/masonry.pkgd.min.js')}}"></script>
     <script type="text/javascript">
         window.vmContext = new Vue({
             el: "#app",
@@ -119,6 +152,14 @@
                         },
                     });
                 },
+                // enableMasonry: function(){
+                //     $('.grid').masonry({
+                //         // options
+                //         itemSelector: '.grid-item',
+                //         columnWidth: 300,
+                //         gutter: 25
+                //     });
+                // },
                 showData: function (id, dato) {
                     $.ajax({
                         type: 'POST',
@@ -167,6 +208,7 @@
             mounted: function () {
                 // App.initDatatable();
                 this.initDatatableGroup();
+                // this.enableMasonry();
             },
 
         });

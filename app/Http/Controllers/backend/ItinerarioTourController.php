@@ -18,8 +18,8 @@ class ItinerarioTourController extends Controller
     public function index()
     {
 //        $itinerarios = ItinerarioTour::with('tour')->get();
-        $tours = Tour::has('itinerario')->with('itinerario')->get(['id','nb']);
-        return view('backend.itinerario_tours.index', compact( 'tours'));
+        $tours = Tour::has('itinerario')->with('itinerario')->get(['id', 'nb']);
+        return view('backend.itinerario_tours.index', compact('tours'));
     }
 
     public function index_datatable()
@@ -35,7 +35,11 @@ class ItinerarioTourController extends Controller
      */
     public function create()
     {
-        //
+//        $tours = DB::table('tours')->selectRaw('tours.id, tours.nb as text')->get();
+//        $tours = Tour::with('itinerario')->get()->filter(function($value, $key){return count($value.itinerario->get())<$value.num_dias;})->get(['id', 'nb AS text']);
+        $tours = Tour::all()->filter(function ($item){return $item->cant_itine<$item->num_dias;});
+//        dd($tours);
+        return view('backend.itinerario_tours.create', compact('tours'));
     }
 
     /**
@@ -46,7 +50,23 @@ class ItinerarioTourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $r_itine = $request->itinerario_tour;
+            $itine = new ItinerarioTour();
+            $itine->tour_id = $r_itine['tour_id'];
+            $itine->dia = $r_itine['dia'];
+            $itine->contenido = $r_itine['contenido']['valor'];
+            $itine->save();
+
+            $id_itine = $itine->id;
+
+            $itine->contenido_trad = guarda_trad('itinerario_contenido', $id_itine, $r_itine['contenido']['traduccion']['text']);
+            $itine->update();
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
+        return response()->json(['mensaje' => 'OK']);
     }
 
     /**

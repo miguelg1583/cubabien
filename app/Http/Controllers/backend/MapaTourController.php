@@ -17,7 +17,7 @@ class MapaTourController extends Controller
      */
     public function index()
     {
-        $tours = Tour::with('mapa')->get();
+        $tours = Tour::has('mapa')->with('mapa')->get();
         return view('backend.mapa_tours.index', compact('tours'));
     }
 

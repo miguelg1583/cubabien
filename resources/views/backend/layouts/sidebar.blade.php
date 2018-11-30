@@ -63,7 +63,7 @@
                                 <ul class="nav child_menu">
                                     <li><a href="{{route('itinerario-tour.index')}}">Linea de Tiempo</a></li>
                                     <li><a href="{{route('itinerario-tour.index_datatable')}}">Listado</a></li>
-                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="{{route('itinerario-tour.create')}}">Agregar</a></li>
                                 </ul>
                             </li>
                             <li><a>Calendarios<span class="fa fa-chevron-down"></span></a>

@@ -88,4 +88,12 @@ class Tour extends Model
         return $this->hasMany(FechaTour::class)->whereDate('desde','>',now())->get();
     }
 
+    public function getCantItineAttribute()
+    {
+        if($this->itinerario() != null ){
+            return $this->itinerario()->count('id');
+        }else{
+            return 0;
+        }
+    }
 }

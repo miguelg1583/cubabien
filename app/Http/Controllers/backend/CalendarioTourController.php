@@ -63,6 +63,7 @@ class CalendarioTourController extends Controller
             report($e);
             return response()->json(['errors' => $e]);
         }
+        return response()->json(['mensaje' => 'OK']);
     }
 
     /**
