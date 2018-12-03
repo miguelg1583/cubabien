@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Image;
@@ -11,6 +12,17 @@ class ImagenController extends Controller
     public function index_upload()
     {
         return view('backend.imagenes.upload');
+    }
+
+    public function index_gallery()
+    {
+        $files=File::files(public_path('frontend\images\uploads'));
+        $imagenes = [];
+        foreach ($files as $file) {
+            $imagenes[]=$file->getFilename();
+        }
+//        dd($imagenes);
+        return view('backend.imagenes.gallery', compact('imagenes'));
     }
 
     public function store(Request $request)
