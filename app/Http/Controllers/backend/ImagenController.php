@@ -19,8 +19,8 @@ class ImagenController extends Controller
         $files=File::files(public_path('frontend/images/uploads'));
         $imagenes = [];
         foreach ($files as $file) {
-            getImageThumbnail($file->getFilename(),1360,768, 'fit');
-            getImageThumbnail($file->getFilename(),100,100, 'fit');
+//            getImageThumbnail($file->getFilename(),1360,768, 'fit');
+//            getImageThumbnail($file->getFilename(),100,100, 'fit');
             $imagenes[]=$file->getFilename();
         }
 //        dd($imagenes);
