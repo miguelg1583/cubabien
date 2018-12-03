@@ -41,6 +41,7 @@
                         {{--</div>--}}
                     {{--</div>--}}
                 <!-- Search Box acaba -->
+                    @yield('page-title')
                 </div>
 
                 <div class="clearfix"></div>

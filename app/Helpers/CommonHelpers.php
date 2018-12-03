@@ -79,6 +79,13 @@ function guarda_trad($grupo,$id,$arrText)
     return $ll->group.".".$ll->key;
 }
 
+function humanizaCapacidad($bytes){
+    $si_prefix = array( 'B', 'KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB' );
+    $base = 1024;
+    $class = min((int)log($bytes , $base) , count($si_prefix) - 1);
+    return sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class];
+}
+
 
 
 //function assets_img($imgfile) {
@@ -149,11 +156,11 @@ function guarda_trad($grupo,$id,$arrText)
 //    }
 //}
 //
-//function bcround($number, $scale = 0) {
-//    if ($scale < 0) $scale = 0;
-//    $sign = '';
-//    if (bccomp('0', $number, 64) === 1) $sign = '-';
-//    $increment = $sign . '0.' . str_repeat('0', $scale) . '5';
-//    $number = bcadd($number, $increment, $scale + 1);
-//    return bcadd($number, '0', $scale);
-//}
+function bcround($number, $scale = 0) {
+    if ($scale < 0) $scale = 0;
+    $sign = '';
+    if (bccomp('0', $number, 64) === 1) $sign = '-';
+    $increment = $sign . '0.' . str_repeat('0', $scale) . '5';
+    $number = bcadd($number, $increment, $scale + 1);
+    return bcadd($number, '0', $scale);
+}
