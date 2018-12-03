@@ -154,6 +154,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        Gufy\CpanelWhm\CpanelWhmServiceProvider::class,
         /*
          * Application Service Providers...
          */

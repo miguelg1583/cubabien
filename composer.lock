@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d21d2c607dbaa1f3d6f3710cf415cbb2",
+    "content-hash": "37a39c8959287c27a420aa327554761c",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -870,6 +870,94 @@
                 "maxmind"
             ],
             "time": "2018-01-18T21:30:24+00:00"
+        },
+        {
+            "name": "gufy/cpanel-php",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mgufrone/cpanel-php.git",
+                "reference": "a6e2becf590cdfb2c7c2feea4c6682b665761eb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mgufrone/cpanel-php/zipball/a6e2becf590cdfb2c7c2feea4c6682b665761eb4",
+                "reference": "a6e2becf590cdfb2c7c2feea4c6682b665761eb4",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6",
+                "php": ">=5.3.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.7.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gufy\\CpanelPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mochamad Gufron",
+                    "email": "mgufronefendi@gmail.com"
+                }
+            ],
+            "description": "Cpanel/WHM API for PHP",
+            "time": "2016-02-26T14:17:18+00:00"
+        },
+        {
+            "name": "gufy/cpanel-whm",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mgufrone/cpanel-whm.git",
+                "reference": "f302b08f8a90d196a43ca7474fafe132cc4c0691"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mgufrone/cpanel-whm/zipball/f302b08f8a90d196a43ca7474fafe132cc4c0691",
+                "reference": "f302b08f8a90d196a43ca7474fafe132cc4c0691",
+                "shasum": ""
+            },
+            "require": {
+                "gufy/cpanel-php": "~1.0",
+                "illuminate/support": "~5",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "Gufy\\CpanelWhm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mochamad Gufron",
+                    "email": "mgufronefendi@gmail.com"
+                }
+            ],
+            "description": "Laravel cPanel/WHM API Package.",
+            "keywords": [
+                "CPanel API",
+                "cpanel",
+                "framework",
+                "laravel",
+                "whm"
+            ],
+            "time": "2017-03-21T07:12:18+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
