@@ -54,4 +54,37 @@ class ImagenController extends Controller
         }
         return response()->json(['mensaje' => 'OK'], 200);
     }
+
+    /**
+     * Remove the images from the storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Request $request)
+    {
+        $filename = $request->id;
+//        $uploaded_image = Upload::where('original_name', basename($filename))->first();
+
+//        if (empty($uploaded_image)) {
+//            return Response::json(['message' => 'Sorry file does not exist'], 400);
+//        }
+
+        $file_path = public_path('frontend/images/uploads/').$filename;
+//        $resized_file = $this->photos_path . '/' . $uploaded_image->resized_name;
+
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+
+//        if (file_exists($resized_file)) {
+//            unlink($resized_file);
+//        }
+//
+//        if (!empty($uploaded_image)) {
+//            $uploaded_image->delete();
+//        }
+
+        return response()->json(['mensaje' => 'OK'], 200);
+    }
 }

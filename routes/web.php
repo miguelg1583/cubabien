@@ -75,6 +75,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('imagenes/upload', 'backend\ImagenController@index_upload')->name('imagen.upload');
         Route::post('imagenes/store', 'backend\ImagenController@store')->name('imagen.store');
+        Route::post('imagenes/destroy', 'backend\ImagenController@destroy')->name('imagen.destroy');
 
 
     });

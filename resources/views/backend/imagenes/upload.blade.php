@@ -44,28 +44,42 @@
             // previewTemplate: document.querySelector('#preview').innerHTML,
             addRemoveLinks: true,
             dictRemoveFile: 'Eliminar Imagen',
+            dictCancelUpload: 'Cancelar Subida',
+            dictDefaultMessage: 'Arrastre archivos aquí para Subir',
+            acceptedFiles: 'image/jpg',
             // dictFileTooBig: 'Image is larger than 16MB',
             // timeout: 10000,
 
             init: function () {
-                // this.on("removedfile", function (file) {
-                //     $.post({
-                //         url: '/images-delete',
-                //         data: {id: file.name, _token: $('[name="_token"]').val()},
-                //         dataType: 'json',
-                //         success: function (data) {
-                //             total_photos_counter--;
-                //             $("#counter").text("# " + total_photos_counter);
-                //         }
-                //     });
-                // });
-                console.log('Init Function');
+                this.on("removedfile", function (file) {
+                    $.post({
+                        url: '{{route('imagen.destroy')}}',
+                        data: {id: file.name, _token: $('[name="_token"]').val()},
+                        dataType: 'json',
+                        success: function (data) {
+                            App.showNotiSuccess('Archivo Eliminado satisfactoriamente!!');
+                        },
+                        error: function (data) {
+                          App.showNotiError('Ocurrió un error en el Servidor, intente nuevamente')
+                        }
+                    });
+                });
+                this.on('error', function(file, response) {
+                    if(file.type!=='image/jpg'){
+                        $(file.previewElement).find('.dz-error-message').text('Solo puede subir imágenes jpg');
+                    }else{
+                        $(file.previewElement).find('.dz-error-message').text('Ocurrió un error');
+                    }
+                    console.log('File', file);
+                    console.log('Response', response);
+                });
+                // console.log('Init Function');
             },
             success: function (file, done) {
                 // total_photos_counter++;
                 // $("#counter").text("# " + total_photos_counter);
-                console.log('Success Function');
-                App.showNotiSuccess('Imagen subida satisfactoriamente!!');
+                // console.log('Success Function');
+                App.showNotiSuccess('Imagen Subida satisfactoriamente!!');
             }
         };
     </script>
