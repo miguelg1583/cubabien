@@ -11,8 +11,8 @@ class ImagenController extends Controller
 {
     public function index_upload()
     {
-        $free = disk_free_space("/");
-        $total = disk_total_space("/");
+        $free = disk_free_space("/home/cubabien");
+        $total = disk_total_space("/home/cubabien");
 
         return view('backend.imagenes.upload', compact('free', 'total'));
     }
