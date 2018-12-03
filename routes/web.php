@@ -73,6 +73,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/calendario-list', 'backend\CalendarioTourController@index_datatable')->name('calendario-tour.index_datatable');
         Route::resource('mapa-tour', 'backend\MapaTourController');
 
+        Route::get('imagenes/upload', 'backend\ImagenController@index_upload')->name('imagen.upload');
+        Route::post('imagenes/store', 'backend\ImagenController@store')->name('imagen.store');
+
 
     });
 });

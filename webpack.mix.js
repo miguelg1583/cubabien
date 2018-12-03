@@ -65,7 +65,7 @@ mix.babel([
 ], 'public/backend/js/cubabien.js');
 
 /*PROBANDO VUE UPLOAD COMPONENT*/
-mix.js('resources/assets/js/Myapp.js', 'public/backend/js');
+// mix.js('resources/assets/js/Myapp.js', 'public/backend/js');
 
 mix.copy('resources/assets/plugins/datatables/Spanish.json', 'public/backend/js/Spanish.json');
 
@@ -79,6 +79,7 @@ mix.copyDirectory('./node_modules/fullcalendar', 'public/vendor/fullcalendar');
 mix.copyDirectory('./node_modules/leaflet', 'public/vendor/leaflet');
 mix.copyDirectory('resources/assets/plugins/Gallery', 'public/vendor/gallery');
 mix.copyDirectory('resources/assets/plugins/masonary', 'public/vendor/masonary');
+mix.copyDirectory('resources/assets/plugins/dropzone', 'public/vendor/dropzone');
 
 
 mix.styles([

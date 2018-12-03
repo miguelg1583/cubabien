@@ -177,4 +177,6 @@ class ImagenController extends Controller
 //        $path . '.jpg';
         return $this->getImageThumbnail($path, $width, $height, $type);
     }
+
+
 }
