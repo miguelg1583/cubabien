@@ -49,14 +49,16 @@ class ImagenController extends Controller
             $photo = $photos[$i];
 //            $name = sha1(date('YmdHis') . str_random(30));
             $name = $photo->getClientOriginalName();
+            if(!File::exists(public_path('frontend/images/uploads/').$name)){
+
 //            $save_name = $name . '.' . $photo->getClientOriginalExtension();
 //            $resize_name = $name . str_random(2) . '.' . $photo->getClientOriginalExtension();
 
-            Image::make($photo)
+                Image::make($photo)
 //                ->resize(250, null, function ($constraints) {
 //                    $constraints->aspectRatio();
 //                })
-                ->save(public_path('frontend/images/uploads/') . $name);
+                    ->save(public_path('frontend/images/uploads/') . $name);
 
 //            $photo->move($this->photos_path, $save_name);
 //
@@ -65,6 +67,7 @@ class ImagenController extends Controller
 //            $upload->resized_name = $resize_name;
 //            $upload->original_name = basename($photo->getClientOriginalName());
 //            $upload->save();
+            }
         }
         return response()->json(['mensaje' => 'OK'], 200);
     }
