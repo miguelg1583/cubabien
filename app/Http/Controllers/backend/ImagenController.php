@@ -16,7 +16,7 @@ class ImagenController extends Controller
 
     public function index_gallery()
     {
-        $files=File::files(public_path('frontend\images\uploads'));
+        $files=File::files(public_path('frontend/images/uploads'));
         $imagenes = [];
         foreach ($files as $file) {
             $imagenes[]=$file->getFilename();
