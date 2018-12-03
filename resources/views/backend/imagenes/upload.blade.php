@@ -9,15 +9,15 @@
 @section('title_content', 'Imágenes')
 
 @section('page-title')
-    <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
-            <div class="progress progress_sm">
-                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" aria-valuenow="56"
-                     style="width: {!! bcround(($free/$total)*100)!!}%;"></div>
-            </div>
-            <small>{{humanizaCapacidad($free)}} libre de un total de {{humanizaCapacidad($total)}}</small>
-        </div>
-    </div>
+    {{--<div class="title_right">--}}
+        {{--<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">--}}
+            {{--<div class="progress progress_sm">--}}
+                {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" aria-valuenow="56"--}}
+                     {{--style="width: {!! bcround(($free/$total)*100)!!}%;"></div>--}}
+            {{--</div>--}}
+            {{--<small>{{humanizaCapacidad($free)}} libre de un total de {{humanizaCapacidad($total)}}</small>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection
 
 @section('content')

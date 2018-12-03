@@ -88,6 +88,16 @@
                         </ul>
                     </li>
                 </ul>
+                <h3>Administracion</h3>
+                <ul class="nav side-menu">
+                    <li><a><i class="fa fa-eye"></i> Logs <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('log-viewer::dashboard')}}">Dashboard</a></li>
+                            <li><a href="{{route('log-viewer::logs.list')}}">Listado</a></li>
+                            <li><a href="#">Idiomas</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
         <!-- /sidebar menu -->
