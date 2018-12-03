@@ -10,24 +10,26 @@
 
 @section('content')
     {{--<div id="app" v-cloak>--}}
-        <div class="x_panel">
-            <div class="x_title">
-                <h2><i class="fa fa-file-code-o"></i> Subir
-                    <small>al servidor</small>
-                </h2>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <p>Arrastre y suelte varias imágenes en el contenedor de abajo para subir varias imágenes o de clic para seleccionar imágenes.</p>
-                <form action="{{route('imagen.store')}}" method="POST" enctype="multipart/form-data" class="dropzone" id="form-upload-image">
-                    {{csrf_field()}}
-                </form>
-                <br />
-                <br />
-                <br />
-                <br />
-            </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2><i class="fa fa-file-code-o"></i> Subir
+                <small>al servidor</small>
+            </h2>
+            <div class="clearfix"></div>
         </div>
+        <div class="x_content">
+            <p>Arrastre y suelte varias imágenes en el contenedor de abajo para subir varias imágenes o de clic para
+                seleccionar imágenes.</p>
+            <form action="{{route('imagen.store')}}" method="POST" enctype="multipart/form-data" class="dropzone"
+                  id="form-upload-image">
+                {{csrf_field()}}
+            </form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+    </div>
     {{--</div>--}}
 @endsection
 
@@ -46,7 +48,7 @@
             dictRemoveFile: 'Eliminar Imagen',
             dictCancelUpload: 'Cancelar Subida',
             dictDefaultMessage: 'Arrastre archivos aquí para Subir',
-            acceptedFiles: 'image/jpg',
+            acceptedFiles: 'image/*',
             // dictFileTooBig: 'Image is larger than 16MB',
             // timeout: 10000,
 
@@ -60,14 +62,14 @@
                             App.showNotiSuccess('Archivo Eliminado satisfactoriamente!!');
                         },
                         error: function (data) {
-                          App.showNotiError('Ocurrió un error en el Servidor, intente nuevamente')
+                            App.showNotiError('Ocurrió un error en el Servidor, intente nuevamente')
                         }
                     });
                 });
-                this.on('error', function(file, response) {
-                    if(file.type!=='image/jpg'){
-                        $(file.previewElement).find('.dz-error-message').text('Solo puede subir imágenes jpg');
-                    }else{
+                this.on('error', function (file, response) {
+                    if (file.type.indexOf('image/') !== -1) {
+                        $(file.previewElement).find('.dz-error-message').text('Solo puede subir imágenes');
+                    } else {
                         $(file.previewElement).find('.dz-error-message').text('Ocurrió un error');
                     }
                     console.log('File', file);
