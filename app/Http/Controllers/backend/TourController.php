@@ -134,7 +134,8 @@ class TourController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tour = Tour::findOrFail($id);
+        return view('backend.tours.edit', compact('tour'));
     }
 
     /**
@@ -146,7 +147,24 @@ class TourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $r_tour = $request->tour;
+
+            $tour = Tour::findOrFail($id);
+            $tour->nb = $r_tour['nb'];
+            $tour->introd = $r_tour['introd'];
+            $tour->num_dias = $r_tour['num_dias'];
+            $tour->num_noches = $r_tour['num_noches'];
+            $tour->salida_dia_trad = $r_tour['salida_dia_trad'];
+            $tour->llegada_dia_trad = $r_tour['llegada_dia_trad'];
+            $tour->save();
+
+            return response()->json(['mensaje' => 'OK']);
+
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     /**

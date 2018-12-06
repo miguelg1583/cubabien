@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.34 on 2018-12-03 14:40:31.
+ * Generated for Laravel 5.6.34 on 2018-12-06 11:36:09.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6465,7 +6465,7 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function size($queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::size($queue);
+            return \Illuminate\Queue\DatabaseQueue::size($queue);
         }
         
         /**
@@ -6475,12 +6475,11 @@ namespace Illuminate\Support\Facades {
          * @param mixed $data
          * @param string $queue
          * @return mixed 
-         * @throws \Exception|\Throwable
          * @static 
          */ 
         public static function push($job, $data = '', $queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::push($job, $data, $queue);
+            return \Illuminate\Queue\DatabaseQueue::push($job, $data, $queue);
         }
         
         /**
@@ -6494,7 +6493,7 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function pushRaw($payload, $queue = null, $options = array())
         {
-            return \Illuminate\Queue\SyncQueue::pushRaw($payload, $queue, $options);
+            return \Illuminate\Queue\DatabaseQueue::pushRaw($payload, $queue, $options);
         }
         
         /**
@@ -6504,12 +6503,40 @@ namespace Illuminate\Support\Facades {
          * @param string $job
          * @param mixed $data
          * @param string $queue
-         * @return mixed 
+         * @return void 
          * @static 
          */ 
         public static function later($delay, $job, $data = '', $queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::later($delay, $job, $data, $queue);
+            \Illuminate\Queue\DatabaseQueue::later($delay, $job, $data, $queue);
+        }
+        
+        /**
+         * Push an array of jobs onto the queue.
+         *
+         * @param array $jobs
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @static 
+         */ 
+        public static function bulk($jobs, $data = '', $queue = null)
+        {
+            return \Illuminate\Queue\DatabaseQueue::bulk($jobs, $data, $queue);
+        }
+        
+        /**
+         * Release a reserved job back onto the queue.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\DatabaseJobRecord $job
+         * @param int $delay
+         * @return mixed 
+         * @static 
+         */ 
+        public static function release($queue, $job, $delay)
+        {
+            return \Illuminate\Queue\DatabaseQueue::release($queue, $job, $delay);
         }
         
         /**
@@ -6517,11 +6544,49 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $queue
          * @return \Illuminate\Contracts\Queue\Job|null 
+         * @throws \Exception|\Throwable
          * @static 
          */ 
         public static function pop($queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::pop($queue);
+            return \Illuminate\Queue\DatabaseQueue::pop($queue);
+        }
+        
+        /**
+         * Delete a reserved job from the queue.
+         *
+         * @param string $queue
+         * @param string $id
+         * @return void 
+         * @throws \Exception|\Throwable
+         * @static 
+         */ 
+        public static function deleteReserved($queue, $id)
+        {
+            \Illuminate\Queue\DatabaseQueue::deleteReserved($queue, $id);
+        }
+        
+        /**
+         * Get the queue or return the default.
+         *
+         * @param string|null $queue
+         * @return string 
+         * @static 
+         */ 
+        public static function getQueue($queue)
+        {
+            return \Illuminate\Queue\DatabaseQueue::getQueue($queue);
+        }
+        
+        /**
+         * Get the underlying database instance.
+         *
+         * @return \Illuminate\Database\Connection 
+         * @static 
+         */ 
+        public static function getDatabase()
+        {
+            return \Illuminate\Queue\DatabaseQueue::getDatabase();
         }
         
         /**
@@ -6536,7 +6601,7 @@ namespace Illuminate\Support\Facades {
         public static function pushOn($queue, $job, $data = '')
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::pushOn($queue, $job, $data);
+            return \Illuminate\Queue\DatabaseQueue::pushOn($queue, $job, $data);
         }
         
         /**
@@ -6552,22 +6617,7 @@ namespace Illuminate\Support\Facades {
         public static function laterOn($queue, $delay, $job, $data = '')
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::laterOn($queue, $delay, $job, $data);
-        }
-        
-        /**
-         * Push an array of jobs onto the queue.
-         *
-         * @param array $jobs
-         * @param mixed $data
-         * @param string $queue
-         * @return mixed 
-         * @static 
-         */ 
-        public static function bulk($jobs, $data = '', $queue = null)
-        {
-            //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::bulk($jobs, $data, $queue);
+            return \Illuminate\Queue\DatabaseQueue::laterOn($queue, $delay, $job, $data);
         }
         
         /**
@@ -6580,7 +6630,7 @@ namespace Illuminate\Support\Facades {
         public static function getJobExpiration($job)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::getJobExpiration($job);
+            return \Illuminate\Queue\DatabaseQueue::getJobExpiration($job);
         }
         
         /**
@@ -6592,7 +6642,7 @@ namespace Illuminate\Support\Facades {
         public static function getConnectionName()
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::getConnectionName();
+            return \Illuminate\Queue\DatabaseQueue::getConnectionName();
         }
         
         /**
@@ -6605,7 +6655,7 @@ namespace Illuminate\Support\Facades {
         public static function setConnectionName($name)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::setConnectionName($name);
+            return \Illuminate\Queue\DatabaseQueue::setConnectionName($name);
         }
         
         /**
@@ -6618,7 +6668,7 @@ namespace Illuminate\Support\Facades {
         public static function setContainer($container)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            \Illuminate\Queue\SyncQueue::setContainer($container);
+            \Illuminate\Queue\DatabaseQueue::setContainer($container);
         }
          
     }
@@ -13918,6 +13968,398 @@ namespace Arcanedev\LogViewer\Facades {
  
 }
 
+namespace Gufy\CpanelWhm\Facades { 
+
+    class CpanelWhm {
+        
+        /**
+         * Helper function to select server
+         *
+         * @param $server_key
+         * @return \CpanelWhm 
+         * @static 
+         */ 
+        public static function server($server_key)
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::server($server_key);
+        }
+        
+        /**
+         * Set the config settings
+         *
+         * @param $server_key
+         * @return bool 
+         * @static 
+         */ 
+        public static function setConfig($server_key)
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::setConfig($server_key);
+        }
+        
+        /**
+         * Fetch the config settings with fallbacks
+         *
+         * @param $server_key
+         * @return bool|mixed 
+         * @static 
+         */ 
+        public static function fetchConfig($server_key)
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::fetchConfig($server_key);
+        }
+        
+        /**
+         * Set the cPanel hostname
+         *
+         * @param $hostname
+         * @return $this 
+         * @static 
+         */ 
+        public static function setHostname($hostname)
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::setHostname($hostname);
+        }
+        
+        /**
+         * Fetch the current hostname
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getHostname()
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::getHostname();
+        }
+        
+        /**
+         * Set cPanel username and password.
+         *
+         * @param string $username
+         * @param string $password password (usually auth token) from cPanel
+         * @param null|string $hostname
+         * @return $this 
+         * @static 
+         */ 
+        public static function setAuthenticationDetails($username, $password, $hostname = null)
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::setAuthenticationDetails($username, $password, $hostname);
+        }
+        
+        /**
+         * Create a new cPanel object
+         *
+         * @param $username
+         * @param $password
+         * @param null $hostname
+         * @return static 
+         * @static 
+         */ 
+        public static function get($username, $password, $hostname = null)
+        {
+            return \Gufy\CpanelWhm\CpanelWhm::get($username, $password, $hostname);
+        }
+        
+        /**
+         * set authorization for access.
+         * 
+         * It only set 'username' and 'password'.
+         *
+         * @param string $username Username of your whm server.
+         * @param string $password Password or long hash of your whm server.
+         * @return object return as self-object
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function setAuthorization($username, $password)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::setAuthorization($username, $password);
+        }
+        
+        /**
+         * set API Host.
+         *
+         * @param string $host Host of your whm server.
+         * @return object return as self-object
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function setHost($host)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::setHost($host);
+        }
+        
+        /**
+         * set Authentication Type.
+         *
+         * @param string $auth_type Authentication type for calling API.
+         * @return object return as self-object
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function setAuthType($auth_type)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::setAuthType($auth_type);
+        }
+        
+        /**
+         * set some header.
+         *
+         * @param string $name key of header you want to add
+         * @param string $value value of header you want to add
+         * @return object return as self-object
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function setHeader($name, $value = '')
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::setHeader($name, $value);
+        }
+        
+        /**
+         * set timeout.
+         *
+         * @param $timeout
+         * @return object return as self-object
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function setTimeout($timeout)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::setTimeout($timeout);
+        }
+        
+        /**
+         * set connection timeout.
+         *
+         * @param $connection_timeout
+         * @return object return as self-object
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function setConnectionTimeout($connection_timeout)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::setConnectionTimeout($connection_timeout);
+        }
+        
+        /**
+         * get username.
+         *
+         * @return string return username
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function getUsername()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::getUsername();
+        }
+        
+        /**
+         * get authentication type.
+         *
+         * @return string get authentication type
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function getAuthType()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::getAuthType();
+        }
+        
+        /**
+         * get password or long hash.
+         *
+         * @return string get password or long hash
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function getPassword()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::getPassword();
+        }
+        
+        /**
+         * get host of your whm server.
+         *
+         * @return string host of your whm server
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function getHost()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::getHost();
+        }
+        
+        /**
+         * get timeout.
+         *
+         * @return integer timeout of the Guzzle request
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function getTimeout()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::getTimeout();
+        }
+        
+        /**
+         * get connection timeout.
+         *
+         * @return integer connection timeout of the Guzzle request
+         * @since v1.0.0
+         * @static 
+         */ 
+        public static function getConnectionTimeout()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::getConnectionTimeout();
+        }
+        
+        /**
+         * Use a cPanel API
+         *
+         * @param $module
+         * @param $function
+         * @param $username
+         * @param array $params
+         * @return mixed 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function cpanel($module, $function, $username, $params = array())
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::cpanel($module, $function, $username, $params);
+        }
+        
+        /**
+         * Use cPanel API 1 or use cPanel API 2 or use UAPI.
+         *
+         * @param $api (1 = cPanel API 1, 2 = cPanel API 2, 3 = UAPI)
+         * @param $module
+         * @param $function
+         * @param $username
+         * @param array $params
+         * @return mixed 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function execute_action($api, $module, $function, $username, $params = array())
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::execute_action($api, $module, $function, $username, $params);
+        }
+        
+        /**
+         * List all the accounts that the reseller has access to.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function listAccounts()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::listAccounts();
+        }
+        
+        /**
+         * Create a new account
+         *
+         * @param $domain_name
+         * @param $username
+         * @param $password
+         * @param $plan
+         * @return mixed 
+         * @static 
+         */ 
+        public static function createAccount($domain_name, $username, $password, $plan)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::createAccount($domain_name, $username, $password, $plan);
+        }
+        
+        /**
+         * This function deletes a cPanel or WHM account.
+         *
+         * @param string $username
+         * @static 
+         */ 
+        public static function destroyAccount($username)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::destroyAccount($username);
+        }
+        
+        /**
+         * Gets the email addresses that exist under a cPanel account
+         *
+         * @param $username
+         * @static 
+         */ 
+        public static function listEmailAccounts($username)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::listEmailAccounts($username);
+        }
+        
+        /**
+         * 
+         *
+         * @param $username **cPanel username**
+         * @param $email email address to add
+         * @param $password password **for the email address**
+         * @return mixed 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function addEmailAccount($username, $email, $password)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::addEmailAccount($username, $email, $password);
+        }
+        
+        /**
+         * Change the password for an email account in cPanel
+         *
+         * @param $username
+         * @param $email
+         * @param $password
+         * @return mixed 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function changeEmailPassword($username, $email, $password)
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::changeEmailPassword($username, $email, $password);
+        }
+        
+        /**
+         * Runs a blank API Request to pull cPanel's response.
+         *
+         * @return array [status (0 is fail, 1 is success), error (internal error code), verbose (Extended error message)]
+         * @static 
+         */ 
+        public static function checkConnection()
+        {
+            //Method inherited from \Gufy\CpanelPhp\Cpanel            
+            return \Gufy\CpanelWhm\CpanelWhm::checkConnection();
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -16279,6 +16721,8 @@ namespace  {
     class DataTables extends \Yajra\DataTables\Facades\DataTables {}
 
     class LogViewer extends \Arcanedev\LogViewer\Facades\LogViewer {}
+
+    class CpanelWhm extends \Gufy\CpanelWhm\Facades\CpanelWhm {}
  
 }
 

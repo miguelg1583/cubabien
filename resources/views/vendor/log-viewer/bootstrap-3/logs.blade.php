@@ -327,7 +327,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title">DELETE LOG FILE</h4>
+                        <h4 class="modal-title">ELIMINAR LOG FILE</h4>
                     </div>
                     <div class="modal-body">
                         <p></p>
@@ -355,7 +355,7 @@
                 var date = $(this).data('log-date');
                 deleteLogForm.find('input[name=date]').val(date);
                 deleteLogModal.find('.modal-body p').html(
-                    'Are you sure you want to <span class="label label-danger">DELETE</span> this log file <span class="label label-primary">' + date + '</span> ?'
+                    'Está seguro de <span class="label label-danger">ELIMINAR</span> este archivo log <span class="label label-primary">' + date + '</span> ?'
                 );
 
                 deleteLogModal.modal('show');
@@ -377,12 +377,12 @@
                             location.reload();
                         }
                         else {
-                            alert('AJAX ERROR ! Check the console !');
+                            App.showNotiError('Ha ocurrido un error, intente nuevamente');
                             console.error(data);
                         }
                     },
                     error: function(xhr, textStatus, errorThrown) {
-                        alert('AJAX ERROR ! Check the console !');
+                        App.showNotiError('Ha ocurrido un error, intente nuevamente');
                         console.error(errorThrown);
                         submitBtn.button('reset');
                     }

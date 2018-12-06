@@ -61,7 +61,7 @@
             dictRemoveFile: 'Eliminar Imagen',
             dictCancelUpload: 'Cancelar Subida',
             dictDefaultMessage: 'Arrastre archivos aquí para Subir',
-            acceptedFiles: 'image/*',
+            acceptedFiles: 'image/jpeg, image/gif, image/png',
             // dictFileTooBig: 'Image is larger than 16MB',
             // timeout: 10000,
 
@@ -80,11 +80,13 @@
                     });
                 });
                 this.on('error', function (file, response) {
-                    if (file.type.indexOf('image/') !== -1) {
+                    console.log('IndexOf',file.type.indexOf('image/'));
+                    if (file.type.indexOf('image/') === -1) {
                         $(file.previewElement).find('.dz-error-message').text('Solo puede subir imágenes');
                     } else {
                         $(file.previewElement).find('.dz-error-message').text('Ocurrió un error');
                     }
+                    App.showNotiError('Ocurrió un error, intente nuevamente');
                     console.log('File', file);
                     console.log('Response', response);
                 });

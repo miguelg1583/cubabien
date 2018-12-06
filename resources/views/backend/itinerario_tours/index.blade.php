@@ -55,7 +55,8 @@
                                     </div>
                                     <div class="excerpt" v-html="itine.contenido"></div>
                                     <br>
-                                    <img src="{{getImageThumbnail('4.jpg',300,200, 'fit')}}" class="img-responsive" alt="">
+                                    {{--<img src="{{getImageThumbnail('4.jpg',300,200, 'fit')}}" class="img-responsive" alt="">--}}
+                                    <img :src="itine.imagen" class="img-responsive" alt="">
                                 </div>
                             </div>
                         </li>

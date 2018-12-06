@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ItinerarioTour whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read \App\Tour $tour
+ * @property string|null $imagen
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ItinerarioTour whereImagen($value)
  */
 class ItinerarioTour extends Model
 {

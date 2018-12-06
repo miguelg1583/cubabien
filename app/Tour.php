@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\ItinerarioTour[] $itinerario
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\MapaTour[] $mapa
+ * @property-read mixed $cant_itine
  */
 class Tour extends Model
 {

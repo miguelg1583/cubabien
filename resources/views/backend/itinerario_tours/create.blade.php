@@ -3,6 +3,7 @@
 @section('title', 'Itinerario - Crear')
 
 @section('css')
+    <link rel="stylesheet" href="{{assets_file('vendor/select2/css/select2.min.css')}}"/>
 @endsection
 
 @section('title_content', 'Itinerario de Tour')
@@ -72,6 +73,22 @@
                         </div>
 
                     </div>
+                    <div :class="{'item':true, 'form-group':true, 'has-error':errors.has('itinerario.imagen')}">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tour">Imagen </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select2 id="imagen" class="form-control col-md-7 col-xs-12"
+                                     name="imagen"
+                                     v-model="itinerario.imagen"
+                                     :options="imagenes"
+                                     :allowclear="true">
+                                {{--<option disabled value="">Seleccione una Imagen</option>
+                                <option v-for="(img) in imagenes" :value="img">@{{ img }}</option>--}}
+                            </select2>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
+                        <img :src="imagen_encode" class="img-responsive" alt="itinerario.imagen">
+                    </div>
                 </form>
                 <div class="ln_solid"></div>
                 <div class="form-group">
@@ -92,6 +109,7 @@
 @endsection
 
 @section('js')
+    <script src="{{assets_file('vendor/select2/js/select2.full.min.js')}}"></script>
     <script type="text/javascript">
         Vue.use(VeeValidate, {locale: 'es'});
         window.vmContext = new Vue({
@@ -108,6 +126,7 @@
             data: {
                 idiomas: {!! json_encode($idiomas) !!},
                 tours: {!! json_encode($tours) !!},
+                imagenes: {!! json_encode($imagenes) !!},
                 campo_trad: "",
                 itinerario: {
                     tour_id: "",
@@ -115,11 +134,39 @@
                     contenido: {
                         valor: "",
                         @include('backend.traducciones.partial.vdata_trad')
-                    }
+                    },
+                    imagen: ""
                 },
+                imagen_encode: '',
                 // include----------------------------
                 @include('backend.traducciones.partial.vdata_trad')
                 //cierra include----------------------------
+            },
+            watch: {
+                'itinerario.imagen': function (despues, antes) {
+                    let self = this;
+                    if (despues === '') {
+                        self.imagen_encode = '';
+                    } else {
+                        $.ajax({
+                            type: 'POST',
+                            url: '{!! route('imagen.encode') !!}',
+                            data: {
+                                'imagen': despues,
+                                'width': 300,
+                                'height': 200,
+                            }
+                        }).done(function (data) {
+                            if (data.errors) {
+                                console.log(data);
+                                App.showNotiError('Ha ocurrido un problema en el servidor');
+                            } else {
+                                self.imagen_encode = data.mensaje;
+                            }
+                        })
+                    }
+
+                }
             },
             computed: {
                 isNoValido() {
@@ -150,7 +197,8 @@
                         contenido: {
                             valor: "",
                             @include('backend.traducciones.partial.vdata_trad')
-                        }
+                        },
+                        imagen: ""
                     };
                     this.idiomas.forEach(function (item) {
                         self.itinerario.contenido.traduccion.text.push({

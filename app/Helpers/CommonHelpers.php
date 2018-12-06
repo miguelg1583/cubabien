@@ -54,11 +54,12 @@ function assets_backend($file)
     return asset('/backend/' . $file . APP_VERSION);
 }
 
-function getImageThumbnail($path, $width, $height, $type){
+function getImageThumbnail($path, $width, $height, $type)
+{
     return app('App\Http\Controllers\ImagenController')->getImageThumbnail($path, $width, $height, $type);
 }
 
-function guarda_trad($grupo,$id,$arrText)
+function guarda_trad($grupo, $id, $arrText)
 {
     //            despues guardo la traduccion
     $arrKey = [];
@@ -76,16 +77,16 @@ function guarda_trad($grupo,$id,$arrText)
     $ll->save();
     //termino guardar la traduccion
 
-    return $ll->group.".".$ll->key;
+    return $ll->group . "." . $ll->key;
 }
 
-function humanizaCapacidad($bytes){
-    $si_prefix = array( 'B', 'KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB' );
+function humanizaCapacidad($bytes)
+{
+    $si_prefix = array('B', 'KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB');
     $base = 1024;
-    $class = min((int)log($bytes , $base) , count($si_prefix) - 1);
-    return sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class];
+    $class = min((int)log($bytes, $base), count($si_prefix) - 1);
+    return sprintf('%1.2f', $bytes / pow($base, $class)) . ' ' . $si_prefix[$class];
 }
-
 
 
 //function assets_img($imgfile) {
@@ -96,35 +97,56 @@ function humanizaCapacidad($bytes){
 //    return 0 === strpos($string, $query);
 //}
 //
-//function getImageThumbnail($image, $size) {
-//    if (empty($image)) {
-//        return $image;
-//    }
-//    $fp = fopen($image, 'rb');
-//    $meta = stream_get_contents($fp);
-//    $src = imagecreatefromstring($meta);
-//    $width = imagesx($src);
-//    $height = imagesy($src);
-//    $aspect_ratio = $height / $width;
-//    if ($width <= $size) {
-//        $new_w = $width;
-//        $new_h = $height;
-//    } else {
-//        $new_w = $size;
-//        $new_h = abs($new_w * $aspect_ratio);
-//    }
-//    $clone = imagecreatetruecolor($new_w, $new_h);
-//    imagecopyresized($clone, $src, 0, 0, 0, 0, $new_w, $new_h, $width, $height);
-//    ob_start();
-//    imagejpeg($clone, null, 100);
-//    $result_image = ob_get_contents();
-//
-//    ob_end_clean();
-//    imagedestroy($clone);
-//    imagedestroy($src);
-//    fclose($fp);
-//    return $result_image;
-//}
+function getImageThumbnailBaseAlain($image, $size)
+{
+    if (empty($image)) {
+        return $image;
+    }
+    $fp = fopen($image, 'rb');
+    $meta = stream_get_contents($fp);
+    $src = imagecreatefromstring($meta);
+    $width = imagesx($src);
+    $height = imagesy($src);
+    $aspect_ratio = $height / $width;
+    if ($width <= $size) {
+        $new_w = $width;
+        $new_h = $height;
+    } else {
+        $new_w = $size;
+        $new_h = abs($new_w * $aspect_ratio);
+    }
+    $clone = imagecreatetruecolor($new_w, $new_h);
+    imagecopyresized($clone, $src, 0, 0, 0, 0, $new_w, $new_h, $width, $height);
+    ob_start();
+    imagejpeg($clone, null, 100);
+    $result_image = ob_get_contents();
+
+    ob_end_clean();
+    imagedestroy($clone);
+    imagedestroy($src);
+    fclose($fp);
+    return $result_image;
+}
+
+function getImageEncode($image_name, $width, $height)
+{
+    if(!is_null($image_name)){
+        $image_res = getImageThumbnail($image_name, $width, $height, 'fit');
+        $image = public_path('frontend/images/thumbs/') . $width . 'x' . $height . '/' . $image_name;
+        if (file_exists($image)) {
+// Read image path, convert to base64 encoding
+            $imageData = base64_encode(file_get_contents($image));
+// Format the image SRC: data:{mime};base64,{data};
+            return 'data: ' . mime_content_type(public_path('frontend/images/uploads/') . $image_name) . ';base64,' . $imageData;
+        } else {
+            return '';
+        }
+    }else{
+        return '';
+    }
+
+}
+
 //
 //function getDocument($doc) {
 //    if (empty($doc)) {
@@ -156,7 +178,8 @@ function humanizaCapacidad($bytes){
 //    }
 //}
 //
-function bcround($number, $scale = 0) {
+function bcround($number, $scale = 0)
+{
     if ($scale < 0) $scale = 0;
     $sign = '';
     if (bccomp('0', $number, 64) === 1) $sign = '-';

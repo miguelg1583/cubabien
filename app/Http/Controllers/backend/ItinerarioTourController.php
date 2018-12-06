@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\ItinerarioTour;
 use App\Tour;
 use DB;
+use File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,12 +20,21 @@ class ItinerarioTourController extends Controller
     {
 //        $itinerarios = ItinerarioTour::with('tour')->get();
         $tours = Tour::has('itinerario')->with('itinerario')->get(['id', 'nb']);
+        foreach ($tours as $tour) {
+            $itinerarios = $tour->itinerario;
+            foreach ($itinerarios as $itinerario) {
+                if(!is_null($itinerario->imagen)){
+                    $itinerario->imagen=getImageEncode($itinerario->imagen,300,200);
+                }
+            }
+        }
         return view('backend.itinerario_tours.index', compact('tours'));
     }
 
     public function index_datatable()
     {
         $itinerarios = ItinerarioTour::with('tour')->get();
+
         return view('backend.itinerario_tours.index_datatable', compact('itinerarios'));
     }
 
@@ -39,7 +49,14 @@ class ItinerarioTourController extends Controller
 //        $tours = Tour::with('itinerario')->get()->filter(function($value, $key){return count($value.itinerario->get())<$value.num_dias;})->get(['id', 'nb AS text']);
         $tours = Tour::all()->filter(function ($item){return $item->cant_itine<$item->num_dias;});
 //        dd($tours);
-        return view('backend.itinerario_tours.create', compact('tours'));
+        $files = File::files(public_path('frontend/images/uploads'));
+        $imagenes = [];
+        foreach ($files as $file) {
+//            getImageThumbnail($file->getFilename(),1360,768, 'fit');
+//            getImageThumbnail($file->getFilename(),100,100, 'fit');
+            $imagenes[] = $file->getFilename();
+        }
+        return view('backend.itinerario_tours.create', compact('tours', 'imagenes'));
     }
 
     /**
@@ -56,6 +73,7 @@ class ItinerarioTourController extends Controller
             $itine->tour_id = $r_itine['tour_id'];
             $itine->dia = $r_itine['dia'];
             $itine->contenido = $r_itine['contenido']['valor'];
+            $itine->imagen = $r_itine['imagen'];
             $itine->save();
 
             $id_itine = $itine->id;
@@ -89,8 +107,16 @@ class ItinerarioTourController extends Controller
     public function edit($id)
     {
         $tours = Tour::all();
+        $files = File::files(public_path('frontend/images/uploads'));
+        $imagenes = [];
+        foreach ($files as $file) {
+//            getImageThumbnail($file->getFilename(),1360,768, 'fit');
+//            getImageThumbnail($file->getFilename(),100,100, 'fit');
+            $imagenes[] = $file->getFilename();
+        }
         $itinerario = ItinerarioTour::findOrFail($id);
-        return view('backend.itinerario_tours.edit', compact('itinerario', 'tours'));
+        $imagen_encode = getImageEncode($itinerario->imagen,300,200);
+        return view('backend.itinerario_tours.edit', compact('itinerario', 'tours', 'imagenes', 'imagen_encode'));
     }
 
     /**
@@ -107,12 +133,13 @@ class ItinerarioTourController extends Controller
             $db_itine = ItinerarioTour::findOrFail($id);
             $db_itine->dia=$r_itine['dia'];
             $db_itine->contenido=$r_itine['contenido'];
+            $db_itine->imagen = $r_itine['imagen'];
             $db_itine->save();
 
             return response()->json(['mensaje' => 'OK']);
 
         } catch (\Exception $e) {
-//            Debugbar::error($e);
+            report($e);
             return response()->json(['errors' => $e]);
         }
     }

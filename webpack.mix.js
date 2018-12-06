@@ -29,6 +29,7 @@ mix.babel([
 
 
     './node_modules/vue/dist/vue.js',
+    'resources/assets/js/select2.js',
     './node_modules/vee-validate/dist/vee-validate.js',
     './node_modules/vee-validate/dist/locale/es.js',
 
@@ -66,6 +67,10 @@ mix.babel([
 
 /*PROBANDO VUE UPLOAD COMPONENT*/
 // mix.js('resources/assets/js/Myapp.js', 'public/backend/js');
+
+/*PROBANDO VUE SELECT2 COMPONENT*/
+// mix.js('resources/assets/js/vue-select2.js', 'public/backend/js');
+mix.copyDirectory('resources/assets/plugins/select2/dist', 'public/vendor/select2');
 
 mix.copy('resources/assets/plugins/datatables/Spanish.json', 'public/backend/js/Spanish.json');
 

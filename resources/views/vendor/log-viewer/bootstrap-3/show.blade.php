@@ -279,10 +279,10 @@
 
                     <div class="group-btns pull-right">
                         <a href="{{ route('log-viewer::logs.download', [$log->date]) }}" class="btn btn-xs btn-success">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                            <i class="fa fa-download"></i> DESCARGAR
                         </a>
                         <a href="#delete-log-modal" class="btn btn-xs btn-danger" data-toggle="modal">
-                            <i class="fa fa-trash-o"></i> DELETE
+                            <i class="fa fa-trash-o"></i> ELIMINAR
                         </a>
                     </div>
                 </div>
@@ -321,7 +321,7 @@
                     <form action="{{ route('log-viewer::logs.search', [$log->date, $level]) }}" method="GET">
                         <div class=form-group">
                             <div class="input-group">
-                                <input id="query" name="query" class="form-control"  value="{!! request('query') !!}" placeholder="Type here to search">
+                                <input id="query" name="query" class="form-control"  value="{!! request('query') !!}" placeholder="Escriba aquí para buscar">
                                 <span class="input-group-btn">
                                     @if (request()->has('query'))
                                         <a href="{{ route('log-viewer::logs.show', [$log->date]) }}" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></a>
@@ -429,10 +429,10 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title">DELETE LOG FILE</h4>
+                        <h4 class="modal-title">ELIMINAR LOG FILE</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to <span class="label label-danger">DELETE</span> this log file <span class="label label-primary">{{ $log->date }}</span> ?</p>
+                        <p>Está seguro de <span class="label label-danger">ELIMINAR</span> este archivo log <span class="label label-primary">{{ $log->date }}</span> ?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm btn-default pull-left" data-dismiss="modal">Cancel</button>
@@ -469,11 +469,11 @@
                             location.replace("{{ route('log-viewer::logs.list') }}");
                         }
                         else {
-                            alert('OOPS ! This is a lack of coffee exception !')
+                            App.showNotiError('Ha ocurrido un error, intente nuevamente');
                         }
                     },
                     error: function(xhr, textStatus, errorThrown) {
-                        alert('AJAX ERROR ! Check the console !');
+                        App.showNotiError('Ha ocurrido un error, intente nuevamente');
                         console.error(errorThrown);
                         submitBtn.button('reset');
                     }

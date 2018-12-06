@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37a39c8959287c27a420aa327554761c",
+    "content-hash": "775733f1757498643c340a049bbd761e",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -2552,6 +2552,53 @@
                 "shell"
             ],
             "time": "2018-08-11T15:54:43+00:00"
+        },
+        {
+            "name": "queueworker/sansdaemon",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orobogenius/sansdaemon.git",
+                "reference": "40544912aed81c81e79f5b850aac7984a8cc7045"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orobogenius/sansdaemon/zipball/40544912aed81c81e79f5b850aac7984a8cc7045",
+                "reference": "40544912aed81c81e79f5b850aac7984a8cc7045",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Queueworker\\SansDaemon\\SansDaemonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Queueworker\\SansDaemon\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lucky Ozoka",
+                    "email": "orobolucky@gmail.com"
+                }
+            ],
+            "description": "Batch process Laravel Queue without a daemon; Processes queue jobs and kills the process",
+            "keywords": [
+                "laravel",
+                "queue"
+            ],
+            "time": "2018-09-05T12:13:11+00:00"
         },
         {
             "name": "ramsey/uuid",

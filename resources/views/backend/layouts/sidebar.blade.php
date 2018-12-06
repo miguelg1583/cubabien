@@ -94,7 +94,6 @@
                         <ul class="nav child_menu">
                             <li><a href="{{route('log-viewer::dashboard')}}">Dashboard</a></li>
                             <li><a href="{{route('log-viewer::logs.list')}}">Listado</a></li>
-                            <li><a href="#">Idiomas</a></li>
                         </ul>
                     </li>
                 </ul>
