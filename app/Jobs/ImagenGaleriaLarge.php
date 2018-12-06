@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Image;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ImagenGaleriaLarge implements ShouldQueue
 {
@@ -36,6 +36,10 @@ class ImagenGaleriaLarge implements ShouldQueue
 
         $images_path = FRONT_IMAGE_PATH;
         $path = ltrim($this->imagen, "/");
+
+        if(!File::exists(public_path("frontend/images/thumbs/1360x768/"))){
+            File::makeDirectory(public_path("frontend/images/thumbs/1360x768/"), 0775, true);
+        }
 
         //if thumbnail not exist crearla
         if (!File::exists(public_path("frontend/images/thumbs/1360x768/{$path}"))) {
