@@ -155,6 +155,7 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         Gufy\CpanelWhm\CpanelWhmServiceProvider::class,
+        Queueworker\SansDaemon\SansDaemonServiceProvider::class,
         /*
          * Application Service Providers...
          */
