@@ -19,7 +19,7 @@
         <div class="x_content">
             <div class="lightBoxGallery">
                 @foreach($imagenes as $imagen)
-                    <a href="{{getImageThumbnail($imagen,1360,768, 'fit')}}" data-gallery="" title="{!! $imagen !!}"><img src="{{getImageThumbnail($imagen,100,100, 'fit')}}" alt="{!! $imagen !!}"></a>
+                    <a href="{{assets_file('frontend/images/thumbs/1360x768/'.$imagen)}}" data-gallery="" title="{!! $imagen !!}"><img src="{{assets_file('frontend/images/thumbs/100x100/'.$imagen)}}" alt="{!! $imagen !!}"></a>
                 @endforeach
             <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
                 <div id="blueimp-gallery" class="blueimp-gallery">
