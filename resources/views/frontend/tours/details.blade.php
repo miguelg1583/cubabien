@@ -118,7 +118,7 @@
                                     </div>
 {{--                                    @if($loop->iteration % 2 === 1)--}}
                                         <div>
-                                            <img src="{{getImageThumbnail('6.jpg',640,480, 'fit')}}" class="img-responsive img-relative">
+                                            <img src="{{getImageThumbnail($itine->imagen,640,480, 'fit')}}" class="img-responsive img-relative">
                                         </div>
                                     {{--@else--}}
                                         {{--<div>--}}
