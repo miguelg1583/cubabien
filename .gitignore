@@ -2,8 +2,8 @@
 /public/hot
 /public/storage
 /public/frontend/images/thumbs
+/public/frontend/images/uploads
 /storage/*.key
-/vendor
 /.idea
 /.vscode
 /.vagrant

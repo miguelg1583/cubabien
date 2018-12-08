@@ -82,6 +82,10 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         array (
             'Ramsey\\Uuid\\' => 12,
         ),
+        'Q' => 
+        array (
+            'Queueworker\\SansDaemon\\' => 23,
+        ),
         'P' => 
         array (
             'Psy\\' => 4,
@@ -271,6 +275,10 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'Queueworker\\SansDaemon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/queueworker/sansdaemon/src',
         ),
         'Psy\\' => 
         array (
@@ -547,6 +555,8 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\ItinerarioTour' => __DIR__ . '/../..' . '/app/ItinerarioTour.php',
+        'App\\Jobs\\ImagenGaleriaLarge' => __DIR__ . '/../..' . '/app/Jobs/ImagenGaleriaLarge.php',
+        'App\\Jobs\\ImagenGaleriaThumb' => __DIR__ . '/../..' . '/app/Jobs/ImagenGaleriaThumb.php',
         'App\\MapaTour' => __DIR__ . '/../..' . '/app/MapaTour.php',
         'App\\PreguntaResp' => __DIR__ . '/../..' . '/app/PreguntaResp.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -4095,6 +4105,9 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'Queueworker\\SansDaemon\\Console\\WorkCommand' => __DIR__ . '/..' . '/queueworker/sansdaemon/src/Console/WorkCommand.php',
+        'Queueworker\\SansDaemon\\SansDaemonServiceProvider' => __DIR__ . '/..' . '/queueworker/sansdaemon/src/SansDaemonServiceProvider.php',
+        'Queueworker\\SansDaemon\\Traits\\SansDaemonWorkerTrait' => __DIR__ . '/..' . '/queueworker/sansdaemon/src/Traits/SansDaemonWorkerTrait.php',
         'Ramsey\\Uuid\\BinaryUtils' => __DIR__ . '/..' . '/ramsey/uuid/src/BinaryUtils.php',
         'Ramsey\\Uuid\\Builder\\DefaultUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DefaultUuidBuilder.php',
         'Ramsey\\Uuid\\Builder\\DegradedUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DegradedUuidBuilder.php',
