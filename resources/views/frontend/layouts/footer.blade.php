@@ -190,7 +190,7 @@
                     <a href="{{route('faq.index')}}">{{__('menu.faq')}}</a>
                 </li>
                 <li>
-                    <a href="{{route('contact.index')}}">{{__('menu.contact')}}</a>
+                    <a href="{{route('contact_us.index')}}">{{__('menu.contact')}}</a>
                 </li>
             </ul>
         </div>

@@ -68,15 +68,15 @@ class ImagenController extends Controller
         $file_path = public_path('frontend/images/uploads/') . $filename;
 
         if (file_exists($file_path)) {
-            unlink($file_path);
+            File::delete($file_path);
         }
 
         if (file_exists(public_path('frontend/images/thumbs/100x100/') . $filename)) {
-            unlink(public_path('frontend/images/thumbs/100x100/') . $filename);
+            File::delete(public_path('frontend/images/thumbs/100x100/') . $filename);
         }
 
         if (file_exists(public_path('frontend/images/thumbs/1360x768/') . $filename)) {
-            unlink(public_path('frontend/images/thumbs/1360x768/') . $filename);
+            File::delete(public_path('frontend/images/thumbs/1360x768/') . $filename);
         }
 
         return response()->json(['mensaje' => 'OK'], 200);

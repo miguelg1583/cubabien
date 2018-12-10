@@ -79,6 +79,16 @@ Route::prefix('admin')->group(function () {
         Route::post('imagenes/encode', 'backend\ImagenController@getcode')->name('imagen.encode');
         Route::get('imagenes/gallery', 'backend\ImagenController@index_gallery')->name('imagen.gallery');
 
+        Route::get('/comando/{command}', function ($command) {
+            $exitCode = Artisan::call($command, []);
+            return $exitCode;
+        });
+        Route::get('/comando/generaimagen/{imagen}/{width}/{height}/{type}', function ($imagen, $width, $height, $type) {
+            $exitCode = Artisan::call('imagenes:generar', ['image'=>$imagen, 'width'=>$width, 'height'=>$height, 'type'=>$type]);
+            return $exitCode;
+        });
+
+
     });
 });
 
