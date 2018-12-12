@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\CategoriaFaq' => $baseDir . '/app/CategoriaFaq.php',
+    'App\\Console\\Commands\\GeneraImagen' => $baseDir . '/app/Console/Commands/GeneraImagen.php',
+    'App\\Console\\Commands\\GeneraImagesGaleria' => $baseDir . '/app/Console/Commands/GeneraImagesGaleria.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Contact' => $baseDir . '/app/Contact.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -41,6 +43,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\ImagenPub' => $baseDir . '/app/ImagenPub.php',
     'App\\ItinerarioTour' => $baseDir . '/app/ItinerarioTour.php',
     'App\\Jobs\\ImagenGaleriaLarge' => $baseDir . '/app/Jobs/ImagenGaleriaLarge.php',
     'App\\Jobs\\ImagenGaleriaThumb' => $baseDir . '/app/Jobs/ImagenGaleriaThumb.php',

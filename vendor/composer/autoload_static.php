@@ -520,6 +520,8 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
 
     public static $classMap = array (
         'App\\CategoriaFaq' => __DIR__ . '/../..' . '/app/CategoriaFaq.php',
+        'App\\Console\\Commands\\GeneraImagen' => __DIR__ . '/../..' . '/app/Console/Commands/GeneraImagen.php',
+        'App\\Console\\Commands\\GeneraImagesGaleria' => __DIR__ . '/../..' . '/app/Console/Commands/GeneraImagesGaleria.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -554,6 +556,7 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\ImagenPub' => __DIR__ . '/../..' . '/app/ImagenPub.php',
         'App\\ItinerarioTour' => __DIR__ . '/../..' . '/app/ItinerarioTour.php',
         'App\\Jobs\\ImagenGaleriaLarge' => __DIR__ . '/../..' . '/app/Jobs/ImagenGaleriaLarge.php',
         'App\\Jobs\\ImagenGaleriaThumb' => __DIR__ . '/../..' . '/app/Jobs/ImagenGaleriaThumb.php',
