@@ -65,6 +65,9 @@
     $(document).ready(() => {
         App.initAjaxFront();
         App.showNotiInfoFull('{!! __("noti-info.title")!!}', '{!! __("noti-info.mensaje-desarrollo")!!}');
+        if(window.innerWidth < 1480){
+            $('.logo-display')[0].src="{{assets_frontend('images/logo-white.png')}}";
+        }
     });
     $("ul.dropdown-menu>li").on("click", ".idioma-select", function () {
         let lang = $(this).data("lang");

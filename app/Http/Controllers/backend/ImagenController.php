@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\ImagenPub;
 use App\Jobs\ImagenGaleriaLarge;
 use App\Jobs\ImagenGaleriaThumb;
 use File;
@@ -31,6 +32,17 @@ class ImagenController extends Controller
         }
 //        dd($imagenes);
         return view('backend.imagenes.gallery', compact('imagenes'));
+    }
+
+    public function index_pub_home()
+    {
+        $images_home = ImagenPub::whereLugar('Home')->get();
+        $files = File::files(public_path('frontend/images/uploads'));
+        $images_files = [];
+        foreach ($files as $file) {
+            $images_files[] = $file->getFilename();
+        }
+        return view('backend.imagenes.pub_home', compact('images_home', 'images_files'));
     }
 
     public function store(Request $request)

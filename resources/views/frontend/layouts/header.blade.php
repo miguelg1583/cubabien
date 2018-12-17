@@ -6,7 +6,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#brand" style="clear: both">
+            <a class="navbar-brand" href="#brand">
                 <img src="{{assets_frontend('images/logo-white179.png')}}" class="logo logo-display" alt="">
                 <img src="{{assets_frontend('images/logo-black.png')}}" class="logo logo-scrolled" alt="">
             </a>

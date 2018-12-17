@@ -74,7 +74,7 @@
 
                     </div>
                     <div :class="{'item':true, 'form-group':true, 'has-error':errors.has('itinerario.imagen')}">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tour">Imagen </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="imagen">Imagen </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select2 id="imagen" class="form-control col-md-7 col-xs-12"
                                      name="imagen"

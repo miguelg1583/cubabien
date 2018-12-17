@@ -78,6 +78,7 @@ Route::prefix('admin')->group(function () {
         Route::post('imagenes/destroy', 'backend\ImagenController@destroy')->name('imagen.destroy');
         Route::post('imagenes/encode', 'backend\ImagenController@getcode')->name('imagen.encode');
         Route::get('imagenes/gallery', 'backend\ImagenController@index_gallery')->name('imagen.gallery');
+        Route::get('imagenes/pub_home', 'backend\ImagenController@index_pub_home')->name('imagen.pub_home');
 
         Route::get('/comando/{command}', function ($command) {
             $exitCode = Artisan::call($command, []);
