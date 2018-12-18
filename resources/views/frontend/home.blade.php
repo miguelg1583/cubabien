@@ -59,34 +59,28 @@
                     <div id="homeCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#homeCarousel" data-slide-to="1"></li>
-                            <li data-target="#homeCarousel" data-slide-to="2"></li>
-                            <li data-target="#homeCarousel" data-slide-to="3"></li>
-                            <li data-target="#homeCarousel" data-slide-to="4"></li>
+                            @foreach($imgs as $img)
+                                @if($loop->first)
+                                    <li data-target="#homeCarousel" data-slide-to="{!! $loop->index !!}" class="active"></li>
+                                @else
+                                    <li data-target="#homeCarousel" data-slide-to="{!! $loop->index !!}"></li>
+                                @endif
+                            @endforeach
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="{{getImageThumbnail('6.jpg',700,540, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('7.jpg',700,540, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('8.jpg',700,540, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('9.jpg',700,540, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('10.jpg',700,540, 'fit')}}">
-                            </div>
+                            @foreach($imgs as $img)
+                                @if($loop->first)
+                                    <div class="item active">
+                                        <img src="{{$img}}">
+                                    </div>
+                                @else
+                                    <div class="item">
+                                        <img src="{{$img}}">
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
 
                         <!-- Left and right controls -->
@@ -141,62 +135,62 @@
                 @foreach($tours as $tour)
                     @if ($loop->first || $loop->iteration % 2 === 0)
                         {{--<div class="row" style="margin-bottom: 80px">--}}
-                            @endif
-                            <div class="col-lg-6 col-sm-6 col-xs-12" style="margin-bottom: 80px">
-                                <div class="tables"
-                                     data-aos="fade-right" {{$loop->iteration % 2 === 0 ? 'data-aos-delay="'. $loop->index*200 .'"' : ''}}
-                                     >
-                                    <div class="table1">
-                                        <div class="table-header" style="min-height: 80px">
-                                            <h2>{{__($tour->nb_trad)}}</h2>
-                                        </div>
-                                        <div class="table-body">
-                                            <p>{!! __($tour->introd_trad) !!}
-                                            </p>
-                                            <br>
-                                            <a href="{{route('travel_cuba.show',[$tour->id])}}"
-                                               class="btn button btn-sm btn-outline-dark radius25">{{__('button.details')}}</a>
-                                        </div>
-                                    </div>
-                                    <div class="table-bg">
-                                    </div>
+                    @endif
+                    <div class="col-lg-6 col-sm-6 col-xs-12" style="margin-bottom: 80px">
+                        <div class="tables"
+                             data-aos="fade-right" {{$loop->iteration % 2 === 0 ? 'data-aos-delay="'. $loop->index*200 .'"' : ''}}
+                        >
+                            <div class="table1">
+                                <div class="table-header" style="min-height: 80px">
+                                    <h2>{{__($tour->nb_trad)}}</h2>
+                                </div>
+                                <div class="table-body">
+                                    <p>{!! __($tour->introd_trad) !!}
+                                    </p>
+                                    <br>
+                                    <a href="{{route('travel_cuba.show',[$tour->id])}}"
+                                       class="btn button btn-sm btn-outline-dark radius25">{{__('button.details')}}</a>
                                 </div>
                             </div>
-                            @if($loop->iteration % 2 === 0)
+                            <div class="table-bg">
+                            </div>
+                        </div>
+                    </div>
+                    @if($loop->iteration % 2 === 0)
                         {{--</div>--}}
                         {{--<div class="long-line"></div>--}}
                         {{--<div class="clearfix" style="height: 20px"></div>--}}
                     @endif
                 @endforeach
-                    {{--ver recomendao--}}
-                    {{--<div class="col-lg-4 col-sm-4 col-xs-12">--}}
-                    {{--<div class="tables" data-aos="fade-right" data-aos-delay="200">--}}
-                    {{--<div class="table1">--}}
-                    {{--<div class="table-header">--}}
-                    {{--<h3>59.99$</h3>--}}
-                    {{--<h2>Medium</h2>--}}
-                    {{--</div>--}}
-                    {{--<div class="table-body">--}}
-                    {{--<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their--}}
-                    {{--default mode--}}
-                    {{--</p>--}}
-                    {{--<ul>--}}
-                    {{--<li>Create and modern designs</li>--}}
-                    {{--<li>Team that love details</li>--}}
-                    {{--<li>Unlimited free support</li>--}}
-                    {{--<li>Create and modern designs</li>--}}
-                    {{--<li>Unlimited free support</li>--}}
-                    {{--<li>Unlimited free support</li>--}}
-                    {{--</ul>--}}
-                    {{--<br>--}}
-                    {{--<a href="#" class="btn button btn-sm btn-outline-dark radius25">Get Started Now</a>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="table-bg recommended">--}}
-                    {{--<h4>Recommended Plan</h4>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
+                {{--ver recomendao--}}
+                {{--<div class="col-lg-4 col-sm-4 col-xs-12">--}}
+                {{--<div class="tables" data-aos="fade-right" data-aos-delay="200">--}}
+                {{--<div class="table1">--}}
+                {{--<div class="table-header">--}}
+                {{--<h3>59.99$</h3>--}}
+                {{--<h2>Medium</h2>--}}
+                {{--</div>--}}
+                {{--<div class="table-body">--}}
+                {{--<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their--}}
+                {{--default mode--}}
+                {{--</p>--}}
+                {{--<ul>--}}
+                {{--<li>Create and modern designs</li>--}}
+                {{--<li>Team that love details</li>--}}
+                {{--<li>Unlimited free support</li>--}}
+                {{--<li>Create and modern designs</li>--}}
+                {{--<li>Unlimited free support</li>--}}
+                {{--<li>Unlimited free support</li>--}}
+                {{--</ul>--}}
+                {{--<br>--}}
+                {{--<a href="#" class="btn button btn-sm btn-outline-dark radius25">Get Started Now</a>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="table-bg recommended">--}}
+                {{--<h4>Recommended Plan</h4>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>

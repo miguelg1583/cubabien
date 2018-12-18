@@ -36,13 +36,50 @@ class ImagenController extends Controller
 
     public function index_pub_home()
     {
-        $images_home = ImagenPub::whereLugar('Home')->get();
+        $images_home = ImagenPub::whereLugar('Home')->get(['imagen']);
         $files = File::files(public_path('frontend/images/uploads'));
         $images_files = [];
         foreach ($files as $file) {
             $images_files[] = $file->getFilename();
         }
-        return view('backend.imagenes.pub_home', compact('images_home', 'images_files'));
+        $images_db = [];
+        foreach ($images_home as $img_db) {
+            $images_db[] = ['imagen' => $img_db->imagen, 'encode' => getImageEncode($img_db->imagen, 700, 540)];
+        }
+        return view('backend.imagenes.pub_home', compact('images_db', 'images_files'));
+    }
+
+    public function home_publicar(Request $request)
+    {
+        ImagenPub::whereLugar('Home')->delete();
+        foreach ($request->imagenes as $r_img) {
+            ImagenPub::create(['imagen' => $r_img, 'lugar' => 'Home']);
+        }
+        return response()->json(['mensaje' => 'OK'], 200);
+    }
+
+    public function index_pub_tour()
+    {
+        $images_home = ImagenPub::whereLugar('Tour')->get(['imagen']);
+        $files = File::files(public_path('frontend/images/uploads'));
+        $images_files = [];
+        foreach ($files as $file) {
+            $images_files[] = $file->getFilename();
+        }
+        $images_db = [];
+        foreach ($images_home as $img_db) {
+            $images_db[] = ['imagen' => $img_db->imagen, 'encode' => getImageEncode($img_db->imagen, 700, 780)];
+        }
+        return view('backend.imagenes.pub_tour', compact('images_db', 'images_files'));
+    }
+
+    public function tour_publicar(Request $request)
+    {
+        ImagenPub::whereLugar('Tour')->delete();
+        foreach ($request->imagenes as $r_img) {
+            ImagenPub::create(['imagen' => $r_img, 'lugar' => 'Tour']);
+        }
+        return response()->json(['mensaje' => 'OK'], 200);
     }
 
     public function store(Request $request)
@@ -96,19 +133,18 @@ class ImagenController extends Controller
 
     public function getcode(Request $request)
     {
-        try{
-            $imagen=$request->imagen;
-            $width=$request->width;
-            $height=$request->height;
-            $res = getImageEncode($imagen,$width,$height);
+        try {
+            $imagen = $request->imagen;
+            $width = $request->width;
+            $height = $request->height;
+            $res = getImageEncode($imagen, $width, $height);
 
             return response()->json(['mensaje' => $res]);
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             report($e);
             return response()->json(['errors' => $e]);
         }
-
 
 
     }

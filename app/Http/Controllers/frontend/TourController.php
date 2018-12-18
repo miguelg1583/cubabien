@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\ImagenPub;
 use App\Tour;
 use DataTables;
-use function foo\func;
+//use function foo\func;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Routing\Middleware\ThrottleRequestsWithRedis;
+//use Illuminate\Routing\Middleware\ThrottleRequestsWithRedis;
 
 class TourController extends Controller
 {
@@ -20,7 +21,12 @@ class TourController extends Controller
                 $marcadores[] = [$item_mapa->latitud, $item_mapa->longitud, __($item_mapa->etiqueta_trad)];
             }
         }
-        return view('frontend.tours.index', compact(['tours', 'marcadores']));
+        $img_tour = ImagenPub::whereLugar('Tour')->get(['imagen']);
+        $imgs = [];
+        foreach ($img_tour as $img) {
+            $imgs[] = getImageThumbnail($img->imagen, 700, 780, 'fit');
+        }
+        return view('frontend.tours.index', compact(['tours', 'marcadores', 'imgs']));
     }
 
     public function show($id)

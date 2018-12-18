@@ -47,34 +47,28 @@
                     <div id="tourCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#tourCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#tourCarousel" data-slide-to="1"></li>
-                            <li data-target="#tourCarousel" data-slide-to="2"></li>
-                            <li data-target="#tourCarousel" data-slide-to="3"></li>
-                            <li data-target="#tourCarousel" data-slide-to="4"></li>
+                            @foreach($imgs as $img)
+                                @if($loop->first)
+                                    <li data-target="#tourCarousel" data-slide-to="{!! $loop->index !!}" class="active"></li>
+                                @else
+                                    <li data-target="#tourCarousel" data-slide-to="{!! $loop->index !!}"></li>
+                                @endif
+                            @endforeach
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="{{getImageThumbnail('1.jpg',700,780, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('2.jpg',700,780, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('3.jpg',700,780, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('4.jpg',700,780, 'fit')}}">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{getImageThumbnail('5.jpg',700,780, 'fit')}}">
-                            </div>
+                            @foreach($imgs as $img)
+                                @if($loop->first)
+                                    <div class="item active">
+                                        <img src="{{$img}}">
+                                    </div>
+                                @else
+                                    <div class="item">
+                                        <img src="{{$img}}">
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
 
                         <!-- Left and right controls -->

@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-                        <img :src="imagen_encode" class="img-responsive" alt="itinerario.imagen">
+                        <img :src="imagen_encode" class="img-responsive" :alt="itinerario.imagen">
                     </div>
                 </form>
                 <div class="ln_solid"></div>

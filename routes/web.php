@@ -79,6 +79,9 @@ Route::prefix('admin')->group(function () {
         Route::post('imagenes/encode', 'backend\ImagenController@getcode')->name('imagen.encode');
         Route::get('imagenes/gallery', 'backend\ImagenController@index_gallery')->name('imagen.gallery');
         Route::get('imagenes/pub_home', 'backend\ImagenController@index_pub_home')->name('imagen.pub_home');
+        Route::post('imagenes/pub_home/publicar', 'backend\ImagenController@home_publicar')->name('imagen.home_publicar');
+        Route::get('imagenes/pub_tour', 'backend\ImagenController@index_pub_tour')->name('imagen.pub_tour');
+        Route::post('imagenes/pub_tour/publicar', 'backend\ImagenController@tour_publicar')->name('imagen.tour_publicar');
 
         Route::get('/comando/{command}', function ($command) {
             $exitCode = Artisan::call($command, []);
