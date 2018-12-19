@@ -174,15 +174,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {{--<div class="row">--}}
                 @foreach($tours as $tour)
                     @if ($loop->first || $loop->iteration % 2 === 0)
-                        {{--<div class="row" style="margin-bottom: 80px">--}}
+                        <div class="row">
                     @endif
                     <div class="col-lg-6 col-sm-6 col-xs-12" style="margin-bottom: 80px">
-                        <div class="tables"
-                             data-aos="fade-right" {{$loop->iteration % 2 === 0 ? 'data-aos-delay="'. $loop->index*200 .'"' : ''}}
-                        >
+                        <div class="tables" data-aos="fade-right" {{$loop->iteration % 2 === 0 ? 'data-aos-delay="'. $loop->index*200 .'"' : ''}}>
                             <div class="table1">
                                 <div class="table-header" style="min-height: 80px">
                                     <h2>{{__($tour->nb_trad)}}</h2>
@@ -202,7 +200,7 @@
                         </div>
                     </div>
                     @if($loop->iteration % 2 === 0)
-                        {{--</div>--}}
+                        </div>
                         {{--<div class="long-line"></div>--}}
                         {{--<div class="clearfix" style="height: 20px"></div>--}}
                     @endif
