@@ -65,7 +65,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-md-6 col-xs-12 col-sm-offset-3 col-md-offset-3">
-                        <div id="tourCarousel" class="carousel slide" data-ride="carousel">
+                        <div id="tourCarousel" class="carousel slide" data-ride="carousel" style="width: 600px; height: 680px;">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 <li v-for="(img, pos_img) in imagenes_db" data-target="#homeCarousel"
