@@ -3,6 +3,49 @@
 @section('title', __('menu.home'))
 
 @section('css')
+    <style>
+        /* styles for '...' */
+        .block-with-text {
+            /* hide text if it more than N lines  */
+            overflow: hidden;
+            /* for set '...' in absolute position */
+            position: relative;
+            /* use this value to count block height */
+            line-height: 1.2em;
+            /* max-height = line-height (1.2) * lines max number (3) */
+            max-height: 4.6em;
+            /* fix problem when last visible word doesn't adjoin right side  */
+            text-align: justify;
+            /* place for '...' */
+            margin-right: -1em;
+            padding-right: 1em;
+        }
+        /* create the ... */
+        .block-with-text:before {
+            /* points in the end */
+            content: '...';
+            /* absolute position */
+            position: absolute;
+            /* set position to right bottom corner of block */
+            right: 0;
+            bottom: 0;
+        }
+        /* hide ... if we have text, which is less than or equal to max lines */
+        .block-with-text:after {
+            /* points in the end */
+            content: '';
+            /* absolute position */
+            position: absolute;
+            /* set position to right bottom corner of text */
+            right: 0;
+            /* set width and height */
+            width: 1em;
+            height: 1em;
+            margin-top: 0.2em;
+            /* bg color = bg color under block */
+            background: white;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -145,8 +188,10 @@
                                     <h2>{{__($tour->nb_trad)}}</h2>
                                 </div>
                                 <div class="table-body">
-                                    <p>{!! __($tour->introd_trad) !!}
-                                    </p>
+                                    <div class="block-with-text">
+                                        <p>{!! __($tour->introd_trad) !!}
+                                        </p>
+                                    </div>
                                     <br>
                                     <a href="{{route('travel_cuba.show',[$tour->id])}}"
                                        class="btn button btn-sm btn-outline-dark radius25">{{__('button.details')}}</a>
