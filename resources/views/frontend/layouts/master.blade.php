@@ -88,12 +88,22 @@
         if (event.which === 3) {
             let self = this;
             if (self.src.indexOf('_watermark') === -1) {
-                self.src = self.src.replace('.jpg', '_watermark.jpg');
+                if(self.src.indexOf('.jpg')!== -1){
+                    self.src = self.src.replace('.jpg', '_watermark.jpg');
+                }
+                if(self.src.indexOf('.JPG')!== -1){
+                    self.src = self.src.replace('.JPG', '_watermark.JPG');
+                }
             }
         }
     }).on('tapstart', function (e, touch) {
         if (this.src.indexOf('_watermark') === -1) {
-            this.src = this.src.replace('.jpg', '_watermark.jpg');
+            if(this.src.indexOf('.jpg')!== -1){
+                this.src = this.src.replace('.jpg', '_watermark.jpg');
+            }
+            if(this.src.indexOf('.JPG')!== -1){
+                this.src = this.src.replace('.JPG', '_watermark.JPG');
+            }
         }
     })
 </script>

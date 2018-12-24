@@ -11,7 +11,7 @@
     <div id="app" v-cloak>
         <div class="x_panel">
             <div class="x_title">
-                <h2><i class="fa fa-file-code-o"></i> Agregar
+                <h2><i class="fa fa-file-code-o"></i> Editar
                     <small>tabs por idiomas</small>
                 </h2>
                 <div class="clearfix"></div>

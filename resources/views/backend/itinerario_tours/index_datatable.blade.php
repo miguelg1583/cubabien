@@ -168,9 +168,12 @@
             indexPreg = $(this).data("index");
         });
         $(".modal-footer").on("click", ".delete", function () {
-            App.AjaxDel(id, '{!! url('/admin/itinerario-tour') !!}');
-            vmContext.itinerarios.splice(indexPreg, 1);
-            $('#itinerario_tour_DTG').DataTable().row(indexPreg).remove().draw(true);
+            App.AjaxDel(id, '{!! url('/admin/itinerario-tour') !!}').done(function (data) {
+                if(data.mensaje === 'OK'){
+                    vmContext.itinerarios.splice(indexPreg, 1);
+                    $('#itinerario_tour_DTG').DataTable().row(indexPreg).remove().draw(true);
+                }
+            });
         });
     </script>
 @endsection

@@ -10,7 +10,9 @@
     <title>CubaBien Admin | @yield('title')</title>
 
     <link rel="stylesheet" href="{{ assets_backend('css/cubabien.css') }}">
-    <link rel="shortcut icon" href="{{ assets_backend('img/favicon.ico') }}"/>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ assets_frontend('images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ assets_frontend('images/favicon.png') }}" type="image/x-icon">
     @yield('css')
 </head>
 

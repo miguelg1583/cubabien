@@ -7,6 +7,7 @@ use App\ItinerarioTour;
 use App\MapaTour;
 use App\Tour;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Jenssegers\Date\Date;
@@ -175,7 +176,31 @@ class TourController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $tour = Tour::findOrFail($id);
+            DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$tour->nb_trad])->delete();
+            DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$tour->introd_trad])->delete();
+
+            foreach ($tour->fechas as $fecha) {
+                app('App\Http\Controllers\backend\CalendarioTourController')->destroy($fecha->id);
+            }
+
+            foreach ($tour->itinerario as $itine) {
+                app('App\Http\Controllers\backend\ItinerarioTourController')->destroy($itine->id);
+            }
+
+            foreach ($tour->mapa as $mapa) {
+                app('App\Http\Controllers\backend\MapaTourController')->destroy($mapa->id);
+            }
+
+            $tour->delete();
+
+            return response()->json(['mensaje' => 'OK']);
+
+        } catch (\Exception $e) {
+            report($e);
+            return response()->json(['errors' => $e]);
+        }
     }
 
     public function getDataToModal(Request $request)

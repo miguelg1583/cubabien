@@ -39,21 +39,32 @@ class TraduccionController extends Controller
 //        foreach ($traducciones as $traduccione) {
 //            $traduccione->text = $traduccione->text[$idioma];
 //        }
+        $arrDefecto = ['menu', 'slogan', 'home', 'homebox', 'about_us', 'button', 'word', 'contact', 'labelplaceholder', 'dayweek', 'datatable', 'message', 'noti-info'];
         try {
             return Datatables::of($traducciones)
-                ->addColumn('operaciones', function ($row) {
-                    return '<button class="btn btn-round btn-success show-modal" data-id="' . $row->id . '">' .
-                        '<span class="glyphicon glyphicon-search"></span>' .
-                        '</button>' .
-                        '<a href="' . url('/admin/traduccion/' . $row->id . '/edit') . '"' .
-                        'class="btn btn-round btn-info" data-id="' . $row->id . '">' .
-                        '<span class="glyphicon glyphicon-edit"></span></a>' .
-                        '<button class="btn btn-round btn-danger delete-modal"' .
-                        'data-toggle="modal" data-target="#deleteModal" data-id="' . $row->id . '">' .
-                        '<span class="glyphicon glyphicon-trash"></span>' .
-                        '</button>';
+                ->addColumn('operaciones', function ($row) use ($arrDefecto) {
+                    if (!array_search($row->group, $arrDefecto)) {
+//                    if ($row->group === 'menu') {
+                        return '<button class="btn btn-round btn-success show-modal" data-id="' . $row->id . '">' .
+                            '<span class="glyphicon glyphicon-search"></span>' .
+                            '</button>' .
+                            '<a href="' . url('/admin/traduccion/' . $row->id . '/edit') . '"' .
+                            'class="btn btn-round btn-info" data-id="' . $row->id . '">' .
+                            '<span class="glyphicon glyphicon-edit"></span></a>' .
+                            '<button class="btn btn-round btn-danger delete-modal"' .
+                            'data-toggle="modal" data-target="#deleteModal" data-id="' . $row->id . '">' .
+                            '<span class="glyphicon glyphicon-trash"></span>' .
+                            '</button>';
+                    } else {
+                        return '<button class="btn btn-round btn-success show-modal" data-id="' . $row->id . '">' .
+                            '<span class="glyphicon glyphicon-search"></span>' .
+                            '</button>' .
+                            '<a href="' . url('/admin/traduccion/' . $row->id . '/edit') . '"' .
+                            'class="btn btn-round btn-info" data-id="' . $row->id . '">' .
+                            '<span class="glyphicon glyphicon-edit"></span></a>';
+                    }
                 })
-                ->editColumn('text', function ($row) use($idioma){
+                ->editColumn('text', function ($row) use ($idioma) {
                     return str_limit($row->text[$idioma], 30, ' (...)');
                 })
                 ->editColumn('created_at', function ($row) {
@@ -126,7 +137,7 @@ class TraduccionController extends Controller
 
 
         } catch (\Exception $e) {
-//            Debugbar::error($e);
+            report($e);
             return response()->json(['errors' => $e]);
         }
     }
@@ -184,11 +195,10 @@ class TraduccionController extends Controller
     {
         try {
             $traduccion = $request->traduccion;
-            $regla = ['key' => 'unique:language_lines,key,' . $traduccion['id'] . ',id,group,' . $traduccion['group']];
-            $validator = Validator::make($traduccion, $regla);
-            if ($validator->fails()) {
-                return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
-            } else {
+            $dbTrad = LanguageLine::findOrFail($id);
+            if ($traduccion['group'] == $dbTrad->group && $traduccion['key'] == $dbTrad->key) {
+
+
                 $arrKey = [];
                 $arrVal = [];
                 foreach ($traduccion['text'] as $rtext) {
@@ -196,17 +206,41 @@ class TraduccionController extends Controller
                     $arrVal[] = $rtext['text'];
                 }
 
-                $dbTrad = LanguageLine::findOrFail($id);
+                //$dbTrad = LanguageLine::findOrFail($id);
                 $dbTrad->group = $traduccion['group'];
                 $dbTrad->key = $traduccion['key'];
                 $dbTrad->text = array_combine($arrKey, $arrVal);
                 $dbTrad->save();
 
                 return response()->json(['mensaje' => 'OK']);
+
+
+            } else {
+                $regla = ['key' => 'unique:language_lines,key,' . $traduccion['id'] . ',id,group,' . $traduccion['group']];
+                $validator = Validator::make($traduccion, $regla);
+                if ($validator->fails()) {
+                    return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
+                } else {
+                    $arrKey = [];
+                    $arrVal = [];
+                    foreach ($traduccion['text'] as $rtext) {
+                        $arrKey[] = $rtext['lengua'];
+                        $arrVal[] = $rtext['text'];
+                    }
+
+                    //$dbTrad = LanguageLine::findOrFail($id);
+                    $dbTrad->group = $traduccion['group'];
+                    $dbTrad->key = $traduccion['key'];
+                    $dbTrad->text = array_combine($arrKey, $arrVal);
+                    $dbTrad->save();
+
+                    return response()->json(['mensaje' => 'OK']);
+                }
             }
 
+
         } catch (\Exception $e) {
-//            Debugbar::error($e);
+            report($e);
             return response()->json(['errors' => $e]);
         }
     }
@@ -225,7 +259,7 @@ class TraduccionController extends Controller
             if ($trad) return response()->json(['mensaje' => 'OK']);
 
         } catch (\Exception $e) {
-//            Debugbar::error($e);
+            report($e);
             return response()->json(['errors' => $e]);
         }
     }
@@ -237,8 +271,10 @@ class TraduccionController extends Controller
             $trad = DB::table('language_lines')->whereRaw('CONCAT_WS(".",`group`,`key`)=?', [$rTrad])->first();
             return view('backend.traducciones.partial.show_modal_content', compact('trad'))->render();
         } catch (\Exception $e) {
+            report($e);
             return response()->json(['errors' => $e]);
         } catch (\Throwable $e) {
+            report($e);
             return response()->json(['errors' => $e]);
         }
 

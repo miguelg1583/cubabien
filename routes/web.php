@@ -43,9 +43,8 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware(['auth'])->group(function () {
 
-        Route::get('/', function () {
-            return view('backend.dashboard');
-        })->name('dashboard');
+        Route::get('/', 'backend\DashboardController@index')->name('dashboard');
+        Route::get('/contacto-graph', 'backend\DashboardController@getDataContact')->name('dashboard.contact');
 
         Route::get('/buscaGrupos', 'backend\TraduccionController@getGrupos')->name('buscaGrupos');
         Route::post('/get-trad', 'backend\TraduccionController@getTradToModal')->name('getTrad');

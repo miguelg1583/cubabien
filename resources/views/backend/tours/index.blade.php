@@ -231,9 +231,10 @@
             indexTrad = $(this).data("index");
         });
         $(".modal-footer").on("click", ".delete", function () {
-            App.AjaxDel(id, '{!! url('/admin/tour') !!}');
-            vmContext.tours.splice(indexTrad, 1);
-            $('#DTC_tours').DataTable().row(indexTrad).remove().draw();
+            App.AjaxDel(id, '{!! url('/admin/tour') !!}').done(function () {
+                vmContext.tours.splice(indexTrad, 1);
+                $('#DTC_tours').DataTable().row(indexTrad).remove().draw();
+            });
         });
 
 
