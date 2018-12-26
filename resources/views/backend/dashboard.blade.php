@@ -40,6 +40,9 @@
                         <h2>Tours Visitas
                             <small>los tour que mas entran los usuarios</small>
                         </h2>
+                        <div class="pull-right" style="height: 38px">
+
+                        </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
