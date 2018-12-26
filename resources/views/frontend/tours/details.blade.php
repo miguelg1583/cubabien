@@ -121,7 +121,7 @@
                                         <p>{!! __($itine->contenido_trad) !!}</p>
                                     </div>
                                     {{--                                    @if($loop->iteration % 2 === 1)--}}
-                                    @if($itine->imagen !== null || $itine->imagen !== "")
+                                    @if($itine->imagen !== null || $itine->imagen === "")
                                         <div>
                                             <img src="{{getImageThumbnail($itine->imagen,640,480, 'fit')}}"
                                                  class="img-responsive img-relative">
