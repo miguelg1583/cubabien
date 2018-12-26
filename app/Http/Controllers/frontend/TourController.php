@@ -14,7 +14,7 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with('mapa')->whereActivo(1)->get();
+        $tours = Tour::with('mapa')->whereActivo(1)->orderByDesc('visitas')->get();
         $marcadores = [];
         foreach ($tours as $tour) {
             foreach ($tour->mapa as $item_mapa) {
@@ -34,6 +34,8 @@ class TourController extends Controller
         try {
             $marcadores = [];
             $tour = Tour::findOrFail($id);
+            $tour->visitas +=1;
+            $tour->update();
             foreach ($tour->mapa as $item_mapa) {
                 $marcadores[] = [$item_mapa->latitud, $item_mapa->longitud, __($item_mapa->etiqueta_trad)];
             }

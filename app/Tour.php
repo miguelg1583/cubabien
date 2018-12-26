@@ -37,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\ItinerarioTour[] $itinerario
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\MapaTour[] $mapa
  * @property-read mixed $cant_itine
+ * @property int $visitas
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Tour whereVisitas($value)
  */
 class Tour extends Model
 {

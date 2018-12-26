@@ -45,6 +45,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/', 'backend\DashboardController@index')->name('dashboard');
         Route::post('/contacto-graph', 'backend\DashboardController@getDataContact')->name('dashboard.contact');
+        Route::post('/tour-visitas-graph', 'backend\DashboardController@getDataTourVisitas')->name('dashboard.tour_visitas');
 
         Route::get('/buscaGrupos', 'backend\TraduccionController@getGrupos')->name('buscaGrupos');
         Route::post('/get-trad', 'backend\TraduccionController@getTradToModal')->name('getTrad');

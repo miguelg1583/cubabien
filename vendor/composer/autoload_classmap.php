@@ -22,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\backend\\CalendarioTourController' => $baseDir . '/app/Http/Controllers/backend/CalendarioTourController.php',
     'App\\Http\\Controllers\\backend\\CategoriaFaqController' => $baseDir . '/app/Http/Controllers/backend/CategoriaFaqController.php',
     'App\\Http\\Controllers\\backend\\ContactController' => $baseDir . '/app/Http/Controllers/backend/ContactController.php',
+    'App\\Http\\Controllers\\backend\\DashboardController' => $baseDir . '/app/Http/Controllers/backend/DashboardController.php',
     'App\\Http\\Controllers\\backend\\ImagenController' => $baseDir . '/app/Http/Controllers/backend/ImagenController.php',
     'App\\Http\\Controllers\\backend\\ItinerarioTourController' => $baseDir . '/app/Http/Controllers/backend/ItinerarioTourController.php',
     'App\\Http\\Controllers\\backend\\MapaTourController' => $baseDir . '/app/Http/Controllers/backend/MapaTourController.php',

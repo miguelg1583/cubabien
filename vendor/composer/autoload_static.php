@@ -535,6 +535,7 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         'App\\Http\\Controllers\\backend\\CalendarioTourController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/CalendarioTourController.php',
         'App\\Http\\Controllers\\backend\\CategoriaFaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/CategoriaFaqController.php',
         'App\\Http\\Controllers\\backend\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/ContactController.php',
+        'App\\Http\\Controllers\\backend\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/DashboardController.php',
         'App\\Http\\Controllers\\backend\\ImagenController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/ImagenController.php',
         'App\\Http\\Controllers\\backend\\ItinerarioTourController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/ItinerarioTourController.php',
         'App\\Http\\Controllers\\backend\\MapaTourController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/MapaTourController.php',

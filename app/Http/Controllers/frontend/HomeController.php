@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with('fechas')->whereActivo(1)->get();
+        $tours = Tour::with('fechas')->whereActivo(1)->orderByDesc('visitas')->get();
         $img_home = ImagenPub::whereLugar('Home')->get(['imagen']);
         $imgs = [];
         foreach ($img_home as $img) {
