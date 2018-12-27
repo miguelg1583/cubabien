@@ -519,6 +519,9 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
     );
 
     public static $classMap = array (
+        'App\\Agency' => __DIR__ . '/../..' . '/app/Agency.php',
+        'App\\AgencyRequest' => __DIR__ . '/../..' . '/app/AgencyRequest.php',
+        'App\\AgencyUser' => __DIR__ . '/../..' . '/app/AgencyUser.php',
         'App\\CategoriaFaq' => __DIR__ . '/../..' . '/app/CategoriaFaq.php',
         'App\\Console\\Commands\\GeneraImagen' => __DIR__ . '/../..' . '/app/Console/Commands/GeneraImagen.php',
         'App\\Console\\Commands\\GeneraImagesGaleria' => __DIR__ . '/../..' . '/app/Console/Commands/GeneraImagesGaleria.php',

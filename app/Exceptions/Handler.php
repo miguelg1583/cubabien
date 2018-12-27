@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Request;
@@ -31,8 +32,9 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
@@ -42,8 +44,8 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $exception
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
@@ -57,15 +59,31 @@ class Handler extends ExceptionHandler
 
         if (Request::ajax() || Request::wantsJson()) {
             return response()->json([], $status);
-        } else if(Request::is('admin*') || Request::is('backend*')) {
+        } else if (Request::is('admin*') || Request::is('backend*')) {
             return response()->view("backend.errors.{$status}", ['exception' => $e], $status, $e->getHeaders());
-        }else {
+        } else {
             return parent::renderHttpException($e);
 //            return response()->view("frontend.errors.{$status}", ['exception' => $e], $status, $e->getHeaders());
         }
     }
 
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            response()->json(['message' => $exception->getMessage()], 401);
+        }
+        $guard = array_get($exception->guards(), 0);
+        switch ($guard) {
+            case 'travel_agent':
+                $login = 'travel_agent.login';
+                break;
+            default:
+                $login = 'login';
+                break;
+        }
+        return redirect()->guest(route($login));
 
+    }
 
 
 }

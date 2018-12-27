@@ -45,6 +45,15 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'travel_agent' => [
+            'driver' => 'session',
+            'provider' => 'travel_agents',
+        ],
+        'travel_agent-api' => [
+            'driver' => 'token',
+            'provider' => 'travel_agents',
+        ],
     ],
 
     /*
@@ -70,6 +79,10 @@ return [
             'model' => App\User::class,
         ],
 
+        'travel_agents' => [
+            'driver' => 'eloquent',
+            'model' => App\AgencyUser::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -96,6 +109,11 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+        'travel_agents' => [
+            'provider' => 'travel_agents',
+            'table' => 'password_resets',
+            'expire' => 15,
         ],
     ],
 

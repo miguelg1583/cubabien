@@ -82,27 +82,37 @@
             <i class="fa fa-times"></i>
         </a>
         <div class="widget">
-            <h6 class="title">About Kanina</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque ex molestiae molestias voluptatum dignissimos
-                sint porro eveniet cupiditate autem saepe, obcaecati error numquam possimus vel omnis consequatur et.
-                Officiis, quo.</p>
+            <h6 class="title">{!! __('cubabien.travel-agent.title') !!}</h6>
+            <p>{!! __('cubabien.travel-agent.p1') !!}</p>
+            <br>
+            {!! __('cubabien.travel-agent.lista') !!}
+            <br>
+            <p>{!! __('cubabien.travel-agent.p2') !!}</p>
+            <p><a href="#">{!! __('cubabien.travel-agent.login') !!}</a> / <a href="#">{!! __('cubabien.travel-agent.register') !!}</a></p>
         </div>
         <div class="widget">
-            <h6 class="title">Contact Us</h6>
-            <ul class="link">
-                <li>
-                    <a href="#">Send a ticket</a>
-                </li>
-                <li>
-                    <a href="#">LiveChat</a>
-                </li>
-                <li>
-                    <a href="#">Get Directions</a>
-                </li>
-                <li>
-                    <a href="mailto:hello@youremail.com">Email : hello@youremail.com</a>
-                </li>
-            </ul>
+            <h6 class="title">{{__('menu.contact')}}</h6>
+            <p>7360 SW 24th St #22</p>
+            <p>Miami, FL 33155, USA</p>
+            <a href="mailto:sales@cubabientravel.com">sales@cubabientravel.com</a>
+            <div class="social-links">
+                <a href="https://facebook.com/Cubabien">
+                    <i class="fa fa-facebook-f fa-md"></i>
+                </a>
+                <a href="https://twitter.com/cubabientravel">
+                    <i class="fa fa-twitter fa-md"></i>
+                </a>
+                <a href="https://www.instagram.com/cubabientravel/">
+                    <i class="fa fa-instagram fa-md"></i>
+                </a>
+                <a href="https://plus.google.com/111594830073416892444/posts">
+                    <i class="fa fa-google-plus fa-md"></i>
+                </a>
+                <a href="mailto:sales@cubabientravel.com">
+                    <i class="fa fa-envelope fa-md"></i>
+                </a>
+            </div>
+            <p>"Fla. Seller of Travel Ref. No. ST38416"</p>
         </div>
     </div>
     <!-- End Side Menu -->

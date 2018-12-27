@@ -35,6 +35,10 @@ Route::get('/request', 'frontend\PruebaController@getRequestData');
 
 Route::get('/imagen-generada/{path}/{width}/{height}/{type}', 'ImagenController@getImagenGenerada')->name('buscaGrupos');
 
+//HACER ESTO OJO  (0)
+Route::get('/login', 'frontend\PruebaController@getRequestData')->name('travel_agent.login');
+
+
 
 
 Route::prefix('admin')->group(function () {
