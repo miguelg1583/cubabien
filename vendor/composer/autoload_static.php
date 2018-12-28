@@ -545,6 +545,7 @@ class ComposerStaticInit01112594744b0a548da3c29c6e3ccd19
         'App\\Http\\Controllers\\backend\\PreguntaRespController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/PreguntaRespController.php',
         'App\\Http\\Controllers\\backend\\TourController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/TourController.php',
         'App\\Http\\Controllers\\backend\\TraduccionController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/TraduccionController.php',
+        'App\\Http\\Controllers\\frontend\\AgentRegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/AgentRegisterController.php',
         'App\\Http\\Controllers\\frontend\\CaptchaController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/CaptchaController.php',
         'App\\Http\\Controllers\\frontend\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/ContactController.php',
         'App\\Http\\Controllers\\frontend\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/FaqController.php',

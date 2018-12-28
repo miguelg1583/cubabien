@@ -82,19 +82,19 @@
             <i class="fa fa-times"></i>
         </a>
         <div class="widget">
-            <h6 class="title">{!! __('cubabien.travel-agent.title') !!}</h6>
-            <p>{!! __('cubabien.travel-agent.p1') !!}</p>
+            <h6 class="title">{!! __('travel-agent.title') !!}</h6>
+            <p>{!! __('travel-agent.p1') !!}</p>
             <br>
-            {!! __('cubabien.travel-agent.lista') !!}
+            {!! __('travel-agent.lista') !!}
             <br>
-            <p>{!! __('cubabien.travel-agent.p2') !!}</p>
-            <p><a href="#">{!! __('cubabien.travel-agent.login') !!}</a> / <a href="#">{!! __('cubabien.travel-agent.register') !!}</a></p>
+            <p>{!! __('travel-agent.p2') !!}</p>
+            <p><a href="#">{!! __('travel-agent.login') !!}</a> / <a href="{{route('travel_agent.showRegistrationForm')}}">{!! __('travel-agent.register') !!}</a></p>
         </div>
         <div class="widget">
             <h6 class="title">{{__('menu.contact')}}</h6>
             <p>7360 SW 24th St #22</p>
             <p>Miami, FL 33155, USA</p>
-            <a href="mailto:sales@cubabientravel.com">sales@cubabientravel.com</a>
+            <a href="mailto:agent@cubabientravel.com">agent@cubabientravel.com</a>
             <div class="social-links">
                 <a href="https://facebook.com/Cubabien">
                     <i class="fa fa-facebook-f fa-md"></i>
@@ -108,7 +108,7 @@
                 <a href="https://plus.google.com/111594830073416892444/posts">
                     <i class="fa fa-google-plus fa-md"></i>
                 </a>
-                <a href="mailto:sales@cubabientravel.com">
+                <a href="mailto:agent@cubabientravel.com">
                     <i class="fa fa-envelope fa-md"></i>
                 </a>
             </div>

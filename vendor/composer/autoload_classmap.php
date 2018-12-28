@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\backend\\PreguntaRespController' => $baseDir . '/app/Http/Controllers/backend/PreguntaRespController.php',
     'App\\Http\\Controllers\\backend\\TourController' => $baseDir . '/app/Http/Controllers/backend/TourController.php',
     'App\\Http\\Controllers\\backend\\TraduccionController' => $baseDir . '/app/Http/Controllers/backend/TraduccionController.php',
+    'App\\Http\\Controllers\\frontend\\AgentRegisterController' => $baseDir . '/app/Http/Controllers/frontend/AgentRegisterController.php',
     'App\\Http\\Controllers\\frontend\\CaptchaController' => $baseDir . '/app/Http/Controllers/frontend/CaptchaController.php',
     'App\\Http\\Controllers\\frontend\\ContactController' => $baseDir . '/app/Http/Controllers/frontend/ContactController.php',
     'App\\Http\\Controllers\\frontend\\FaqController' => $baseDir . '/app/Http/Controllers/frontend/FaqController.php',

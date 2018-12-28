@@ -130,7 +130,7 @@ function getImageThumbnailBaseAlain($image, $size)
 
 function getImageEncode($image_name, $width, $height)
 {
-    if(!is_null($image_name)){
+    if (!is_null($image_name)) {
         $image_res = getImageThumbnail($image_name, $width, $height, 'fit');
         $image = public_path('frontend/images/thumbs/') . $width . 'x' . $height . '/' . $image_name;
         if (file_exists($image)) {
@@ -141,10 +141,21 @@ function getImageEncode($image_name, $width, $height)
         } else {
             return '';
         }
-    }else{
+    } else {
         return '';
     }
 
+}
+
+function getDocument($doc)
+{
+    if (empty($doc)) {
+        return $doc;
+    }
+    $fp = fopen($doc, 'rb');
+    $result = stream_get_contents($fp);
+    fclose($fp);
+    return $result;
 }
 
 //

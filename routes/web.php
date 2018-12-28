@@ -37,6 +37,8 @@ Route::get('/imagen-generada/{path}/{width}/{height}/{type}', 'ImagenController@
 
 //HACER ESTO OJO  (0)
 Route::get('/login', 'frontend\PruebaController@getRequestData')->name('travel_agent.login');
+Route::get('/register', 'frontend\AgentRegisterController@showRegistrationForm')->name('travel_agent.showRegistrationForm');
+Route::post('/register', 'frontend\AgentRegisterController@store')->name('travel_agent.storeRegister');
 
 
 
