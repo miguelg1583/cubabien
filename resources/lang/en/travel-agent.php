@@ -7,7 +7,7 @@ return [
     'p2' => '<b>How to get Started?:</b>',
     'login' => 'Login',
     'register' => 'Register',
-    'p3' => 'Fill out the following <b>registration form</b>, next, <b>download the pdf</b>, fillit and send us to <a href="mailto:agent@cubabientravel.com">agent@cubabientravel.com</a>',
+    'p3' => 'Please fill out the following <b>registration form</b>, next, <b>download the pdf</b>, fillit and send us to <a href="mailto:agent@cubabientravel.com">agent@cubabientravel.com</a>',
     'file-error-size' => 'File must be up to 2MB',
     'file-error-ext' => 'File must be a PDF',
     'fileinput-new' => 'Select copy of Seller of Travel Permit',

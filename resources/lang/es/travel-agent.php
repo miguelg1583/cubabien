@@ -7,7 +7,7 @@ return [
     'p2' => '<b>¿Cómo empezar?:</b>',
     'login' => 'Iniciar Sesión',
     'register' => 'Registrarse',
-    'p3' => 'Llene el siguiente <b>formulario de registo</b>, despues, <b>descargue el pdf</b>, llenelo y envienoslo a <a href="mailto:agent@cubabientravel.com">agent@cubabientravel.com</a>',
+    'p3' => 'Por favor llene el siguiente <b>formulario de registo</b>, despues, <b>descargue el pdf</b>, llenelo y envienoslo a <a href="mailto:agent@cubabientravel.com">agent@cubabientravel.com</a>',
     'file-error-size' => 'Archivo ha de ser de hasta 2MB',
     'file-error-ext' => 'Archivo ha de ser PDF',
     'fileinput-new' => 'Seleccione copia de Seller of Travel Permit',

@@ -183,9 +183,11 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-container right-margin">
-
+                            <p>
+                                {!! __('travel-agent.p3') !!}
+                            </p>
                             <div class="buttons">
-                                <a href="#" class="btn button btn-md btn-outline-dark radius25">Read More About</a>
+                                <a href="https://www.irs.gov/pub/irs-pdf/fw9.pdf" class="btn button btn-md btn-outline-dark radius25" target="_blank">{{__('button.download')}}</a>
                             </div>
                         </div>
                     </div>
