@@ -95,17 +95,12 @@
                     </li>
                     <li><a><i class="fa fa-anchor"></i> Agencias de Viajes <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Solicitudes</a></li>
-                            <li><a>Agencias<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">Listado</a></li>
-                                    <li><a href="#">Crear</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{route('travel-agent.index_request')}}">Solicitudes</a></li>
+                            <li><a href="{{route('agencia.index_agencia')}}">Agencias</a></li>
                             <li><a>Usuarios<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Listado</a></li>
-                                    <li><a href="#">Crear</a></li>
+                                    <li><a href="{{route('agencia.index_usuario')}}">Listado</a></li>
+                                    <li><a href="{{route('agency_user.index_createUser')}}">Agregar</a></li>
                                 </ul>
                             </li>
                         </ul>

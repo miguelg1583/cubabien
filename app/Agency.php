@@ -39,6 +39,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Agency whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Agency whereYearBusiness($value)
  * @mixin \Eloquent
+ * @property float $porciento_descuento
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Agency wherePorcientoDescuento($value)
  */
 class Agency extends Model
 {

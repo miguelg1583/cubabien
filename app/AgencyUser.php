@@ -27,6 +27,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\AgencyUser whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\AgencyUser whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $activo
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\AgencyUser whereActivo($value)
  */
 class AgencyUser extends Authenticatable
 {

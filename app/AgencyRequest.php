@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Carbon\Carbon;
+use Date;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -43,5 +45,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class AgencyRequest extends Model
 {
-    //
+    /**
+     * @param Carbon $created_at
+     * @return Date
+     */
+    public function getCreatedAtAttribute($created_at)
+    {
+        return new Date($created_at);
+    }
 }

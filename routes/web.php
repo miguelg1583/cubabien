@@ -35,7 +35,7 @@ Route::get('/request', 'frontend\PruebaController@getRequestData');
 
 Route::get('/imagen-generada/{path}/{width}/{height}/{type}', 'ImagenController@getImagenGenerada')->name('buscaGrupos');
 
-//HACER ESTO OJO  (0)
+//HACER ESTO OJO  [0]
 Route::get('/login', 'frontend\PruebaController@getRequestData')->name('travel_agent.login');
 Route::get('/register', 'frontend\AgentRegisterController@showRegistrationForm')->name('travel_agent.showRegistrationForm');
 Route::post('/register', 'frontend\AgentRegisterController@store')->name('travel_agent.storeRegister');
@@ -98,6 +98,24 @@ Route::prefix('admin')->group(function () {
             return $exitCode;
         });
 
+        Route::get('travel-agent/request', 'backend\AgentController@index_request')->name('travel-agent.index_request');
+        Route::post('travel-agent/list', 'backend\AgentController@get_request_list')->name('travel-agent.request.list');
+        Route::post('travel-agent/preload-agencia', 'backend\AgentController@preloadAgencia')->name('travel-agent.preloadAgencia');
+        Route::get('travel-agent/travel-permit/file/{id}','backend\AgentController@download_travel_permit')->name('travel-agent.get_permit_file');
+        Route::post('travel-agent/autoriza-agencia', 'backend\AgentController@autorizaAgencia')->name('travel-agent.autorizaAgencia');
+
+        Route::get('agencia', 'backend\AgentController@index_agencia')->name('agencia.index_agencia');
+        Route::post('agencia/get', 'backend\AgentController@getAgencia')->name('agency.getAgencia');
+        Route::post('agencia/cambia-porciento', 'backend\AgentController@cambiaPorciento')->name('agency.cambiaPorciento');
+        Route::post('agencia/list', 'backend\AgentController@get_agency_list')->name('agency.list');
+
+        Route::get('agencia/usuarios', 'backend\AgentController@index_usuario')->name('agencia.index_usuario');
+        Route::post('agencia/usuario/get', 'backend\AgentController@getUser')->name('agency_user.getUser');
+        Route::post('agencia/usuario/cambia-password', 'backend\AgentController@cambiaPassword')->name('agency_user.cambiaPassword');
+        Route::put('agencia/usuario/activo/{id}', 'backend\AgentController@cambiaActivo')->name('agency.cambiaActivo');
+        Route::post('agencia/usuario/list', 'backend\AgentController@get_user_list')->name('agency_user.list');
+        Route::get('agencia/usuario/create', 'backend\AgentController@index_createUser')->name('agency_user.index_createUser');
+        Route::post('agencia/usuario/create', 'backend\AgentController@createUser')->name('agency_user.createUser');
 
     });
 });

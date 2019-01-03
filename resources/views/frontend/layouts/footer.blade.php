@@ -13,22 +13,38 @@
     <div class="container">
         <div class="images">
             <div class="col-sm-2 col-xs-4" data-aos="fade-right">
-                <img src="{{assets_frontend('images/partners/partner1.png')}}" class="img-responsive" alt="">
+                <a href="https://www.americanairlines.es/intl/es/index.jsp" target="_blank">
+                    <img src="{{assets_frontend('images/partners/American_Airlines_logo_2013.png')}}"
+                         class="img-responsive" alt="">
+                </a>
             </div>
             <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="100">
-                <img src="{{assets_frontend('images/partners/partner2.png')}}" class="img-responsive" alt="">
+                <a href="https://www.delta.com/us/en" target="_blank">
+                    <img src="{{assets_frontend('images/partners/Delta_Air_Lines.jpg')}}" class="img-responsive" alt="">
+                </a>
             </div>
             <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="200">
-                <img src="{{assets_frontend('images/partners/partner3.png')}}" class="img-responsive" alt="">
+                <a href="https://www.jetblue.com/" target="_blank">
+                    <img src="{{assets_frontend('images/partners/JetBlue_logo.png')}}" class="img-responsive" alt="">
+                </a>
             </div>
             <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="300">
-                <img src="{{assets_frontend('images/partners/partner4.png')}}" class="img-responsive" alt="">
+                <a href="https://havanaair.com/es/" target="_blank">
+                    <img src="{{assets_frontend('images/partners/havana-air-logo-final-02.png')}}"
+                         class="img-responsive"
+                         alt="">
+                </a>
             </div>
             <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="400">
-                <img src="{{assets_frontend('images/partners/partner5.png')}}" class="img-responsive" alt="">
+                <a href="https://www.cubatravelservices.com/" target="_blank">
+                    <img src="{{assets_frontend('images/partners/cuba-travel-services.svg')}}" class="img-responsive"
+                         alt="" style="height: 70px;">
+                </a>
             </div>
             <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="500">
-                <img src="{{assets_frontend('images/partners/partner6.png')}}" class="img-responsive" alt="">
+                <a href="http://www.havanatur.cu/" target="_blank">
+                    <img src="{{assets_frontend('images/partners/logohavanatur.jpg')}}" class="img-responsive" alt="" style="height: 70px;">
+                </a>
             </div>
         </div>
     </div>
@@ -53,12 +69,14 @@
                     <div class="text-container" data-aos="fade-right">
                         <div class="newsletter">
                             <h4>Subscribe to our newsletter</h4>
-                            <input type="text" id="mc_email1" class="field-input" name="mc_email" placeholder=" Enter Your Email Address...">
+                            <input type="text" id="mc_email1" class="field-input" name="mc_email"
+                                   placeholder=" Enter Your Email Address...">
                             <input class="subscribe-btn bgcolor" id="btn_newsletter_1" type="submit" value="Sign Up">
                         </div>
                         <br>
                         <div class="text-container">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus reiciendis debitis reprehenderit
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus reiciendis debitis
+                                reprehenderit
                                 distinctio quis sed id earum, asperiores vitae eius. Doloremque facilis hic, deserunt
                                 rerum maiores molestiae quod dicta incidunt!</p>
                         </div>
@@ -145,24 +163,24 @@
                 </div>
             </div>
             {{--<div class="container footer-img">--}}
-                {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right">--}}
-                    {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
-                {{--</div>--}}
-                {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="50">--}}
-                    {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
-                {{--</div>--}}
-                {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="100">--}}
-                    {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
-                {{--</div>--}}
-                {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="150">--}}
-                    {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
-                {{--</div>--}}
-                {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="200">--}}
-                    {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
-                {{--</div>--}}
-                {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="250">--}}
-                    {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
-                {{--</div>--}}
+            {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right">--}}
+            {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="50">--}}
+            {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="100">--}}
+            {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="150">--}}
+            {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="200">--}}
+            {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2 col-sm-4 col-xs-6" data-aos="fade-right" data-aos-delay="250">--}}
+            {{--<img src="images/png/envato.png" class="img-responsive" alt="">--}}
+            {{--</div>--}}
             {{--</div>--}}
         </div>
     </div>
