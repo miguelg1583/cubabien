@@ -39,12 +39,11 @@ class TraduccionController extends Controller
 //        foreach ($traducciones as $traduccione) {
 //            $traduccione->text = $traduccione->text[$idioma];
 //        }
-        $arrDefecto = ['menu', 'slogan', 'home', 'homebox', 'about_us', 'button', 'word', 'contact', 'labelplaceholder', 'dayweek', 'datatable', 'message', 'noti-info'];
+        $arrDefecto = ['menu', 'slogan', 'home', 'homebox', 'about_us', 'button', 'word', 'contact', 'labelplaceholder', 'dayweek', 'datatable', 'message', 'noti-info', 'travel-agent'];
         try {
             return Datatables::of($traducciones)
                 ->addColumn('operaciones', function ($row) use ($arrDefecto) {
-                    if (!array_search($row->group, $arrDefecto)) {
-//                    if ($row->group === 'menu') {
+                    /*if (!array_search($row->group, $arrDefecto)) {
                         return '<button class="btn btn-round btn-success show-modal" data-id="' . $row->id . '">' .
                             '<span class="glyphicon glyphicon-search"></span>' .
                             '</button>' .
@@ -62,7 +61,13 @@ class TraduccionController extends Controller
                             '<a href="' . url('/admin/traduccion/' . $row->id . '/edit') . '"' .
                             'class="btn btn-round btn-info" data-id="' . $row->id . '">' .
                             '<span class="glyphicon glyphicon-edit"></span></a>';
-                    }
+                    }*/
+                    return '<button class="btn btn-round btn-success show-modal" data-id="' . $row->id . '">' .
+                        '<span class="glyphicon glyphicon-search"></span>' .
+                        '</button>' .
+                        '<a href="' . url('/admin/traduccion/' . $row->id . '/edit') . '"' .
+                        'class="btn btn-round btn-info" data-id="' . $row->id . '">' .
+                        '<span class="glyphicon glyphicon-edit"></span></a>';
                 })
                 ->editColumn('text', function ($row) use ($idioma) {
                     return str_limit($row->text[$idioma], 30, ' (...)');
