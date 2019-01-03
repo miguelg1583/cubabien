@@ -94,7 +94,7 @@ Route::prefix('admin')->group(function () {
             return $exitCode;
         });
         Route::get('/comando/trad-to-db/{fichero}', function ($fichero) {
-            $exitCode = Artisan::call('traduce:archivo', [$fichero]);
+            $exitCode = Artisan::call('traduce:archivo', ['file_name'=>$fichero]);
             return $exitCode;
         });
         Route::get('/comando/generaimagen/{imagen}/{width}/{height}/{type}', function ($imagen, $width, $height, $type) {
