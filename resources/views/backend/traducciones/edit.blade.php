@@ -50,7 +50,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="llave" class="form-control col-md-7 col-xs-12" name="llave"
                                                type="text" v-model="traduccion.key"
-                                               v-validate="'required|alpha_dash|min:3|max:50'">
+                                               v-validate="'required|alpha_dash|min:1|max:50'">
                                         <span class="help-block">@{{ errors.first('llave') }}</span>
                                     </div>
                                 </div>
