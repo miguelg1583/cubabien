@@ -23,7 +23,7 @@
                     <img src="{{assets_frontend('images/partners/Delta_Air_Lines.jpg')}}" class="img-responsive" alt="">
                 </a>
             </div>
-            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="200">
+            <div class="col-sm-1 col-xs-4" data-aos="fade-right" data-aos-delay="200">
                 <a href="https://www.jetblue.com/" target="_blank">
                     <img src="{{assets_frontend('images/partners/JetBlue_logo.png')}}" class="img-responsive" alt="">
                 </a>
@@ -35,9 +35,16 @@
                          alt="">
                 </a>
             </div>
-            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="400">
+            <div class="col-sm-1 col-xs-4" data-aos="fade-right" data-aos-delay="400">
                 <a href="https://www.cubatravelservices.com/" target="_blank">
                     <img src="{{assets_frontend('images/partners/cuba-travel-services.svg')}}" class="img-responsive"
+                         alt="" style="height: 70px;">
+                </a>
+            </div>
+            <div class="col-sm-2 col-xs-4" data-aos="fade-right" data-aos-delay="400">
+                <a href="https://www.cubatravelservices.com/" target="_blank">
+{{--                    <img src="{{assets_frontend('images/partners/allianz-seguros.png')}}" class="img-responsive"--}}
+                    <img src="{{assets_frontend('images/partners/allianz-logo.svg')}}" class="img-responsive"
                          alt="" style="height: 70px;">
                 </a>
             </div>
