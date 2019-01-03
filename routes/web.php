@@ -93,6 +93,10 @@ Route::prefix('admin')->group(function () {
             $exitCode = Artisan::call($command, []);
             return $exitCode;
         });
+        Route::get('/comando/trad-to-db/{fichero}', function ($fichero) {
+            $exitCode = Artisan::call('traduce:archivo', [$fichero]);
+            return $exitCode;
+        });
         Route::get('/comando/generaimagen/{imagen}/{width}/{height}/{type}', function ($imagen, $width, $height, $type) {
             $exitCode = Artisan::call('imagenes:generar', ['image'=>$imagen, 'width'=>$width, 'height'=>$height, 'type'=>$type]);
             return $exitCode;
