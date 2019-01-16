@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <div class="header1 contact-us">
+    <div class="header1" style="background: url({!! assets_frontend('images/contact_page.jpg') !!}) center; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
